@@ -4,6 +4,9 @@
 #ifndef __CORETIMEDOMAINFEATURES__
 #define __CORETIMEDOMAINFEATURES__
 
+#include <vector>
+#include <math.h>
+
 class CoreTimeDomainFeatures
 {
     
@@ -17,6 +20,8 @@ public:
     float zeroCrossingRate(std::vector<float> buffer);
     
     float standardDeviation(std::vector<float> buffer);
+    
+
 };
 
 #endif

@@ -1,4 +1,4 @@
-#include "CoreFrequencyDomainFeatures.cpp"
+#include "CoreFrequencyDomainFeatures.h"
 
 //===========================================================
 CoreFrequencyDomainFeatures::CoreFrequencyDomainFeatures()
