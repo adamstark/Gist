@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		E32690C7186E6BF000BC4C67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E32690C6186E6BF000BC4C67 /* main.cpp */; };
 		E32690C9186E6BF000BC4C67 /* GistTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = E32690C8186E6BF000BC4C67 /* GistTest.1 */; };
-		E34BF545186E86BF006FF37D /* CoreTimeDomainFeatures_Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34BF543186E86BF006FF37D /* CoreTimeDomainFeatures_Tests.cpp */; };
+		E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */; };
+		E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */; };
+		E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */; };
 		E3DBB20B186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3DBB201186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp */; };
 		E3DBB20C186E6EB700DC7B49 /* CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3DBB203186E6EB700DC7B49 /* CoreTimeDomainFeatures.cpp */; };
 		E3DBB20D186E6EB700DC7B49 /* OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3DBB206186E6EB700DC7B49 /* OnsetDetectionFunction.cpp */; };
@@ -33,8 +35,10 @@
 		E32690C3186E6BF000BC4C67 /* GistTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GistTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32690C6186E6BF000BC4C67 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E32690C8186E6BF000BC4C67 /* GistTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = GistTest.1; sourceTree = "<group>"; };
-		E34BF543186E86BF006FF37D /* CoreTimeDomainFeatures_Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreTimeDomainFeatures_Tests.cpp; sourceTree = "<group>"; };
+		E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_CoreTimeDomainFeatures.cpp; sourceTree = "<group>"; };
 		E34BF546186E873C006FF37D /* gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gist.h; path = ../../src/gist.h; sourceTree = "<group>"; };
+		E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_OnsetDetectionFunction.cpp; sourceTree = "<group>"; };
+		E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
 		E3DBB201186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
 		E3DBB202186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreFrequencyDomainFeatures.h; sourceTree = "<group>"; };
 		E3DBB203186E6EB700DC7B49 /* CoreTimeDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreTimeDomainFeatures.cpp; sourceTree = "<group>"; };
@@ -86,7 +90,9 @@
 		E34BF540186E8627006FF37D /* tests */ = {
 			isa = PBXGroup;
 			children = (
-				E34BF543186E86BF006FF37D /* CoreTimeDomainFeatures_Tests.cpp */,
+				E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */,
+				E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */,
+				E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */,
 			);
 			name = tests;
 			sourceTree = "<group>";
@@ -185,10 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34BF545186E86BF006FF37D /* CoreTimeDomainFeatures_Tests.cpp in Sources */,
+				E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */,
+				E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */,
 				E3DBB20D186E6EB700DC7B49 /* OnsetDetectionFunction.cpp in Sources */,
 				E32690C7186E6BF000BC4C67 /* main.cpp in Sources */,
 				E3DBB20E186E6EB700DC7B49 /* PitchDetection.cpp in Sources */,
+				E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */,
 				E3DBB20C186E6EB700DC7B49 /* CoreTimeDomainFeatures.cpp in Sources */,
 				E3DBB20B186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp in Sources */,
 			);
