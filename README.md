@@ -21,3 +21,7 @@ At present the library contains the following audio analysis algorithms:
 
 * Spectral Flux
 		
+### Pitch Detection
+
+* YIN
+
