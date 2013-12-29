@@ -21,8 +21,8 @@
  */
 //=======================================================================
 
-#ifndef __CORETIMEDOMAINFEATURES__
-#define __CORETIMEDOMAINFEATURES__
+#ifndef __GIST__CORETIMEDOMAINFEATURES__
+#define __GIST__CORETIMEDOMAINFEATURES__
 
 #include <vector>
 #include <math.h>
@@ -38,24 +38,52 @@ public:
     /** constructor */
     CoreTimeDomainFeatures();
 
+    //===========================================================
     /** calculates the Root Mean Square (RMS) of an audio buffer
+     * in vector format
      * @param buffer a time domain buffer containing audio samples
      * @returns the RMS value
      */
-    T RootMeanSquare(std::vector<T> buffer);
+    T rootMeanSquare(std::vector<T> buffer);
     
+    /** calculates the Root Mean Square (RMS) of an audio buffer passed
+     * as a pointer to an array of samples
+     * @param buffer a time domain buffer containing audio samples
+     * @param numSamples the number of samples in the buffer
+     * @returns the RMS value
+     */
+    T rootMeanSquare(T *buffer,unsigned long numSamples);
+    
+    //===========================================================
     /** calculates the peak energy (max absolute value) in a time
-     * domain audio signal buffer
+     * domain audio signal buffer in vector format
      * @param buffer a time domain buffer containing audio samples
      * @returns the peak energy value
      */
     T peakEnergy(std::vector<T> buffer);
     
+    /** calculates the peak energy (max absolute value) in a time
+     * domain audio signal buffer as a pointer to an array of samples
+     * @param buffer a time domain buffer containing audio samples
+     * @param numSamples the number of samples in the buffer
+     * @returns the peak energy value
+     */
+    T peakEnergy(T *buffer,unsigned long numSamples);
+    
+    //===========================================================
     /** calculates the zero crossing rate of a time domain audio signal buffer
      * @param buffer a time domain buffer containing audio samples
      * @returns the zero crossing rate
      */
     T zeroCrossingRate(std::vector<T> buffer);
+    
+    /** calculates the zero crossing rate of a time domain audio signal buffer
+     * passed as a pointer to an array of audio samples
+     * @param buffer a time domain buffer containing audio samples
+     * @param numSamples the number of samples in the buffer
+     * @returns the zero crossing rate
+     */
+    T zeroCrossingRate(T *buffer,unsigned long numSamples);
 };
 
 #endif

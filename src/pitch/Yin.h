@@ -1,6 +1,6 @@
 //=======================================================================
-/** @file gist.h
- *  @brief Includes all relevant parts of the 'Gist' audio analysis library
+/** @file Yin.h
+ *  @brief Implementation of the YIN pitch detection algorithm (de Cheveigné and Kawahara,2002)
  *  @author Adam Stark
  *  @copyright Copyright (C) 2013  Adam Stark
  *
@@ -21,28 +21,36 @@
  */
 //=======================================================================
 
+#ifndef __GIST__YIN__
+#define __GIST__YIN__
 
-#ifndef __GISTHEADER__
-#define __GISTHEADER__
-
-// core
-#include "core/CoreTimeDomainFeatures.h"
-#include "core/CoreFrequencyDomainFeatures.h"
-
-// onset detection functions
-#include "onset-detection-functions/OnsetDetectionFunction.h"
-
-// pitch detection
-#include "pitch/PitchDetection.h"
+#include <vector>
+#include <math.h>
 
 template <class T>
-class Gist : public CoreTimeDomainFeatures<T>, CoreFrequencyDomainFeatures<T>
+class Yin
 {
+    
 public:
-    Gist()
+    Yin();
+    
+    T pitchYin(T *frame,unsigned long numSamples)
     {
         
+        std::vector<T> delta = cumulativeMeanNormalisedDifferenceFunction(frame,numSamples);
+        
+        int period = getPeriodCandidate(delta);
+        
+        return 0.0;
     }
+    
+private:
+    
+    
+    // CHECK! should this return a long? An unsigned one perhaps?
+    int getPeriodCandidate(std::vector<T> delta);
+    
+    std::vector<T> cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples);
 };
 
 #endif

@@ -10,6 +10,7 @@
 		E32690C7186E6BF000BC4C67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E32690C6186E6BF000BC4C67 /* main.cpp */; };
 		E32690C9186E6BF000BC4C67 /* GistTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = E32690C8186E6BF000BC4C67 /* GistTest.1 */; };
 		E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */; };
+		E3C147E61870796800551889 /* Yin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3C147E41870796800551889 /* Yin.cpp */; };
 		E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */; };
 		E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */; };
 		E3DBB20B186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3DBB201186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp */; };
@@ -37,6 +38,8 @@
 		E32690C8186E6BF000BC4C67 /* GistTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = GistTest.1; sourceTree = "<group>"; };
 		E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_CoreTimeDomainFeatures.cpp; sourceTree = "<group>"; };
 		E34BF546186E873C006FF37D /* gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gist.h; path = ../../src/gist.h; sourceTree = "<group>"; };
+		E3C147E41870796800551889 /* Yin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Yin.cpp; sourceTree = "<group>"; };
+		E3C147E51870796800551889 /* Yin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yin.h; sourceTree = "<group>"; };
 		E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_OnsetDetectionFunction.cpp; sourceTree = "<group>"; };
 		E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
 		E3DBB201186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 			children = (
 				E3DBB209186E6EB700DC7B49 /* PitchDetection.cpp */,
 				E3DBB20A186E6EB700DC7B49 /* PitchDetection.h */,
+				E3C147E41870796800551889 /* Yin.cpp */,
+				E3C147E51870796800551889 /* Yin.h */,
 			);
 			name = pitch;
 			path = ../../src/pitch;
@@ -191,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C147E61870796800551889 /* Yin.cpp in Sources */,
 				E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */,
 				E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */,
 				E3DBB20D186E6EB700DC7B49 /* OnsetDetectionFunction.cpp in Sources */,

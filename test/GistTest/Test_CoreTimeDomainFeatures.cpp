@@ -24,8 +24,8 @@ BOOST_AUTO_TEST_CASE(Zero_Test)
         testFrame[i] = 0;
     }
     
-    float r = tdf.RootMeanSquare(testFrame);
-
+    float r = tdf.rootMeanSquare(testFrame);
+    
     BOOST_CHECK_EQUAL(r,0);
     
 }
@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(Ones_Test)
         testFrame[i] = 1;
     }
     
-    float r = tdf.RootMeanSquare(testFrame);
+    float r = tdf.rootMeanSquare(testFrame);
     
     BOOST_CHECK_EQUAL(r,1);
     
@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(Numeric_Example)
     testFrame[4] = 4;
     testFrame[5] = 5;
     
-    float r = tdf.RootMeanSquare(testFrame);
+    float r = tdf.rootMeanSquare(testFrame);
     
     BOOST_CHECK_CLOSE(r,3.0276503540974917,0.01);
     

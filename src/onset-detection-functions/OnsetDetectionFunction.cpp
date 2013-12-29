@@ -45,13 +45,23 @@ void OnsetDetectionFunction<T>::setFrameSize(int frameSize)
     }
 }
 
+//-----------------------------------------------------------
+//-----------------------------------------------------------
+
 //===========================================================
 template <class T>
 T OnsetDetectionFunction<T>::spectralDifference(std::vector<T> magnitudeSpectrum)
 {
+    return spectralDifference(&magnitudeSpectrum[0],magnitudeSpectrum.size());
+}
+
+//===========================================================
+template <class T>
+T OnsetDetectionFunction<T>::spectralDifference(T *magnitudeSpectrum,unsigned long numSamples)
+{
     T sum = 0;	// initialise sum to zero
     
-    for (int i = 0;i < magnitudeSpectrum.size();i++)
+    for (int i = 0;i < numSamples;i++)
     {
         // calculate difference
         T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum[i];
@@ -71,13 +81,23 @@ T OnsetDetectionFunction<T>::spectralDifference(std::vector<T> magnitudeSpectrum
     return sum;
 }
 
+//-----------------------------------------------------------
+//-----------------------------------------------------------
+
 //===========================================================
 template <class T>
 T OnsetDetectionFunction<T>::spectralDifferenceHWR(std::vector<T> magnitudeSpectrum)
 {
+    return spectralDifferenceHWR(&magnitudeSpectrum[0], magnitudeSpectrum.size());
+}
+
+//===========================================================
+template <class T>
+T OnsetDetectionFunction<T>::spectralDifferenceHWR(T *magnitudeSpectrum,unsigned long numSamples)
+{
     T sum = 0;	// initialise sum to zero
     
-    for (int i = 0;i < magnitudeSpectrum.size();i++)
+    for (int i = 0;i < numSamples;i++)
     {
         // calculate difference
         T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum[i];
@@ -93,7 +113,6 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR(std::vector<T> magnitudeSpect
     
     return sum;
 }
-
 
 //===========================================================
 template class OnsetDetectionFunction<float>;

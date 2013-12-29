@@ -22,11 +22,14 @@
 //=======================================================================
 
 
-#ifndef __ONSETDETECTIONFUNCTION__
-#define __ONSETDETECTIONFUNCTION__
+#ifndef __GIST__ONSETDETECTIONFUNCTION__
+#define __GIST__ONSETDETECTIONFUNCTION__
 
 #include <vector>
 
+/** template class for calculating onset detection functions
+ * Instantiations of the class should be of either 'float' or 
+ * 'double' types and no others */
 template <class T>
 class OnsetDetectionFunction
 {
@@ -41,13 +44,42 @@ public:
      */
     void setFrameSize(int frameSize);
     
-    
+    //===========================================================
+    /** calculates the spectral difference between the current magnitude
+     * spectrum and the previous magnitude spectrum
+     * @param magnitudeSpectrum a vector containing the magnitude spectrum
+     * @returns the spectral difference
+     */
     T spectralDifference(std::vector<T> magnitudeSpectrum);
     
+    /** calculates the spectral difference between the current magnitude
+     * spectrum and the previous magnitude spectrum
+     * @param magnitudeSpectrum a pointer to an array containing the magnitude spectrum
+     * @param numSamples the number of frequency elements in the array
+     * @returns the spectral difference
+     */
+    T spectralDifference(T *magnitudeSpectrum,unsigned long numSamples);
+    
+    //===========================================================
+    /** calculates the half wave rectified spectral difference between the 
+     * current magnitude spectrum and the previous magnitude spectrum
+     * @param magnitudeSpectrum a vector containing the magnitude spectrum
+     * @returns the spectral difference
+     */
     T spectralDifferenceHWR(std::vector<T> magnitudeSpectrum);
+    
+    /** calculates the half wave rectified spectral difference between the
+     * current magnitude spectrum and the previous magnitude spectrum
+     * @param magnitudeSpectrum a pointer to an array containing the magnitude spectrum
+     * @param numSamples the number of frequency elements in the array
+     * @returns the spectral difference
+     */
+    T spectralDifferenceHWR(T *magnitudeSpectrum,unsigned long numSamples);
     
 private:
     
+    /** a vector containing the previous magnitude spectrum passed to the
+     last onset detection call */
     std::vector<T> prevMagnitudeSpectrum;
     
 };
