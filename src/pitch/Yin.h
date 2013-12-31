@@ -32,25 +32,38 @@ class Yin
 {
     
 public:
-    Yin();
+    Yin(int samplingFrequency);
     
-    T pitchYin(T *frame,unsigned long numSamples)
+    void setSamplingFrequency(int samplingFrequency);
+    
+    void setMaxFrequency(T maxFreq);
+    
+    T getMaxFrequency()
     {
-        
-        std::vector<T> delta = cumulativeMeanNormalisedDifferenceFunction(frame,numSamples);
-        
-        int period = getPeriodCandidate(delta);
-        
-        return 0.0;
+        return ((T) fs) / ((T) minPeriod);
     }
+    
+    T pitchYin(std::vector<T> frame);
+    
+    T pitchYin(T *frame,unsigned long numSamples);
     
 private:
     
+    T periodToPitch(T period);
+
+    long searchForOtherRecentMinima(std::vector<T> delta);
     
-    // CHECK! should this return a long? An unsigned one perhaps?
-    int getPeriodCandidate(std::vector<T> delta);
+    T parabolicInterpolation(unsigned long period,T y1,T y2,T y3);
+    
+    unsigned long getPeriodCandidate(std::vector<T> delta);
     
     std::vector<T> cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples);
+    
+    T prevPeriodEstimate;
+    
+    int fs;
+    
+    int minPeriod;
 };
 
 #endif

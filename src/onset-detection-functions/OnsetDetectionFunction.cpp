@@ -36,12 +36,14 @@ template <class T>
 void OnsetDetectionFunction<T>::setFrameSize(int frameSize)
 {
     // resize the prev magnitude spectrum vector
-    prevMagnitudeSpectrum.resize(frameSize);
+    prevMagnitudeSpectrum_spectralDifference.resize(frameSize);
+    prevMagnitudeSpectrum_spectralDifferenceHWR.resize(frameSize);
     
     // fill it with zeros
-    for (int i = 0;i < prevMagnitudeSpectrum.size();i++)
+    for (int i = 0;i < prevMagnitudeSpectrum_spectralDifference.size();i++)
     {
-        prevMagnitudeSpectrum[i] = 0.0;
+        prevMagnitudeSpectrum_spectralDifference[i] = 0.0;
+        prevMagnitudeSpectrum_spectralDifferenceHWR[i] = 0.0;
     }
 }
 
@@ -64,7 +66,7 @@ T OnsetDetectionFunction<T>::spectralDifference(T *magnitudeSpectrum,unsigned lo
     for (int i = 0;i < numSamples;i++)
     {
         // calculate difference
-        T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum[i];
+        T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum_spectralDifference[i];
         
         // ensure all difference values are positive
         if (diff < 0)
@@ -75,7 +77,7 @@ T OnsetDetectionFunction<T>::spectralDifference(T *magnitudeSpectrum,unsigned lo
         // add difference to sum
         sum = sum+diff;
         
-        prevMagnitudeSpectrum[i] = magnitudeSpectrum[i];
+        prevMagnitudeSpectrum_spectralDifference[i] = magnitudeSpectrum[i];
     }
     
     return sum;
@@ -100,7 +102,7 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR(T *magnitudeSpectrum,unsigned
     for (int i = 0;i < numSamples;i++)
     {
         // calculate difference
-        T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum[i];
+        T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum_spectralDifferenceHWR[i];
         
         // only for positive changes
         if (diff > 0)
@@ -108,7 +110,7 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR(T *magnitudeSpectrum,unsigned
             // add difference to sum
             sum = sum+diff;
         }
-        prevMagnitudeSpectrum[i] = magnitudeSpectrum[i];
+        prevMagnitudeSpectrum_spectralDifferenceHWR[i] = magnitudeSpectrum[i];
     }
     
     return sum;

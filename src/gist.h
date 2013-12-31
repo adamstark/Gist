@@ -33,7 +33,7 @@
 #include "onset-detection-functions/OnsetDetectionFunction.h"
 
 // pitch detection
-#include "pitch/PitchDetection.h"
+#include "pitch/Yin.h"
 
 template <class T>
 class Gist : public CoreTimeDomainFeatures<T>, CoreFrequencyDomainFeatures<T>

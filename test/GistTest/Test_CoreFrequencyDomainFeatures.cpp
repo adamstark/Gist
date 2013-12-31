@@ -1,7 +1,7 @@
 #ifndef CORE_FREQ_DOMAIN_FEATURES_TESTS
 #define CORE_FREQ_DOMAIN_FEATURES_TESTS
 
-#include "../../src/gist.h"
+#include "../../src/Gist.h"
 
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>

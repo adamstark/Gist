@@ -80,7 +80,9 @@ private:
     
     /** a vector containing the previous magnitude spectrum passed to the
      last onset detection call */
-    std::vector<T> prevMagnitudeSpectrum;
+    std::vector<T> prevMagnitudeSpectrum_spectralDifference;
+    
+    std::vector<T> prevMagnitudeSpectrum_spectralDifferenceHWR;
     
 };
 
