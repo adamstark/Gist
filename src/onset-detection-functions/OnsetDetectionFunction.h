@@ -79,9 +79,11 @@ public:
 private:
     
     /** a vector containing the previous magnitude spectrum passed to the
-     last onset detection call */
+     last spectral difference call */
     std::vector<T> prevMagnitudeSpectrum_spectralDifference;
     
+    /** a vector containing the previous magnitude spectrum passed to the
+     last spectral difference (half wave rectified) call */
     std::vector<T> prevMagnitudeSpectrum_spectralDifferenceHWR;
     
 };

@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E33C65331878C4D70080DDA4 /* Yin.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF3B1878BDCF004D65D6 /* Yin.h */; };
+		E33C65341878C4D70080DDA4 /* OnsetDetectionFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF381878BDCF004D65D6 /* OnsetDetectionFunction.h */; };
+		E33C65351878C4D70080DDA4 /* Gist.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF351878BDCF004D65D6 /* Gist.h */; };
+		E33C65361878C4D70080DDA4 /* CoreFrequencyDomainFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF321878BDCF004D65D6 /* CoreFrequencyDomainFeatures.h */; };
+		E33C65371878C4D70080DDA4 /* CoreTimeDomainFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF341878BDCF004D65D6 /* CoreTimeDomainFeatures.h */; };
+		E33C653A1878C4D70080DDA4 /* CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF311878BDCF004D65D6 /* CoreFrequencyDomainFeatures.cpp */; };
+		E33C653B1878C4D70080DDA4 /* OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF371878BDCF004D65D6 /* OnsetDetectionFunction.cpp */; };
+		E33C653C1878C4D70080DDA4 /* CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF331878BDCF004D65D6 /* CoreTimeDomainFeatures.cpp */; };
+		E33C653E1878C4D70080DDA4 /* Yin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF3A1878BDCF004D65D6 /* Yin.cpp */; };
+		E33C65401878C4D70080DDA4 /* MaxAudioAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CC99A41878B6070005A027 /* MaxAudioAPI.framework */; };
+		E33C65471878C5190080DDA4 /* gist.peak~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E33C65191878C25F0080DDA4 /* gist.peak~.cpp */; };
+		E38BBF2D1878B7A1004D65D6 /* gist.rms~.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF2C1878B7A1004D65D6 /* gist.rms~.cpp */; };
+		E38BBF3C1878BDCF004D65D6 /* CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF311878BDCF004D65D6 /* CoreFrequencyDomainFeatures.cpp */; };
+		E38BBF3D1878BDCF004D65D6 /* CoreFrequencyDomainFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF321878BDCF004D65D6 /* CoreFrequencyDomainFeatures.h */; };
+		E38BBF3E1878BDCF004D65D6 /* CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF331878BDCF004D65D6 /* CoreTimeDomainFeatures.cpp */; };
+		E38BBF3F1878BDCF004D65D6 /* CoreTimeDomainFeatures.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF341878BDCF004D65D6 /* CoreTimeDomainFeatures.h */; };
+		E38BBF401878BDCF004D65D6 /* Gist.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF351878BDCF004D65D6 /* Gist.h */; };
+		E38BBF411878BDCF004D65D6 /* OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF371878BDCF004D65D6 /* OnsetDetectionFunction.cpp */; };
+		E38BBF421878BDCF004D65D6 /* OnsetDetectionFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF381878BDCF004D65D6 /* OnsetDetectionFunction.h */; };
+		E38BBF431878BDCF004D65D6 /* Yin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38BBF3A1878BDCF004D65D6 /* Yin.cpp */; };
+		E38BBF441878BDCF004D65D6 /* Yin.h in Headers */ = {isa = PBXBuildFile; fileRef = E38BBF3B1878BDCF004D65D6 /* Yin.h */; };
+		E3CC99A51878B6070005A027 /* MaxAudioAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CC99A41878B6070005A027 /* MaxAudioAPI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		22CF10220EE984600054F513 /* maxmspsdk.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = maxmspsdk.xcconfig; sourceTree = SOURCE_ROOT; };
+		2FBBEAE508F335360078DB84 /* gist.rms~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gist.rms~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33C65191878C25F0080DDA4 /* gist.peak~.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "gist.peak~.cpp"; sourceTree = "<group>"; };
+		E33C65451878C4D70080DDA4 /* gist.peak~.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gist.peak~.mxo"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E38BBF2C1878B7A1004D65D6 /* gist.rms~.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gist.rms~.cpp"; sourceTree = "<group>"; };
+		E38BBF311878BDCF004D65D6 /* CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
+		E38BBF321878BDCF004D65D6 /* CoreFrequencyDomainFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreFrequencyDomainFeatures.h; sourceTree = "<group>"; };
+		E38BBF331878BDCF004D65D6 /* CoreTimeDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreTimeDomainFeatures.cpp; sourceTree = "<group>"; };
+		E38BBF341878BDCF004D65D6 /* CoreTimeDomainFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTimeDomainFeatures.h; sourceTree = "<group>"; };
+		E38BBF351878BDCF004D65D6 /* Gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gist.h; sourceTree = "<group>"; };
+		E38BBF371878BDCF004D65D6 /* OnsetDetectionFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OnsetDetectionFunction.cpp; sourceTree = "<group>"; };
+		E38BBF381878BDCF004D65D6 /* OnsetDetectionFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnsetDetectionFunction.h; sourceTree = "<group>"; };
+		E38BBF3A1878BDCF004D65D6 /* Yin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Yin.cpp; sourceTree = "<group>"; };
+		E38BBF3B1878BDCF004D65D6 /* Yin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yin.h; sourceTree = "<group>"; };
+		E3CC99A41878B6070005A027 /* MaxAudioAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAudioAPI.framework; path = "../../../SDKs/MaxSDK-6.1.4/c74support/msp-includes/MaxAudioAPI.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FBBEADC08F335360078DB84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3CC99A51878B6070005A027 /* MaxAudioAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E33C653F1878C4D70080DDA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E33C65401878C4D70080DDA4 /* MaxAudioAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* iterator */ = {
+			isa = PBXGroup;
+			children = (
+				22CF10220EE984600054F513 /* maxmspsdk.xcconfig */,
+				E3CC99A41878B6070005A027 /* MaxAudioAPI.framework */,
+				E33C65481878CC1D0080DDA4 /* external-src */,
+				E38BBF2E1878BDC1004D65D6 /* gist */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = iterator;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FBBEAE508F335360078DB84 /* gist.rms~.mxo */,
+				E33C65451878C4D70080DDA4 /* gist.peak~.mxo */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E33C65481878CC1D0080DDA4 /* external-src */ = {
+			isa = PBXGroup;
+			children = (
+				E38BBF2C1878B7A1004D65D6 /* gist.rms~.cpp */,
+				E33C65191878C25F0080DDA4 /* gist.peak~.cpp */,
+			);
+			name = "external-src";
+			sourceTree = "<group>";
+		};
+		E38BBF2E1878BDC1004D65D6 /* gist */ = {
+			isa = PBXGroup;
+			children = (
+				E38BBF2F1878BDCF004D65D6 /* src */,
+			);
+			name = gist;
+			sourceTree = "<group>";
+		};
+		E38BBF2F1878BDCF004D65D6 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E38BBF301878BDCF004D65D6 /* core */,
+				E38BBF351878BDCF004D65D6 /* Gist.h */,
+				E38BBF361878BDCF004D65D6 /* onset-detection-functions */,
+				E38BBF391878BDCF004D65D6 /* pitch */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		E38BBF301878BDCF004D65D6 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				E38BBF311878BDCF004D65D6 /* CoreFrequencyDomainFeatures.cpp */,
+				E38BBF321878BDCF004D65D6 /* CoreFrequencyDomainFeatures.h */,
+				E38BBF331878BDCF004D65D6 /* CoreTimeDomainFeatures.cpp */,
+				E38BBF341878BDCF004D65D6 /* CoreTimeDomainFeatures.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		E38BBF361878BDCF004D65D6 /* onset-detection-functions */ = {
+			isa = PBXGroup;
+			children = (
+				E38BBF371878BDCF004D65D6 /* OnsetDetectionFunction.cpp */,
+				E38BBF381878BDCF004D65D6 /* OnsetDetectionFunction.h */,
+			);
+			path = "onset-detection-functions";
+			sourceTree = "<group>";
+		};
+		E38BBF391878BDCF004D65D6 /* pitch */ = {
+			isa = PBXGroup;
+			children = (
+				E38BBF3A1878BDCF004D65D6 /* Yin.cpp */,
+				E38BBF3B1878BDCF004D65D6 /* Yin.h */,
+			);
+			path = pitch;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2FBBEAD708F335360078DB84 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E38BBF441878BDCF004D65D6 /* Yin.h in Headers */,
+				E38BBF421878BDCF004D65D6 /* OnsetDetectionFunction.h in Headers */,
+				E38BBF401878BDCF004D65D6 /* Gist.h in Headers */,
+				E38BBF3D1878BDCF004D65D6 /* CoreFrequencyDomainFeatures.h in Headers */,
+				E38BBF3F1878BDCF004D65D6 /* CoreTimeDomainFeatures.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E33C65321878C4D70080DDA4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E33C65331878C4D70080DDA4 /* Yin.h in Headers */,
+				E33C65341878C4D70080DDA4 /* OnsetDetectionFunction.h in Headers */,
+				E33C65351878C4D70080DDA4 /* Gist.h in Headers */,
+				E33C65361878C4D70080DDA4 /* CoreFrequencyDomainFeatures.h in Headers */,
+				E33C65371878C4D70080DDA4 /* CoreTimeDomainFeatures.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2FBBEAD608F335360078DB84 /* gist.rms~ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FBBEAE008F335360078DB84 /* Build configuration list for PBXNativeTarget "gist.rms~" */;
+			buildPhases = (
+				2FBBEAD708F335360078DB84 /* Headers */,
+				2FBBEAD808F335360078DB84 /* Resources */,
+				2FBBEADA08F335360078DB84 /* Sources */,
+				2FBBEADC08F335360078DB84 /* Frameworks */,
+				2FBBEADF08F335360078DB84 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gist.rms~";
+			productName = iterator;
+			productReference = 2FBBEAE508F335360078DB84 /* gist.rms~.mxo */;
+			productType = "com.apple.product-type.bundle";
+		};
+		E33C65311878C4D70080DDA4 /* gist.peak~ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E33C65421878C4D70080DDA4 /* Build configuration list for PBXNativeTarget "gist.peak~" */;
+			buildPhases = (
+				E33C65321878C4D70080DDA4 /* Headers */,
+				E33C65381878C4D70080DDA4 /* Resources */,
+				E33C65391878C4D70080DDA4 /* Sources */,
+				E33C653F1878C4D70080DDA4 /* Frameworks */,
+				E33C65411878C4D70080DDA4 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gist.peak~";
+			productName = iterator;
+			productReference = E33C65451878C4D70080DDA4 /* gist.peak~.mxo */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 2FBBEACF08F335010078DB84 /* Build configuration list for PBXProject "gist-max-externals" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* iterator */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FBBEAD608F335360078DB84 /* gist.rms~ */,
+				E33C65311878C4D70080DDA4 /* gist.peak~ */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FBBEAD808F335360078DB84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E33C65381878C4D70080DDA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		2FBBEADF08F335360078DB84 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E33C65411878C4D70080DDA4 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FBBEADA08F335360078DB84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E38BBF3C1878BDCF004D65D6 /* CoreFrequencyDomainFeatures.cpp in Sources */,
+				E38BBF411878BDCF004D65D6 /* OnsetDetectionFunction.cpp in Sources */,
+				E38BBF3E1878BDCF004D65D6 /* CoreTimeDomainFeatures.cpp in Sources */,
+				E38BBF2D1878B7A1004D65D6 /* gist.rms~.cpp in Sources */,
+				E38BBF431878BDCF004D65D6 /* Yin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E33C65391878C4D70080DDA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E33C653A1878C4D70080DDA4 /* CoreFrequencyDomainFeatures.cpp in Sources */,
+				E33C653B1878C4D70080DDA4 /* OnsetDetectionFunction.cpp in Sources */,
+				E33C653C1878C4D70080DDA4 /* CoreTimeDomainFeatures.cpp in Sources */,
+				E33C653E1878C4D70080DDA4 /* Yin.cpp in Sources */,
+				E33C65471878C5190080DDA4 /* gist.peak~.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2FBBEAD008F335010078DB84 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		2FBBEAD108F335010078DB84 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		2FBBEAE108F335360078DB84 /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+				C74SUPPORT = "$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+					"/Users/adamstark/Documents/Code/SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
+				PRODUCT_NAME = "gist.rms~";
+			};
+			name = Development;
+		};
+		2FBBEAE208F335360078DB84 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+				C74SUPPORT = "$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+					"/Users/adamstark/Documents/Code/SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
+				PRODUCT_NAME = "gist.rms~";
+			};
+			name = Deployment;
+		};
+		E33C65431878C4D70080DDA4 /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+				C74SUPPORT = "$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+					"/Users/adamstark/Documents/Code/SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
+				PRODUCT_NAME = "gist.peak~";
+			};
+			name = Development;
+		};
+		E33C65441878C4D70080DDA4 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22CF10220EE984600054F513 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+				C74SUPPORT = "$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/../../../SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+					"/Users/adamstark/Documents/Code/SDKs/MaxSDK-6.1.4/c74support/msp-includes",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
+				PRODUCT_NAME = "gist.peak~";
+			};
+			name = Deployment;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FBBEACF08F335010078DB84 /* Build configuration list for PBXProject "gist-max-externals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBBEAD008F335010078DB84 /* Development */,
+				2FBBEAD108F335010078DB84 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		2FBBEAE008F335360078DB84 /* Build configuration list for PBXNativeTarget "gist.rms~" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBBEAE108F335360078DB84 /* Development */,
+				2FBBEAE208F335360078DB84 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		E33C65421878C4D70080DDA4 /* Build configuration list for PBXNativeTarget "gist.peak~" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E33C65431878C4D70080DDA4 /* Development */,
+				E33C65441878C4D70080DDA4 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

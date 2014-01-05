@@ -25,6 +25,8 @@
 #ifndef __GISTHEADER__
 #define __GISTHEADER__
 
+#define GIST_VERSION "0.1.0"
+
 // core
 #include "core/CoreTimeDomainFeatures.h"
 #include "core/CoreFrequencyDomainFeatures.h"
@@ -35,14 +37,6 @@
 // pitch detection
 #include "pitch/Yin.h"
 
-template <class T>
-class Gist : public CoreTimeDomainFeatures<T>, CoreFrequencyDomainFeatures<T>
-{
-public:
-    Gist()
-    {
-        
-    }
-};
+
 
 #endif

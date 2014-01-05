@@ -2,4 +2,5 @@ test/Build
 *.xcuserstate
 xcuserdata
 python-module/build
-gistTest.py
+max-externals/project/Build
+*.xccheckout

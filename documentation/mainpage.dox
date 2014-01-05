@@ -1,0 +1,30 @@
+/**
+ \mainpage Gist - A Real-Time Audio Analaysis Library
+
+Gist is a C++ based audio analysis library for use in real-time -- i.e. performances and installations.
+
+Author
+------
+
+Gist is written and maintained by Adam Stark.
+
+http://www.adamstark.co.uk
+
+Documentation
+-------------
+
+This documentation is automatically generated and documents all classes and methods in Gist
+
+
+More Help
+---------
+
+See: 
+
+* README.md - for information on the latest version of Gist.
+
+* USAGE IN C++.md - for examples on how to use Gist in C++.
+
+* USAGE IN PYTHON.md - for example on hot to use Gist in Python.
+
+*/

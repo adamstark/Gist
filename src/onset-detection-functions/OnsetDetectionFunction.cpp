@@ -76,7 +76,8 @@ T OnsetDetectionFunction<T>::spectralDifference(T *magnitudeSpectrum,unsigned lo
         
         // add difference to sum
         sum = sum+diff;
-        
+       
+        // store the sample for next time
         prevMagnitudeSpectrum_spectralDifference[i] = magnitudeSpectrum[i];
     }
     
@@ -110,6 +111,8 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR(T *magnitudeSpectrum,unsigned
             // add difference to sum
             sum = sum+diff;
         }
+        
+        // store the sample for next time
         prevMagnitudeSpectrum_spectralDifferenceHWR[i] = magnitudeSpectrum[i];
     }
     

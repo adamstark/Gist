@@ -96,10 +96,17 @@ T Yin<T>::pitchYin(T *frame,unsigned long numSamples)
         period = (unsigned long)continuityPeriod;
     }
     
-    // CHECK - CAN THE PERIOD ACCESS -1 AND ARRAY[MAX+1]?
-    // WELL, NOT -1, BECAUSE IT IS AN UNSIGNED LONG
-    // BUT WHAT IF CONTINUITY PERIOD COMES OUT WACKY?
-    fPeriod = parabolicInterpolation(period,delta[period-1],delta[period],delta[period+1]);
+    // check that we can interpolate (i.e. that period isn't first or last element)
+    if ((period > 0) && (period < (delta.size()-1)))
+    {
+        // parabolic interpolation
+        fPeriod = parabolicInterpolation(period,delta[period-1],delta[period],delta[period+1]);
+    }
+    else // if no interpolation is possible
+    {
+        // just use the period "as is"
+        fPeriod = (T) period;
+    }
     
     // store the previous period estimate for later
     prevPeriodEstimate = fPeriod;

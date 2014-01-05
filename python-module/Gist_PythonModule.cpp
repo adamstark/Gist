@@ -25,10 +25,11 @@
 #include <numpy/arrayobject.h>
 #include "../src/Gist.h"
 
+//================================================================
 CoreTimeDomainFeatures<double> tdf;
-
 Yin<double> yin(44100);
 
+//================================================================
 typedef struct InputData
 {
     double* audioSignal;
@@ -40,6 +41,7 @@ typedef struct InputData
 } inputData;
 
 
+//================================================================
 enum AnalysisId
 {
     a_RMS,
@@ -47,6 +49,7 @@ enum AnalysisId
     a_PitchYin
 };
 
+//================================================================
 static void parseInputData(PyObject *dummy, PyObject *args,InputData *inputData)
 {
     PyObject *arg1=NULL;
@@ -94,8 +97,18 @@ static void parseInputData(PyObject *dummy, PyObject *args,InputData *inputData)
         inputData->numSamples = numSamples;
         inputData->arrayObject = arr1;
     }
+    
+
+    // if the input data is chunked and the framesize is 0 or less...
+    if ((inputData->chunked) && (inputData->frameSize < 1))
+    {
+        PyErr_SetString(PyExc_ValueError,"Frame size is zero or negative!");
+        inputData->constructed = false;
+    }
+    
 }
 
+//================================================================
 double processFrameWithAnalysisAlgorithm(double *signal,long numSamples,AnalysisId analysisId)
 {
     switch (analysisId) {
@@ -125,6 +138,7 @@ double processFrameWithAnalysisAlgorithm(double *signal,long numSamples,Analysis
     }
 }
 
+//================================================================
 static PyObject * executeAnalysis(InputData *inputData,AnalysisId analysisId)
 {
     // if for some reason the input data wasn't parsed correctly, or the num samples is 0
@@ -206,6 +220,12 @@ static PyObject * pitchYin(PyObject *dummy, PyObject *args)
     
     // parse the input arguments
     parseInputData(dummy,args,&inputData);
+    
+    if ((inputData.chunked) && (inputData.frameSize < 256))
+    {
+        PyErr_SetString(PyExc_ValueError,"Frame size too small for pitch detection - 512 is a good choice");
+        return NULL;
+    }
     
     return executeAnalysis(&inputData,a_PitchYin);
 }
