@@ -72,7 +72,8 @@ T Yin<T>::pitchYin(std::vector<T> frame)
     
     // steps 1, 2 and 3 of the Yin algorithm
     // get the difference function ("delta")
-    std::vector<T> delta = cumulativeMeanNormalisedDifferenceFunction(&frame[0],frame.size());
+    //std::vector<T> delta = cumulativeMeanNormalisedDifferenceFunction(&frame[0],frame.size());
+    cumulativeMeanNormalisedDifferenceFunction(&frame[0],frame.size());
     
     // first, see if the previous period estimate has a minima
     long continuityPeriod = searchForOtherRecentMinima(delta);
@@ -105,30 +106,32 @@ T Yin<T>::pitchYin(std::vector<T> frame)
     prevPeriodEstimate = fPeriod;
     
     return periodToPitch(fPeriod);
-    
-  //  return pitchYin(&frame[0], frame.size());
 }
 
 //===========================================================
 template <class T>
-std::vector<T> Yin<T>::cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples)
+void Yin<T>::cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples)
 {
     T cumulativeSum = 0.0;
     
-    std::vector<T> delta;
+    //std::vector<T> delta;
+    unsigned long L = numSamples/2;
     
-    delta.resize(numSamples/2);
+    delta.resize(L);
+    
+    T *deltaPointer = &delta[0];
 
     // for each time lag tau
-    for (int tau = 0;tau < numSamples/2;tau++)
+    for (int tau = 0;tau < L;tau++)
     {
-        delta[tau] = 0.0;
+        *deltaPointer = 0.0;
         
         // sum all squared differences for all samples up to half way through
         // the frame between the sample and the sample 'tau' samples away
-        for (int j = 0;j < numSamples/2;j++)
+        for (int j = 0;j < L;j++)
         {
-            delta[tau] = delta[tau] + pow(frame[j] - frame[j+tau],2);
+            T diff = frame[j] - frame[j+tau];
+            *deltaPointer += (diff*diff);
         }
         
         // calculate the cumulative sum of tau values to date
@@ -136,14 +139,14 @@ std::vector<T> Yin<T>::cumulativeMeanNormalisedDifferenceFunction(T *frame,unsig
         
         if (cumulativeSum > 0)
         {
-            delta[tau] = delta[tau]*tau / cumulativeSum;
+            *deltaPointer = *deltaPointer *tau / cumulativeSum;
         }
+        
+        deltaPointer++;
     }
     
     // set the first element to zero
     delta[0] = 1.;
-    
-    return delta;
 }
 
 //===========================================================

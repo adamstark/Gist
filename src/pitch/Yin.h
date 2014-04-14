@@ -99,7 +99,7 @@ private:
      * @param numSamples the number of audio samples in the frame
      * @returns the cumulative mean normalised difference function ("delta")
      */
-    std::vector<T> cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples);
+    void cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples);
     
     /** the previous period estimate found by the algorithm last time it was called - initially set to 1.0 */
     T prevPeriodEstimate;
@@ -109,6 +109,8 @@ private:
     
     /** the minimum period the algorithm will look for. this is set indirectly by setMaxFrequency() */
     int minPeriod;
+    
+    std::vector<T> delta;
 };
 
 #endif

@@ -27,8 +27,6 @@
 
 #define GIST_VERSION "0.1.0"
 
-#include <iostream>
-
 // core
 #include "core/CoreTimeDomainFeatures.h"
 #include "core/CoreFrequencyDomainFeatures.h"
