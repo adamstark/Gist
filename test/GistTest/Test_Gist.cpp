@@ -12,6 +12,58 @@
 BOOST_AUTO_TEST_SUITE(GistTest)
 
 //=============================================================
+BOOST_AUTO_TEST_CASE(TestFFT1)
+{
+    Gist<float> g(512,44100);
+    
+    std::vector<float> testFrame(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testFrame[i] = 0;
+    }
+    
+    testFrame[0] = 1.0;
+    
+    g.processAudioFrame(testFrame);
+    
+    std::vector<float> mag;
+    
+    mag = g.getMagnitudeSpectrum();
+    
+    for (int i = 0;i < mag.size();i++)
+    {
+        BOOST_CHECK_EQUAL(mag[i], 1.0);
+    }
+}
+
+//=============================================================
+BOOST_AUTO_TEST_CASE(TestFFT2)
+{
+    Gist<float> g(512,44100);
+    
+    std::vector<float> testFrame(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testFrame[i] = 1.0;
+    }
+    
+    g.processAudioFrame(testFrame);
+    
+    std::vector<float> mag;
+    
+    mag = g.getMagnitudeSpectrum();
+    
+    BOOST_CHECK_EQUAL(mag[0], testFrame.size());
+    
+    for (int i = 1;i < mag.size();i++)
+    {
+        BOOST_CHECK_EQUAL(mag[i], 0.0);
+    }
+}
+
+//=============================================================
 BOOST_AUTO_TEST_CASE(RMS_Test)
 {
     Gist<float> g(512,44100);

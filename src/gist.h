@@ -27,6 +27,8 @@
 
 #define GIST_VERSION "0.1.0"
 
+#include <iostream>
+
 // core
 #include "core/CoreTimeDomainFeatures.h"
 #include "core/CoreFrequencyDomainFeatures.h"
@@ -88,7 +90,7 @@ public:
     
     /** @returns the current magnitude spectrum */
     std::vector<T> getMagnitudeSpectrum()
-    {
+    {        
         return magnitudeSpectrum;
     }
     
@@ -188,7 +190,7 @@ private:
         for (int i = 0;i < frameSize;i++)
         {
             fftIn[i][0] = (double) audioFrame[i];
-            fftIn[i][0] = (double) 0.0;
+            fftIn[i][1] = (double) 0.0;
         }
         
         // perform the FFT
@@ -198,7 +200,7 @@ private:
         for (int i = 0;i < frameSize;i++)
         {
             fftReal[i] = (T) fftOut[i][0];
-            fftImag[i] = (T) fftOut[i][0];
+            fftImag[i] = (T) fftOut[i][1];
         }
 
         // calculate the magnitude spectrum
