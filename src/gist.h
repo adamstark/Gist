@@ -1,5 +1,5 @@
 //=======================================================================
-/** @file gist.h
+/** @file Gist.h
  *  @brief Includes all relevant parts of the 'Gist' audio analysis library
  *  @author Adam Stark
  *  @copyright Copyright (C) 2013  Adam Stark
