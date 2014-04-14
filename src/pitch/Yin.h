@@ -61,14 +61,7 @@ public:
      * @returns the estimated pitch in Hz
      */
     T pitchYin(std::vector<T> frame);
-    
-    /** calculates the pitch of the audio frame passed to it
-     * @param frame a pointer to an audio frame stored in an array
-     * @param numSamples the number of samples in the audio frame
-     * @returns the estimated pitch in Hz
-     */
-    T pitchYin(T *frame,unsigned long numSamples);
-    
+        
 private:
     
     /** converts periods to pitch in Hz

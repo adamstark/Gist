@@ -11,6 +11,7 @@
 		E32690C7186E6BF000BC4C67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E32690C6186E6BF000BC4C67 /* main.cpp */; };
 		E32690C9186E6BF000BC4C67 /* GistTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = E32690C8186E6BF000BC4C67 /* GistTest.1 */; };
 		E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */; };
+		E34D255318FC2EC4006B3446 /* Test_Gist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34D255218FC2EC4006B3446 /* Test_Gist.cpp */; };
 		E35B1E621871C9D500E89F56 /* Test_Signals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E35B1E601871C9D500E89F56 /* Test_Signals.cpp */; };
 		E3C147E61870796800551889 /* Yin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3C147E41870796800551889 /* Yin.cpp */; };
 		E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */; };
@@ -39,6 +40,7 @@
 		E32690C6186E6BF000BC4C67 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E32690C8186E6BF000BC4C67 /* GistTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = GistTest.1; sourceTree = "<group>"; };
 		E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_CoreTimeDomainFeatures.cpp; sourceTree = "<group>"; };
+		E34D255218FC2EC4006B3446 /* Test_Gist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Test_Gist.cpp; path = GistTest/Test_Gist.cpp; sourceTree = SOURCE_ROOT; };
 		E35B1E5D1871C53800E89F56 /* Gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gist.h; path = ../../src/Gist.h; sourceTree = "<group>"; };
 		E35B1E601871C9D500E89F56 /* Test_Signals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_Signals.cpp; sourceTree = "<group>"; };
 		E35B1E611871C9D500E89F56 /* Test_Signals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Signals.h; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E35B1E5F1871C9D500E89F56 /* test-signals */,
+				E34D255218FC2EC4006B3446 /* Test_Gist.cpp */,
 				E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */,
 				E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */,
 				E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */,
@@ -214,6 +217,7 @@
 				E3DBB20D186E6EB700DC7B49 /* OnsetDetectionFunction.cpp in Sources */,
 				E32690C7186E6BF000BC4C67 /* main.cpp in Sources */,
 				E35B1E621871C9D500E89F56 /* Test_Signals.cpp in Sources */,
+				E34D255318FC2EC4006B3446 /* Test_Gist.cpp in Sources */,
 				E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */,
 				E3DBB20C186E6EB700DC7B49 /* CoreTimeDomainFeatures.cpp in Sources */,
 				E3DBB20B186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp in Sources */,
@@ -227,6 +231,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -264,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -296,12 +302,14 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/include,
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
-					"-lboost_unit_test_framework\n-lboost_unit_test_framework\n",
+					"-lboost_unit_test_framework",
+					"-lboost_unit_test_framework",
+					"-lfftw3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -312,12 +320,14 @@
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/include,
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
-					"-lboost_unit_test_framework\n-lboost_unit_test_framework\n",
+					"-lboost_unit_test_framework",
+					"-lboost_unit_test_framework",
+					"-lfftw3",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

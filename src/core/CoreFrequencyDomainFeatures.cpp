@@ -31,19 +31,9 @@ CoreFrequencyDomainFeatures<T>::CoreFrequencyDomainFeatures()
     
 }
 
-//-----------------------------------------------------------
-//-----------------------------------------------------------
-
 //===========================================================
 template <class T>
 T CoreFrequencyDomainFeatures<T>::spectralCentroid(std::vector<T> magnitudeSpectrum)
-{
-    return spectralCentroid(&magnitudeSpectrum[0],magnitudeSpectrum.size());
-}
-
-//===========================================================
-template <class T>
-T CoreFrequencyDomainFeatures<T>::spectralCentroid(T *magnitudeSpectrum,unsigned long numSamples)
 {
     // to hold sum of amplitudes
     T sumAmplitudes = 0.0;
@@ -52,7 +42,7 @@ T CoreFrequencyDomainFeatures<T>::spectralCentroid(T *magnitudeSpectrum,unsigned
     T sumWeightedAmplitudes = 0.0;
     
     // for each bin in the first half of the magnitude spectrum
-    for (int i = 0;i < numSamples;i++)
+    for (int i = 0;i < magnitudeSpectrum.size();i++)
     {
         // sum amplitudes
         sumAmplitudes += magnitudeSpectrum[i];

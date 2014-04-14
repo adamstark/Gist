@@ -48,15 +48,6 @@ public:
      */
     T spectralCentroid(std::vector<T> magnitudeSpectrum);
     
-    /** calculates the spectral centroid given the first half of the magnitude spectrum
-     of an audio signal as a pointer to an array. Do not pass the whole (i.e. mirrored) 
-     magnitude spectrum into this function or you will always get the middle index as the
-     spectral centroid
-     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
-     @param numSamples the number of frequency components in the magnitude spectrum
-     @returns the spectral centroid as an index value
-     */
-    T spectralCentroid(T *magnitudeSpectrum,unsigned long numSamples);
 
 };
 

@@ -32,53 +32,32 @@ CoreTimeDomainFeatures<T>::CoreTimeDomainFeatures()
 
 }
 
-//-----------------------------------------------------------
-//-----------------------------------------------------------
-
 //===========================================================
-// vector interface
 template <class T>
 T CoreTimeDomainFeatures<T>::rootMeanSquare(std::vector<T> buffer)
-{
-    return rootMeanSquare(&buffer[0],buffer.size());
-}
-
-//===========================================================
-template <class T>
-T CoreTimeDomainFeatures<T>::rootMeanSquare(T *buffer,unsigned long numSamples)
 {
     // create variable to hold the sum
     T sum = 0;
     
     // sum the squared samples
-    for (int i = 0;i < numSamples;i++)
+    for (int i = 0;i < buffer.size();i++)
     {
         sum += pow(buffer[i],2);
     }
     
     // return the square root of the mean of squared samples
-    return sqrt(sum / ((T) numSamples));
+    return sqrt(sum / ((T) buffer.size()));
 }
-
-//-----------------------------------------------------------
-//-----------------------------------------------------------
 
 //===========================================================
 template <class T>
 T CoreTimeDomainFeatures<T>::peakEnergy(std::vector<T> buffer)
 {
-    return peakEnergy(&buffer[0],buffer.size());
-}
-
-//===========================================================
-template <class T>
-T CoreTimeDomainFeatures<T>::peakEnergy(T *buffer,unsigned long numSamples)
-{
     // create variable with very small value to hold the peak value
     T peak = -10000.0;
     
     // for each audio sample
-    for (int i = 0;i < numSamples;i++)
+    for (int i = 0;i < buffer.size();i++)
     {
         // store the absolute value of the sample
         T absSample = fabs(buffer[i]);
@@ -95,25 +74,15 @@ T CoreTimeDomainFeatures<T>::peakEnergy(T *buffer,unsigned long numSamples)
     return peak;
 }
 
-//-----------------------------------------------------------
-//-----------------------------------------------------------
-
 //===========================================================
 template <class T>
 T CoreTimeDomainFeatures<T>::zeroCrossingRate(std::vector<T> buffer)
-{
-    return zeroCrossingRate(&buffer[0],buffer.size());
-}
-
-//===========================================================
-template <class T>
-T CoreTimeDomainFeatures<T>::zeroCrossingRate(T *buffer,unsigned long numSamples)
 {
     // create a variable to hold the zero crossing rate
     T zcr = 0;
     
     // for each audio sample, starting from the second one
-    for (int i = 1;i < numSamples;i++)
+    for (int i = 1;i < buffer.size();i++)
     {
         // initialise two booleans indicating whether or not
         // the current and previous sample are positive

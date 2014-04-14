@@ -52,14 +52,6 @@ public:
      */
     T spectralDifference(std::vector<T> magnitudeSpectrum);
     
-    /** calculates the spectral difference between the current magnitude
-     * spectrum and the previous magnitude spectrum
-     * @param magnitudeSpectrum a pointer to an array containing the magnitude spectrum
-     * @param numSamples the number of frequency elements in the array
-     * @returns the spectral difference
-     */
-    T spectralDifference(T *magnitudeSpectrum,unsigned long numSamples);
-    
     //===========================================================
     /** calculates the half wave rectified spectral difference between the 
      * current magnitude spectrum and the previous magnitude spectrum
@@ -67,14 +59,6 @@ public:
      * @returns the spectral difference
      */
     T spectralDifferenceHWR(std::vector<T> magnitudeSpectrum);
-    
-    /** calculates the half wave rectified spectral difference between the
-     * current magnitude spectrum and the previous magnitude spectrum
-     * @param magnitudeSpectrum a pointer to an array containing the magnitude spectrum
-     * @param numSamples the number of frequency elements in the array
-     * @returns the spectral difference
-     */
-    T spectralDifferenceHWR(T *magnitudeSpectrum,unsigned long numSamples);
     
 private:
     

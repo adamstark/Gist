@@ -67,19 +67,12 @@ void Yin<T>::setMaxFrequency(T maxFreq)
 template <class T>
 T Yin<T>::pitchYin(std::vector<T> frame)
 {
-    return pitchYin(&frame[0], frame.size());
-}
-
-//===========================================================
-template <class T>
-T Yin<T>::pitchYin(T *frame,unsigned long numSamples)
-{
     unsigned long period;
     T fPeriod;
     
     // steps 1, 2 and 3 of the Yin algorithm
     // get the difference function ("delta")
-    std::vector<T> delta = cumulativeMeanNormalisedDifferenceFunction(frame,numSamples);
+    std::vector<T> delta = cumulativeMeanNormalisedDifferenceFunction(&frame[0],frame.size());
     
     // first, see if the previous period estimate has a minima
     long continuityPeriod = searchForOtherRecentMinima(delta);
@@ -112,6 +105,8 @@ T Yin<T>::pitchYin(T *frame,unsigned long numSamples)
     prevPeriodEstimate = fPeriod;
     
     return periodToPitch(fPeriod);
+    
+  //  return pitchYin(&frame[0], frame.size());
 }
 
 //===========================================================
