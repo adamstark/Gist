@@ -128,7 +128,22 @@ public:
         return coreFrequencyDomainFeatures.spectralCentroid(magnitudeSpectrum);
     }
     
+    T spectralCrest()
+    {
+        return coreFrequencyDomainFeatures.spectralCrest(magnitudeSpectrum);
+    }
+    
+    T spectralFlatness()
+    {
+        return coreFrequencyDomainFeatures.spectralFlatness(magnitudeSpectrum);
+    }
+    
     //================= ONSET DETECTION FUNCTIONS =================
+    
+    T energyDifference()
+    {
+        return onsetDetectionFunction.energyDifference(audioFrame);
+    }
     
     T spectralDifference()
     {
@@ -138,6 +153,16 @@ public:
     T spectralDifferenceHWR()
     {
         return onsetDetectionFunction.spectralDifferenceHWR(magnitudeSpectrum);
+    }
+    
+    T complexSpectralDifference()
+    {
+        return onsetDetectionFunction.complexSpectralDifference(fftReal,fftImag);
+    }
+    
+    T highFrequencyContent()
+    {
+        return onsetDetectionFunction.highFrequencyContent(magnitudeSpectrum);
     }
     
     //=========================== PITCH ============================

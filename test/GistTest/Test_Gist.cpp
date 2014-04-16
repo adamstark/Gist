@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(TestFFT1)
 BOOST_AUTO_TEST_CASE(TestFFT2)
 {
     Gist<float> g(512,44100);
-    
+        
     std::vector<float> testFrame(512);
     
     for (int i = 0;i < 512;i++)

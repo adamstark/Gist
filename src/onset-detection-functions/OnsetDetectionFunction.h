@@ -26,6 +26,7 @@
 #define __GIST__ONSETDETECTIONFUNCTION__
 
 #include <vector>
+#include <math.h>
 
 /** template class for calculating onset detection functions
  * Instantiations of the class should be of either 'float' or 
@@ -35,9 +36,11 @@ class OnsetDetectionFunction
 {
     
 public:
+    //===========================================================
     /** constructor */
     OnsetDetectionFunction(int frameSize);
     
+    //===========================================================
     /** Sets the frame size of internal buffers. Assumes all magnitude
      * spectra are passed as the first half (i.e. not mirrored)
      * @param frameSize the frame size
@@ -45,10 +48,17 @@ public:
     void setFrameSize(int frameSize);
     
     //===========================================================
+    /** calculates the energy difference onset detection function
+     * @param buffer the time domain audio frame containing audio samples
+     * @returns the energy difference onset detection function sample for the frame
+     */
+    T energyDifference(std::vector<T> buffer);
+    
+    //===========================================================
     /** calculates the spectral difference between the current magnitude
      * spectrum and the previous magnitude spectrum
      * @param magnitudeSpectrum a vector containing the magnitude spectrum
-     * @returns the spectral difference
+     * @returns the spectral difference onset detection function sample
      */
     T spectralDifference(std::vector<T> magnitudeSpectrum);
     
@@ -56,11 +66,36 @@ public:
     /** calculates the half wave rectified spectral difference between the 
      * current magnitude spectrum and the previous magnitude spectrum
      * @param magnitudeSpectrum a vector containing the magnitude spectrum
-     * @returns the spectral difference
+     * @returns the HWR spectral difference onset detection function sample
      */
     T spectralDifferenceHWR(std::vector<T> magnitudeSpectrum);
+
+    //===========================================================
+    /** calculates the complex spectral difference from the real and imaginary parts 
+     * of the FFT
+     * @param fftReal a vector containing the real part of the FFT
+     * @param fftImag a vector containing the imaginary part of the FFT
+     * @returns the complex spectral difference onset detection function sample
+     */
+    T complexSpectralDifference(std::vector<T> fftReal,std::vector<T> fftImag);
+    
+    //===========================================================
+    /** calculates the high frequency content onset detection function from
+     * the magnitude spectrum
+     * @param magnitudeSpectrum a vector containing the magnitude spectrum
+     * @returns the high frequency content onset detection function sample
+     */
+    T highFrequencyContent(std::vector<T> magnitudeSpectrum);
     
 private:
+    
+
+    /** maps phasein into the [-pi:pi] range */
+    T princarg(T phaseVal);
+    
+    //===========================================================
+    /** holds the previous energy sum for the energy difference onset detection function */
+    T prevEnergySum;
     
     /** a vector containing the previous magnitude spectrum passed to the
      last spectral difference call */
@@ -70,6 +105,17 @@ private:
      last spectral difference (half wave rectified) call */
     std::vector<T> prevMagnitudeSpectrum_spectralDifferenceHWR;
     
+    /** a vector containing the previous phase spectrum passed to the
+     last complex spectral difference call */
+    std::vector<T> prevPhaseSpectrum_complexSpectralDifference;
+    
+    /** a vector containing the second previous phase spectrum passed to the
+     last complex spectral difference call */
+    std::vector<T> prevPhaseSpectrum2_complexSpectralDifference;
+
+    /** a vector containing the previous magnitude spectrum passed to the
+     last complex spectral difference call */
+    std::vector<T> prevMagnitudeSpectrum_complexSpectralDifference;
 };
 
 #endif
