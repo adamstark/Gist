@@ -65,5 +65,75 @@ T CoreFrequencyDomainFeatures<T>::spectralCentroid(std::vector<T> magnitudeSpect
 }
 
 //===========================================================
+template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralFlatness(std::vector<T> magnitudeSpectrum)
+{
+    double sumVal = 0.0;
+    double logSumVal = 0.0;
+    double N = (double) magnitudeSpectrum.size();
+    
+    T flatness;
+    
+    for (int i = 0;i < magnitudeSpectrum.size();i++)
+    {
+        // add one to stop zero values making it always zero
+        double v = (double) (1+magnitudeSpectrum[i]);
+        
+        sumVal += v;
+        logSumVal += log(v);
+    }
+    
+    sumVal = sumVal / N;
+    logSumVal = logSumVal / N;
+    
+    if (sumVal > 0)
+    {
+        flatness = (T) (exp(logSumVal) / sumVal);
+    }
+    else
+    {
+        flatness = 0.0;
+    }
+    
+    return flatness;
+}
+
+//===========================================================
+template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralCrest(std::vector<T> magnitudeSpectrum)
+{
+    T sumVal = 0.0;
+    T maxVal = 0.0;
+    T N = (T) magnitudeSpectrum.size();
+    
+    for (int i = 0;i < magnitudeSpectrum.size();i++)
+    {
+        T v = magnitudeSpectrum[i]*magnitudeSpectrum[i];
+        sumVal += v;
+        
+        if (v > maxVal)
+        {
+            maxVal = v;
+        }
+    }
+      
+    T spectralCrest;
+    
+    if (sumVal > 0)
+    {
+        T meanVal = sumVal / N;
+        
+        spectralCrest = maxVal / meanVal;
+    }
+    else
+    {
+        // this is a ratio so we return 1.0 if the buffer is just zeros
+        spectralCrest = 1.0;
+    }
+    
+    return spectralCrest;
+}
+
+//===========================================================
 template class CoreFrequencyDomainFeatures<float>;
 template class CoreFrequencyDomainFeatures<double>;

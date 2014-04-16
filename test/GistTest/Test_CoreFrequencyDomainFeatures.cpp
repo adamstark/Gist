@@ -73,4 +73,173 @@ BOOST_AUTO_TEST_CASE(Numeric1)
 
 BOOST_AUTO_TEST_SUITE_END()
 
+//=============================================================
+//==================== SPECTRAL FLATNESS ======================
+//=============================================================
+BOOST_AUTO_TEST_SUITE(SpectralFlatness)
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of ones returns 1
+BOOST_AUTO_TEST_CASE(Ones_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    float r = fdf.spectralFlatness(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,1);
+    
+}
+
+// ------------------------------------------------------------
+// 2. Check that a buffer of twos returns 1
+BOOST_AUTO_TEST_CASE(Twos_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 2.0;
+    }
+    
+    float r = fdf.spectralFlatness(testSpectrum);
+    
+    BOOST_CHECK_CLOSE(r,1,0.001);
+    
+}
+
+// ------------------------------------------------------------
+// 3. Check that a buffer of alternate twos and zeros returns correct value
+BOOST_AUTO_TEST_CASE(AlternateTest)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        if ((i % 2) == 0)
+        {
+            testSpectrum[i] = 2.0;
+        }
+        else
+        {
+            testSpectrum[i] = 0.0;
+        }
+    }
+    
+    float r = fdf.spectralFlatness(testSpectrum);
+    
+    BOOST_CHECK_CLOSE(r, 0.866025,0.001);
+    
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+//=============================================================
+//===================== SPECTRAL CREST ========================
+//=============================================================
+BOOST_AUTO_TEST_SUITE(SpectralCrest)
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of ones returns 1
+BOOST_AUTO_TEST_CASE(Ones_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    float r = fdf.spectralCrest(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,1.0);
+    
+}
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of zeros returns 1
+BOOST_AUTO_TEST_CASE(Zeros_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 0;
+    }
+    
+    float r = fdf.spectralCrest(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,1.0);
+    
+}
+
+// ------------------------------------------------------------
+// 3. Check that alternate ones and zeros produces 2.0
+BOOST_AUTO_TEST_CASE(AlternateTest)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        if ((i % 2) == 0)
+        {
+            testSpectrum[i] = 1;
+        }
+        else
+        {
+            testSpectrum[i] = 0.0;
+        }
+    }
+    
+    float r = fdf.spectralCrest(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,2.0);
+    
+}
+
+// ------------------------------------------------------------
+// 4. Check that a delta every four elements returns 4
+BOOST_AUTO_TEST_CASE(EveryFour)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        if ((i % 4) == 0)
+        {
+            testSpectrum[i] = 1;
+        }
+        else
+        {
+            testSpectrum[i] = 0.0;
+        }
+    }
+    
+    float r = fdf.spectralCrest(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,4.0);
+    
+}
+
+
+BOOST_AUTO_TEST_SUITE_END()
+
 #endif
