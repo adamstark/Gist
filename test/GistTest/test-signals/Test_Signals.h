@@ -17,4 +17,8 @@ extern float pitchTest2[512];
 
 extern float pitchTest2_result;
 
+extern float magnitudeSpectrum[256];
+
+extern float mfccTest1_result[13];
+
 #endif

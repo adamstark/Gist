@@ -13,6 +13,8 @@
 		E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */; };
 		E34D255318FC2EC4006B3446 /* Test_Gist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34D255218FC2EC4006B3446 /* Test_Gist.cpp */; };
 		E35B1E621871C9D500E89F56 /* Test_Signals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E35B1E601871C9D500E89F56 /* Test_Signals.cpp */; };
+		E393D4581900871E003A5926 /* MFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E393D4561900871E003A5926 /* MFCC.cpp */; };
+		E3B9C74E1905573B009D3B12 /* Test_MFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B9C74D190556C2009D3B12 /* Test_MFCC.cpp */; };
 		E3C147E61870796800551889 /* Yin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3C147E41870796800551889 /* Yin.cpp */; };
 		E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */; };
 		E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */; };
@@ -44,6 +46,9 @@
 		E35B1E5D1871C53800E89F56 /* Gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gist.h; path = ../../src/Gist.h; sourceTree = "<group>"; };
 		E35B1E601871C9D500E89F56 /* Test_Signals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_Signals.cpp; sourceTree = "<group>"; };
 		E35B1E611871C9D500E89F56 /* Test_Signals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Signals.h; sourceTree = "<group>"; };
+		E393D4561900871E003A5926 /* MFCC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MFCC.cpp; sourceTree = "<group>"; };
+		E393D4571900871E003A5926 /* MFCC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFCC.h; sourceTree = "<group>"; };
+		E3B9C74D190556C2009D3B12 /* Test_MFCC.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Test_MFCC.cpp; sourceTree = "<group>"; };
 		E3C147E41870796800551889 /* Yin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Yin.cpp; sourceTree = "<group>"; };
 		E3C147E51870796800551889 /* Yin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yin.h; sourceTree = "<group>"; };
 		E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_OnsetDetectionFunction.cpp; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 				E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */,
 				E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */,
 				E306AC3A1870BBA800FF8DA9 /* Test_Pitch.cpp */,
+				E3B9C74D190556C2009D3B12 /* Test_MFCC.cpp */,
 			);
 			name = tests;
 			sourceTree = "<group>";
@@ -114,6 +120,16 @@
 				E35B1E611871C9D500E89F56 /* Test_Signals.h */,
 			);
 			path = "test-signals";
+			sourceTree = "<group>";
+		};
+		E393D4551900870D003A5926 /* mfcc */ = {
+			isa = PBXGroup;
+			children = (
+				E393D4561900871E003A5926 /* MFCC.cpp */,
+				E393D4571900871E003A5926 /* MFCC.h */,
+			);
+			name = mfcc;
+			path = ../../src/mfcc;
 			sourceTree = "<group>";
 		};
 		E3DBB200186E6EB700DC7B49 /* core */ = {
@@ -153,6 +169,7 @@
 			children = (
 				E35B1E5D1871C53800E89F56 /* Gist.h */,
 				E3DBB200186E6EB700DC7B49 /* core */,
+				E393D4551900870D003A5926 /* mfcc */,
 				E3DBB205186E6EB700DC7B49 /* onset-detection-functions */,
 				E3DBB208186E6EB700DC7B49 /* pitch */,
 			);
@@ -211,11 +228,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C147E61870796800551889 /* Yin.cpp in Sources */,
+				E3B9C74E1905573B009D3B12 /* Test_MFCC.cpp in Sources */,
 				E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */,
 				E306AC3B1870BBA800FF8DA9 /* Test_Pitch.cpp in Sources */,
 				E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */,
 				E3DBB20D186E6EB700DC7B49 /* OnsetDetectionFunction.cpp in Sources */,
 				E32690C7186E6BF000BC4C67 /* main.cpp in Sources */,
+				E393D4581900871E003A5926 /* MFCC.cpp in Sources */,
 				E35B1E621871C9D500E89F56 /* Test_Signals.cpp in Sources */,
 				E34D255318FC2EC4006B3446 /* Test_Gist.cpp in Sources */,
 				E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */,
