@@ -25,7 +25,7 @@
 #define __GIST__YIN__
 
 #include <vector>
-#include <math.h>
+#include <cmath>
 
 /** template class for the pitch detection algorithm Yin.
  * Instantiations of the class should be of either 'float' or
@@ -101,6 +101,11 @@ private:
      */
     void cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples);
     
+	T round(T val)
+	{
+		return floor(val + 0.5);
+	}
+
     /** the previous period estimate found by the algorithm last time it was called - initially set to 1.0 */
     T prevPeriodEstimate;
     

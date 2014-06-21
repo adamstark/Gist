@@ -48,7 +48,7 @@ class Gist
 {
 public:
     
-    Gist(int frameSize_,int sampleRate_) : yin(sampleRate_), onsetDetectionFunction(frameSize_), fftConfigured(false), mfcc(frameSize_,sampleRate_)
+    Gist(int frameSize_,int sampleRate_) :fftConfigured(false), onsetDetectionFunction(frameSize_), yin(sampleRate_), mfcc(frameSize_,sampleRate_)
     {
         setAudioFrameSize(frameSize_);
     }
@@ -181,6 +181,14 @@ public:
     
     //=========================== MFCCs =============================
 
+    /** Calculates the Mel Frequency Spectrum
+     * @returns the Mel spectrum as a vector
+     */
+    std::vector<T> melFrequencySpectrum()
+    {
+        return mfcc.melFrequencySpectrum(magnitudeSpectrum);
+    }
+    
     /** Calculates the Mel Frequency Cepstral Coefficients
      * @returns the MFCCs as a vector
      */

@@ -25,8 +25,9 @@
 #ifndef __GIST__ONSETDETECTIONFUNCTION__
 #define __GIST__ONSETDETECTIONFUNCTION__
 
+#define _USE_MATH_DEFINES
 #include <vector>
-#include <math.h>
+#include <cmath>
 
 /** template class for calculating onset detection functions
  * Instantiations of the class should be of either 'float' or 

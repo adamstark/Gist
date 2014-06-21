@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_CASE(ExampleMagnitudeSpectrumTest)
     
     for (int i = 0;i < r.size();i++)
     {
-        BOOST_CHECK_CLOSE(r[i],mfccTest1_result[i],0.0001);
+        BOOST_CHECK_CLOSE(r[i],mfccTest1_result[i],0.01);
     }
 }
 

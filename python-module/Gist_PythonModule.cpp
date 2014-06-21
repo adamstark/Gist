@@ -46,6 +46,7 @@ enum AnalysisId
 {
     a_RMS,
     a_PeakEnergy,
+    a_ZeroCrossingRate,
     a_PitchYin
 };
 
@@ -111,6 +112,7 @@ static void parseInputData(PyObject *dummy, PyObject *args,InputData *inputData)
 //================================================================
 double processFrameWithAnalysisAlgorithm(double *signal,long numSamples,AnalysisId analysisId)
 {
+
     switch (analysisId) {
         case a_RMS:
         {
@@ -124,11 +126,18 @@ double processFrameWithAnalysisAlgorithm(double *signal,long numSamples,Analysis
             break;
         }
             
+        case a_ZeroCrossingRate:
+        {
+            return tdf.zeroCrossingRate(signal,numSamples);
+        }
+            
         case a_PitchYin:
         {
             return yin.pitchYin(signal,numSamples);
             break;
         }
+            
+        
             
         default:
         {

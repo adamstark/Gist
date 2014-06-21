@@ -65,7 +65,23 @@ void MFCC<T>::setSamplingFrequency(int samplingFrequency_)
 template <class T>
 std::vector<T> MFCC<T>::melFrequencyCepstralCoefficients(std::vector<T> magnitudeSpectrum)
 {
-    std::vector<double> filteredSpectrum;
+    std::vector<T> melSpec;
+    
+    melSpec = melFrequencySpectrum(magnitudeSpectrum);
+    
+    for (int i = 0;i < melSpec.size();i++)
+    {
+        melSpec[i] = log(melSpec[i]);
+    }
+    
+    return discreteCosineTransform(melSpec);
+}
+
+//==================================================================
+template <class T>
+std::vector<T> MFCC<T>::melFrequencySpectrum(std::vector<T> magnitudeSpectrum)
+{
+    std::vector<T> filteredSpectrum;
     
     for (int i = 0;i < numCoefficents;i++)
     {
@@ -73,15 +89,14 @@ std::vector<T> MFCC<T>::melFrequencyCepstralCoefficients(std::vector<T> magnitud
         
         for (int j = 0;j < magnitudeSpectrum.size();j++)
         {
-            coeff += (double) ((magnitudeSpectrum[j]*magnitudeSpectrum[j])*filterBank[i][j]);
+            coeff += (T) ((magnitudeSpectrum[j]*magnitudeSpectrum[j])*filterBank[i][j]);
         }
         
-        filteredSpectrum.push_back(log(coeff));
+        filteredSpectrum.push_back(coeff);
     }
     
-    return discreteCosineTransform(filteredSpectrum);
+    return filteredSpectrum;
 }
-
 
 //==================================================================
 template <class T>
@@ -98,21 +113,21 @@ void MFCC<T>::initialise()
 
 //==================================================================
 template <class T>
-std::vector<T> MFCC<T>::discreteCosineTransform(std::vector<double> inputSignal)
+std::vector<T> MFCC<T>::discreteCosineTransform(std::vector<T> inputSignal)
 {
     std::vector<T> outputSignal(inputSignal.size());
     
-    double N = (double) inputSignal.size();
-    double piOverN = M_PI / N;
+    T N = (T) inputSignal.size();
+    T piOverN = M_PI / N;
     
     for (int k = 0;k < outputSignal.size();k++)
     {
-        double sum = 0;
-        double kVal = (double) k;
+        T sum = 0;
+        T kVal = (T) k;
         
         for (int n = 0;n < inputSignal.size();n++)
         {
-            double tmp = piOverN * (((double)n)+0.5) * kVal;
+            T tmp = piOverN * (((T)n)+0.5) * kVal;
             
             sum += inputSignal[n]*cos(tmp);
         }
