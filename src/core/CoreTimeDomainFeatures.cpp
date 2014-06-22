@@ -1,18 +1,43 @@
+//=======================================================================
+/** @file CoreTimeDomainFeatures.cpp
+ *  @brief Implementations of common time domain audio features
+ *  @author Adam Stark
+ *  @copyright Copyright (C) 2013  Adam Stark
+ *
+ * This file is part of the 'Gist' audio analysis library
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+//=======================================================================
+
 #include "CoreTimeDomainFeatures.h"
 
 
 //===========================================================
-CoreTimeDomainFeatures::CoreTimeDomainFeatures()
+template <class T>
+CoreTimeDomainFeatures<T>::CoreTimeDomainFeatures()
 {
     
 
 }
 
 //===========================================================
-float CoreTimeDomainFeatures::RMS(std::vector<float> buffer)
+template <class T>
+T CoreTimeDomainFeatures<T>::rootMeanSquare(std::vector<T> buffer)
 {
     // create variable to hold the sum
-    float sum = 0;
+    T sum = 0;
     
     // sum the squared samples
     for (int i = 0;i < buffer.size();i++)
@@ -21,20 +46,21 @@ float CoreTimeDomainFeatures::RMS(std::vector<float> buffer)
     }
     
     // return the square root of the mean of squared samples
-    return sqrt(sum / ((float) buffer.size()));
+    return sqrt(sum / ((T) buffer.size()));
 }
 
 //===========================================================
-float CoreTimeDomainFeatures::peakEnergy(std::vector<float> buffer)
+template <class T>
+T CoreTimeDomainFeatures<T>::peakEnergy(std::vector<T> buffer)
 {
     // create variable with very small value to hold the peak value
-    float peak = -10000.0;
+    T peak = -10000.0;
     
     // for each audio sample
     for (int i = 0;i < buffer.size();i++)
     {
         // store the absolute value of the sample
-        float absSample = fabs(buffer[i]);
+        T absSample = fabs(buffer[i]);
         
         // if the absolute value is larger than the peak
         if (absSample > peak)
@@ -48,12 +74,12 @@ float CoreTimeDomainFeatures::peakEnergy(std::vector<float> buffer)
     return peak;
 }
 
-
 //===========================================================
-float CoreTimeDomainFeatures::zeroCrossingRate(std::vector<float> buffer)
+template <class T>
+T CoreTimeDomainFeatures<T>::zeroCrossingRate(std::vector<T> buffer)
 {
     // create a variable to hold the zero crossing rate
-    float zcr;
+    T zcr = 0;
     
     // for each audio sample, starting from the second one
     for (int i = 1;i < buffer.size();i++)
@@ -76,36 +102,5 @@ float CoreTimeDomainFeatures::zeroCrossingRate(std::vector<float> buffer)
 }
 
 //===========================================================
-float CoreTimeDomainFeatures::standardDeviation(std::vector<float> buffer)
-{
-    if (buffer.size() > 0)
-    {
-        // create variable to hold the sum
-        float sum = 0;
-        float mean;
-        float std;
-        float N = (float) buffer.size();
-        
-        // sum the  samples
-        for (int i = 0;i < buffer.size();i++)
-        {
-            sum += buffer[i];
-        }
-        
-        mean = sum / N;
-        
-        sum = 0;
-        for (int i = 0;i < buffer.size();i++)
-        {
-            sum += fabs(buffer[i]-mean);
-        }
-        
-        std = sqrt(sum / N);
-        
-        return std;
-    }
-    else
-    {
-        return 0.0;
-    }
-}
+template class CoreTimeDomainFeatures<float>;
+template class CoreTimeDomainFeatures<double>;
