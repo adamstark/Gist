@@ -89,59 +89,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Template class for calculating Mel Frequency Cepstral Coefficients Instantiations of the class should be of either 'float' or 'double' types and no others.  
+ <a href="class_m_f_c_c.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_m_f_c_c_8h_source.html">MFCC.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ad48b03035120c9321d569ae1c457f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#a6ad48b03035120c9321d569ae1c457f3">MFCC</a> (int frameSize_, int samplingFrequency_)</td></tr>
+<tr class="memitem:a6ad48b03035120c9321d569ae1c457f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ad48b03035120c9321d569ae1c457f3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#a6ad48b03035120c9321d569ae1c457f3">MFCC</a> (int frameSize_, int samplingFrequency_)</td></tr>
+<tr class="memdesc:a6ad48b03035120c9321d569ae1c457f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:a6ad48b03035120c9321d569ae1c457f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bda7b77bcf8bc365997848a7dde94f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#a7bda7b77bcf8bc365997848a7dde94f4">setNumCoefficients</a> (int numCoefficients_)</td></tr>
+<tr class="memdesc:a7bda7b77bcf8bc365997848a7dde94f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of coefficients to calculate.  <a href="#a7bda7b77bcf8bc365997848a7dde94f4">More...</a><br /></td></tr>
 <tr class="separator:a7bda7b77bcf8bc365997848a7dde94f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3db55a7e2591618fe985d2d2059aea6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#aa3db55a7e2591618fe985d2d2059aea6">setFrameSize</a> (int frameSize_)</td></tr>
+<tr class="memdesc:aa3db55a7e2591618fe985d2d2059aea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the frame size - N.B.  <a href="#aa3db55a7e2591618fe985d2d2059aea6">More...</a><br /></td></tr>
 <tr class="separator:aa3db55a7e2591618fe985d2d2059aea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c7aa62ee4c8ea4dc95404af4f87a86e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#a0c7aa62ee4c8ea4dc95404af4f87a86e">setSamplingFrequency</a> (int samplingFrequency_)</td></tr>
+<tr class="memdesc:a0c7aa62ee4c8ea4dc95404af4f87a86e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the sampling frequency.  <a href="#a0c7aa62ee4c8ea4dc95404af4f87a86e">More...</a><br /></td></tr>
 <tr class="separator:a0c7aa62ee4c8ea4dc95404af4f87a86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a231572e8ba35b79bc1292f82a6de7a7f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#a231572e8ba35b79bc1292f82a6de7a7f">melFrequencyCepstralCoefficients</a> (std::vector&lt; T &gt; magnitudeSpectrum)</td></tr>
+<tr class="memdesc:a231572e8ba35b79bc1292f82a6de7a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal.  <a href="#a231572e8ba35b79bc1292f82a6de7a7f">More...</a><br /></td></tr>
 <tr class="separator:a231572e8ba35b79bc1292f82a6de7a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdbf24474ff5013266e8af6a093cbcf8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_f_c_c.html#abdbf24474ff5013266e8af6a093cbcf8">melFrequencySpectrum</a> (std::vector&lt; T &gt; magnitudeSpectrum)</td></tr>
+<tr class="memdesc:abdbf24474ff5013266e8af6a093cbcf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the magnitude spectrum on a Mel scale.  <a href="#abdbf24474ff5013266e8af6a093cbcf8">More...</a><br /></td></tr>
 <tr class="separator:abdbf24474ff5013266e8af6a093cbcf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class MFCC&lt; T &gt;</h3>
 
-<p>Template class for calculating Mel Frequency Cepstral Coefficients Instantiations of the class should be of either 'float' or 'double' types and no others </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6ad48b03035120c9321d569ae1c457f3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_m_f_c_c.html">MFCC</a>&lt; T &gt;::<a class="el" href="class_m_f_c_c.html">MFCC</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>frameSize_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>samplingFrequency_</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Constructor </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p>Template class for calculating Mel Frequency Cepstral Coefficients Instantiations of the class should be of either 'float' or 'double' types and no others. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a231572e8ba35b79bc1292f82a6de7a7f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +137,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal. Note that the magnitude spectrum passed to the function is not the full mirrored magnitude spectrum, but only the first half. The frame size passed to the constructor should be twice the length of the magnitude spectrum. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal. </p>
+<p>Note that the magnitude spectrum passed to the function is not the full mirrored magnitude spectrum, but only the first half. The frame size passed to the constructor should be twice the length of the magnitude spectrum. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">magnitudeSpectrum</td><td>the magnitude spectrum in vector format </td></tr>
   </table>
@@ -182,7 +164,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calculates the magnitude spectrum on a Mel scale </p><dl class="section return"><dt>Returns</dt><dd>a vector containing the Mel spectrum </dd></dl>
+
+<p>Calculates the magnitude spectrum on a Mel scale. </p>
+<dl class="section return"><dt>Returns</dt><dd>a vector containing the Mel spectrum </dd></dl>
 
 </div>
 </div>
@@ -201,7 +185,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the frame size - N.B. this will be twice the length of the magnitude spectrum passed to calculateMFCC() </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Set the frame size - N.B. </p>
+<p>this will be twice the length of the magnitude spectrum passed to calculateMFCC() </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">frameSize_</td><td>the frame size </td></tr>
   </table>
@@ -225,7 +211,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the number of coefficients to calculate </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Set the number of coefficients to calculate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">numCoefficients_</td><td>the number of coefficients to calculate </td></tr>
   </table>
@@ -249,7 +237,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the sampling frequency </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Set the sampling frequency. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">samplingFrequency_</td><td>the sampling frequency in hz </td></tr>
   </table>
@@ -265,7 +255,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 20 2014 12:13:50 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 22 2014 10:18:17 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

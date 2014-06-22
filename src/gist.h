@@ -25,8 +25,7 @@
 #ifndef __GISTHEADER__
 #define __GISTHEADER__
 
-#define GIST_VERSION "0.1.0"
-
+//=======================================================================
 // core
 #include "core/CoreTimeDomainFeatures.h"
 #include "core/CoreFrequencyDomainFeatures.h"
@@ -43,16 +42,23 @@
 // fft
 #include "fftw3.h"
 
+//=======================================================================
+/** Class for all performing all Gist audio analyses */
 template <class T>
 class Gist
 {
 public:
     
+    /** Constructor
+     * @param frameSize_ the input audio frame size
+     * @param sampleRate the input audio sample rate
+     */
     Gist(int frameSize_,int sampleRate_) :fftConfigured(false), onsetDetectionFunction(frameSize_), yin(sampleRate_), mfcc(frameSize_,sampleRate_)
     {
         setAudioFrameSize(frameSize_);
     }
     
+    /** Destructor */
     ~Gist()
     {
         if (fftConfigured)
@@ -61,6 +67,9 @@ public:
         }
     }
 
+    /** Set the audio frame size.
+     * @param frameSize_ the frame size to use
+     */
     void setAudioFrameSize(int frameSize_)
     {
         frameSize = frameSize_;
@@ -76,6 +85,9 @@ public:
         mfcc.setFrameSize(frameSize);
     }
     
+    /** Process an audio frame
+     * @param audioFrame a vector containing audio samples
+     */
     void processAudioFrame(std::vector<T> audioFrame_)
     {
         audioFrame = audioFrame_;
@@ -83,6 +95,10 @@ public:
         performFFT();
     }
     
+    /** Process an audio frame
+     * @param buffer a pointer to an array containing the audio samples
+     * @param numSamples the number of samples in the audio frame
+     */
     void processAudioFrame(T *buffer,unsigned long numSamples)
     {
         audioFrame.assign(buffer,buffer + numSamples);
@@ -90,7 +106,8 @@ public:
         performFFT();
     }
     
-    /** @returns the current magnitude spectrum */
+    /** Gist automatically calculates the magnitude spectrum when processAudioFrame() is called, this function returns it.
+     @returns the current magnitude spectrum */
     std::vector<T> getMagnitudeSpectrum()
     {        
         return magnitudeSpectrum;
@@ -132,11 +149,17 @@ public:
         return coreFrequencyDomainFeatures.spectralCentroid(magnitudeSpectrum);
     }
     
+    /** Calculates the spectral crest
+     * @returns the spectral crest
+     */
     T spectralCrest()
     {
         return coreFrequencyDomainFeatures.spectralCrest(magnitudeSpectrum);
     }
     
+    /** Calculates the spectral flatness from the magnitude spectrum
+     * @returns the spectral flatness
+     */
     T spectralFlatness()
     {
         return coreFrequencyDomainFeatures.spectralFlatness(magnitudeSpectrum);
@@ -144,26 +167,41 @@ public:
     
     //================= ONSET DETECTION FUNCTIONS =================
     
+    /** Calculates the energy difference onset detection function sample for the magnitude spectrum frame
+     * @returns the energy difference onset detection function sample
+     */
     T energyDifference()
     {
         return onsetDetectionFunction.energyDifference(audioFrame);
     }
     
+    /** Calculates the spectral difference onset detection function sample for the magnitude spectrum frame
+     * @returns the spectral difference onset detection function sample
+     */
     T spectralDifference()
     {
         return onsetDetectionFunction.spectralDifference(magnitudeSpectrum);
     }
-    
+
+    /** Calculates the complex spectral difference onset detection function sample for the magnitude spectrum frame
+     * @returns the complex spectral difference onset detection function sample
+     */
     T spectralDifferenceHWR()
     {
         return onsetDetectionFunction.spectralDifferenceHWR(magnitudeSpectrum);
     }
-    
+
+    /** Calculates the complex spectral difference onset detection function sample for the magnitude spectrum frame
+     * @returns the complex spectral difference onset detection function sample
+     */
     T complexSpectralDifference()
     {
         return onsetDetectionFunction.complexSpectralDifference(fftReal,fftImag);
     }
     
+    /** Calculates the high frequency content onset detection function sample for the magnitude spectrum frame
+     * @returns the high frequency content onset detection function sample
+     */
     T highFrequencyContent()
     {
         return onsetDetectionFunction.highFrequencyContent(magnitudeSpectrum);
@@ -189,7 +227,7 @@ public:
         return mfcc.melFrequencySpectrum(magnitudeSpectrum);
     }
     
-    /** Calculates the Mel Frequency Cepstral Coefficients
+    /** Calculates Mel Frequency Cepstral Coefficients
      * @returns the MFCCs as a vector
      */
     std::vector<T> melFrequencyCepstralCoefficients()
@@ -197,7 +235,10 @@ public:
         return mfcc.melFrequencyCepstralCoefficients(magnitudeSpectrum);
     }
     
+    
 private:
+    
+    //=======================================================================
     
     /** configure the FFT implementation given the audio frame size) */
     void configureFFT()
@@ -217,6 +258,7 @@ private:
         fftConfigured = true;
     }
     
+    /** Free all FFT-related data */
     void freeFFT()
     {
         // destroy fft plan
@@ -255,6 +297,8 @@ private:
 
     }
     
+    //=======================================================================
+    
     fftw_plan p;                        /**< fftw plan */
 	fftw_complex *fftIn;				/**< to hold complex fft values for input */
 	fftw_complex *fftOut;               /**< to hold complex fft values for output */
@@ -280,6 +324,7 @@ private:
     /** object to compute pitch estimates via the Yin algorithm */
     Yin<T> yin;
     
+    /** object to compute MFCCs and mel-frequency specta */
     MFCC<T> mfcc;
 };
 

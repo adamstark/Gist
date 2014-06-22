@@ -89,23 +89,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>template class for calculating onset detection functions Instantiations of the class should be of either 'float' or 'double' types and no others  
+ <a href="class_onset_detection_function.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_onset_detection_function_8h_source.html">OnsetDetectionFunction.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af49350ec29f47e93206628b7f5b9b0f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#af49350ec29f47e93206628b7f5b9b0f3">OnsetDetectionFunction</a> (int frameSize)</td></tr>
+<tr class="memitem:af49350ec29f47e93206628b7f5b9b0f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af49350ec29f47e93206628b7f5b9b0f3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#af49350ec29f47e93206628b7f5b9b0f3">OnsetDetectionFunction</a> (int frameSize)</td></tr>
+<tr class="memdesc:af49350ec29f47e93206628b7f5b9b0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
 <tr class="separator:af49350ec29f47e93206628b7f5b9b0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17e91f81e73010b4dfb4bea1283ca84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#a17e91f81e73010b4dfb4bea1283ca84e">setFrameSize</a> (int frameSize)</td></tr>
+<tr class="memdesc:a17e91f81e73010b4dfb4bea1283ca84e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the frame size of internal buffers.  <a href="#a17e91f81e73010b4dfb4bea1283ca84e">More...</a><br /></td></tr>
 <tr class="separator:a17e91f81e73010b4dfb4bea1283ca84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac50d85313e2bc5e07b03e53e780e8c9d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#ac50d85313e2bc5e07b03e53e780e8c9d">energyDifference</a> (std::vector&lt; T &gt; buffer)</td></tr>
+<tr class="memdesc:ac50d85313e2bc5e07b03e53e780e8c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the energy difference onset detection function  <a href="#ac50d85313e2bc5e07b03e53e780e8c9d">More...</a><br /></td></tr>
 <tr class="separator:ac50d85313e2bc5e07b03e53e780e8c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5a4691447d2a8c9511ab2fb52314c05"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#ae5a4691447d2a8c9511ab2fb52314c05">spectralDifference</a> (std::vector&lt; T &gt; magnitudeSpectrum)</td></tr>
+<tr class="memdesc:ae5a4691447d2a8c9511ab2fb52314c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the spectral difference between the current magnitude spectrum and the previous magnitude spectrum  <a href="#ae5a4691447d2a8c9511ab2fb52314c05">More...</a><br /></td></tr>
 <tr class="separator:ae5a4691447d2a8c9511ab2fb52314c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f988c6acc9d1cd854cbd6524d346b9"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#a73f988c6acc9d1cd854cbd6524d346b9">spectralDifferenceHWR</a> (std::vector&lt; T &gt; magnitudeSpectrum)</td></tr>
+<tr class="memdesc:a73f988c6acc9d1cd854cbd6524d346b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the half wave rectified spectral difference between the current magnitude spectrum and the previous magnitude spectrum  <a href="#a73f988c6acc9d1cd854cbd6524d346b9">More...</a><br /></td></tr>
 <tr class="separator:a73f988c6acc9d1cd854cbd6524d346b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abac35e73df03d551c6ce95e516ab5599"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#abac35e73df03d551c6ce95e516ab5599">complexSpectralDifference</a> (std::vector&lt; T &gt; fftReal, std::vector&lt; T &gt; fftImag)</td></tr>
+<tr class="memdesc:abac35e73df03d551c6ce95e516ab5599"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the complex spectral difference from the real and imaginary parts of the FFT  <a href="#abac35e73df03d551c6ce95e516ab5599">More...</a><br /></td></tr>
 <tr class="separator:abac35e73df03d551c6ce95e516ab5599"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab06d22d1fe7fe92f7e56f93a6166e8de"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_onset_detection_function.html#ab06d22d1fe7fe92f7e56f93a6166e8de">highFrequencyContent</a> (std::vector&lt; T &gt; magnitudeSpectrum)</td></tr>
+<tr class="memdesc:ab06d22d1fe7fe92f7e56f93a6166e8de"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the high frequency content onset detection function from the magnitude spectrum  <a href="#ab06d22d1fe7fe92f7e56f93a6166e8de">More...</a><br /></td></tr>
 <tr class="separator:ab06d22d1fe7fe92f7e56f93a6166e8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -113,27 +124,7 @@ Public Member Functions</h2></td></tr>
 class OnsetDetectionFunction&lt; T &gt;</h3>
 
 <p>template class for calculating onset detection functions Instantiations of the class should be of either 'float' or 'double' types and no others </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af49350ec29f47e93206628b7f5b9b0f3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_onset_detection_function.html">OnsetDetectionFunction</a>&lt; T &gt;::<a class="el" href="class_onset_detection_function.html">OnsetDetectionFunction</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>frameSize</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>constructor </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="abac35e73df03d551c6ce95e516ab5599"></a>
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +150,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the complex spectral difference from the real and imaginary parts of the FFT </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the complex spectral difference from the real and imaginary parts of the FFT </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fftReal</td><td>a vector containing the real part of the FFT </td></tr>
     <tr><td class="paramname">fftImag</td><td>a vector containing the imaginary part of the FFT </td></tr>
@@ -185,7 +178,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the energy difference onset detection function </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the energy difference onset detection function </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>the time domain audio frame containing audio samples </td></tr>
   </table>
@@ -210,7 +205,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the high frequency content onset detection function from the magnitude spectrum </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the high frequency content onset detection function from the magnitude spectrum </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">magnitudeSpectrum</td><td>a vector containing the magnitude spectrum </td></tr>
   </table>
@@ -235,7 +232,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the frame size of internal buffers. Assumes all magnitude spectra are passed as the first half (i.e. not mirrored) </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Sets the frame size of internal buffers. </p>
+<p>Assumes all magnitude spectra are passed as the first half (i.e. not mirrored) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">frameSize</td><td>the frame size </td></tr>
   </table>
@@ -259,7 +258,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the spectral difference between the current magnitude spectrum and the previous magnitude spectrum </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the spectral difference between the current magnitude spectrum and the previous magnitude spectrum </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">magnitudeSpectrum</td><td>a vector containing the magnitude spectrum </td></tr>
   </table>
@@ -284,7 +285,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the half wave rectified spectral difference between the current magnitude spectrum and the previous magnitude spectrum </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the half wave rectified spectral difference between the current magnitude spectrum and the previous magnitude spectrum </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">magnitudeSpectrum</td><td>a vector containing the magnitude spectrum </td></tr>
   </table>
@@ -301,7 +304,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 20 2014 12:13:50 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 22 2014 10:18:18 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

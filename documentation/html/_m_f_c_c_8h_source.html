@@ -93,62 +93,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef __GIST__MFCC__</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define __GIST__MFCC__</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_m_f_c_c.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_m_f_c_c.html">MFCC</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_m_f_c_c.html#a6ad48b03035120c9321d569ae1c457f3">MFCC</a>(<span class="keywordtype">int</span> frameSize_,<span class="keywordtype">int</span> samplingFrequency_);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_m_f_c_c.html#a7bda7b77bcf8bc365997848a7dde94f4">setNumCoefficients</a>(<span class="keywordtype">int</span> numCoefficients_);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_m_f_c_c.html#aa3db55a7e2591618fe985d2d2059aea6">setFrameSize</a>(<span class="keywordtype">int</span> frameSize_);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_m_f_c_c.html#a0c7aa62ee4c8ea4dc95404af4f87a86e">setSamplingFrequency</a>(<span class="keywordtype">int</span> samplingFrequency_);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::vector&lt;T&gt; <a class="code" href="class_m_f_c_c.html#a231572e8ba35b79bc1292f82a6de7a7f">melFrequencyCepstralCoefficients</a>(std::vector&lt;T&gt; magnitudeSpectrum);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::vector&lt;T&gt; <a class="code" href="class_m_f_c_c.html#abdbf24474ff5013266e8af6a093cbcf8">melFrequencySpectrum</a>(std::vector&lt;T&gt; magnitudeSpectrum);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> initialise();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::vector&lt;T&gt; discreteCosineTransform(std::vector&lt;T&gt; inputSignal);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> calculateMelFilterBank();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    T frequencyToMel(T frequency);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">int</span> samplingFrequency;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">int</span> numCoefficents;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span> frameSize;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">int</span> magnitudeSpectrumSize;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    T minFrequency;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    T maxFrequency;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    std::vector&lt;std::vector&lt;T&gt;&gt; filterBank;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__GIST__MFCC__) */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_m_f_c_c_html_a0c7aa62ee4c8ea4dc95404af4f87a86e"><div class="ttname"><a href="class_m_f_c_c.html#a0c7aa62ee4c8ea4dc95404af4f87a86e">MFCC::setSamplingFrequency</a></div><div class="ttdeci">void setSamplingFrequency(int samplingFrequency_)</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:57</div></div>
-<div class="ttc" id="class_m_f_c_c_html_abdbf24474ff5013266e8af6a093cbcf8"><div class="ttname"><a href="class_m_f_c_c.html#abdbf24474ff5013266e8af6a093cbcf8">MFCC::melFrequencySpectrum</a></div><div class="ttdeci">std::vector&lt; T &gt; melFrequencySpectrum(std::vector&lt; T &gt; magnitudeSpectrum)</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:82</div></div>
-<div class="ttc" id="class_m_f_c_c_html_a231572e8ba35b79bc1292f82a6de7a7f"><div class="ttname"><a href="class_m_f_c_c.html#a231572e8ba35b79bc1292f82a6de7a7f">MFCC::melFrequencyCepstralCoefficients</a></div><div class="ttdeci">std::vector&lt; T &gt; melFrequencyCepstralCoefficients(std::vector&lt; T &gt; magnitudeSpectrum)</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:66</div></div>
-<div class="ttc" id="class_m_f_c_c_html_aa3db55a7e2591618fe985d2d2059aea6"><div class="ttname"><a href="class_m_f_c_c.html#aa3db55a7e2591618fe985d2d2059aea6">MFCC::setFrameSize</a></div><div class="ttdeci">void setFrameSize(int frameSize_)</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:48</div></div>
-<div class="ttc" id="class_m_f_c_c_html_a7bda7b77bcf8bc365997848a7dde94f4"><div class="ttname"><a href="class_m_f_c_c.html#a7bda7b77bcf8bc365997848a7dde94f4">MFCC::setNumCoefficients</a></div><div class="ttdeci">void setNumCoefficients(int numCoefficients_)</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:39</div></div>
-<div class="ttc" id="class_m_f_c_c_html_a6ad48b03035120c9321d569ae1c457f3"><div class="ttname"><a href="class_m_f_c_c.html#a6ad48b03035120c9321d569ae1c457f3">MFCC::MFCC</a></div><div class="ttdeci">MFCC(int frameSize_, int samplingFrequency_)</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:28</div></div>
-<div class="ttc" id="class_m_f_c_c_html"><div class="ttname"><a href="class_m_f_c_c.html">MFCC</a></div><div class="ttdef"><b>Definition:</b> MFCC.h:34</div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define _USE_MATH_DEFINES</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_m_f_c_c.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_m_f_c_c.html">MFCC</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_m_f_c_c.html#a6ad48b03035120c9321d569ae1c457f3">MFCC</a>(<span class="keywordtype">int</span> frameSize_,<span class="keywordtype">int</span> samplingFrequency_);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_m_f_c_c.html#a7bda7b77bcf8bc365997848a7dde94f4">setNumCoefficients</a>(<span class="keywordtype">int</span> numCoefficients_);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_m_f_c_c.html#aa3db55a7e2591618fe985d2d2059aea6">setFrameSize</a>(<span class="keywordtype">int</span> frameSize_);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_m_f_c_c.html#a0c7aa62ee4c8ea4dc95404af4f87a86e">setSamplingFrequency</a>(<span class="keywordtype">int</span> samplingFrequency_);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;T&gt; <a class="code" href="class_m_f_c_c.html#a231572e8ba35b79bc1292f82a6de7a7f">melFrequencyCepstralCoefficients</a>(std::vector&lt;T&gt; magnitudeSpectrum);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::vector&lt;T&gt; <a class="code" href="class_m_f_c_c.html#abdbf24474ff5013266e8af6a093cbcf8">melFrequencySpectrum</a>(std::vector&lt;T&gt; magnitudeSpectrum);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> initialise();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::vector&lt;T&gt; discreteCosineTransform(std::vector&lt;T&gt; inputSignal);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> calculateMelFilterBank();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    T frequencyToMel(T frequency);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">int</span> samplingFrequency;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">int</span> numCoefficents;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">int</span> frameSize;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">int</span> magnitudeSpectrumSize;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    T minFrequency;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    T maxFrequency;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::vector&lt;std::vector&lt;T&gt;&gt; filterBank;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__GIST__MFCC__) */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_m_f_c_c_html_a0c7aa62ee4c8ea4dc95404af4f87a86e"><div class="ttname"><a href="class_m_f_c_c.html#a0c7aa62ee4c8ea4dc95404af4f87a86e">MFCC::setSamplingFrequency</a></div><div class="ttdeci">void setSamplingFrequency(int samplingFrequency_)</div><div class="ttdoc">Set the sampling frequency. </div><div class="ttdef"><b>Definition:</b> MFCC.cpp:57</div></div>
+<div class="ttc" id="class_m_f_c_c_html_abdbf24474ff5013266e8af6a093cbcf8"><div class="ttname"><a href="class_m_f_c_c.html#abdbf24474ff5013266e8af6a093cbcf8">MFCC::melFrequencySpectrum</a></div><div class="ttdeci">std::vector&lt; T &gt; melFrequencySpectrum(std::vector&lt; T &gt; magnitudeSpectrum)</div><div class="ttdoc">Calculates the magnitude spectrum on a Mel scale. </div><div class="ttdef"><b>Definition:</b> MFCC.cpp:82</div></div>
+<div class="ttc" id="class_m_f_c_c_html_a231572e8ba35b79bc1292f82a6de7a7f"><div class="ttname"><a href="class_m_f_c_c.html#a231572e8ba35b79bc1292f82a6de7a7f">MFCC::melFrequencyCepstralCoefficients</a></div><div class="ttdeci">std::vector&lt; T &gt; melFrequencyCepstralCoefficients(std::vector&lt; T &gt; magnitudeSpectrum)</div><div class="ttdoc">Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal...</div><div class="ttdef"><b>Definition:</b> MFCC.cpp:66</div></div>
+<div class="ttc" id="class_m_f_c_c_html_aa3db55a7e2591618fe985d2d2059aea6"><div class="ttname"><a href="class_m_f_c_c.html#aa3db55a7e2591618fe985d2d2059aea6">MFCC::setFrameSize</a></div><div class="ttdeci">void setFrameSize(int frameSize_)</div><div class="ttdoc">Set the frame size - N.B. </div><div class="ttdef"><b>Definition:</b> MFCC.cpp:48</div></div>
+<div class="ttc" id="class_m_f_c_c_html_a7bda7b77bcf8bc365997848a7dde94f4"><div class="ttname"><a href="class_m_f_c_c.html#a7bda7b77bcf8bc365997848a7dde94f4">MFCC::setNumCoefficients</a></div><div class="ttdeci">void setNumCoefficients(int numCoefficients_)</div><div class="ttdoc">Set the number of coefficients to calculate. </div><div class="ttdef"><b>Definition:</b> MFCC.cpp:39</div></div>
+<div class="ttc" id="class_m_f_c_c_html_a6ad48b03035120c9321d569ae1c457f3"><div class="ttname"><a href="class_m_f_c_c.html#a6ad48b03035120c9321d569ae1c457f3">MFCC::MFCC</a></div><div class="ttdeci">MFCC(int frameSize_, int samplingFrequency_)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> MFCC.cpp:28</div></div>
+<div class="ttc" id="class_m_f_c_c_html"><div class="ttname"><a href="class_m_f_c_c.html">MFCC</a></div><div class="ttdoc">Template class for calculating Mel Frequency Cepstral Coefficients Instantiations of the class should...</div><div class="ttdef"><b>Definition:</b> MFCC.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 20 2014 12:13:50 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 22 2014 10:18:17 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

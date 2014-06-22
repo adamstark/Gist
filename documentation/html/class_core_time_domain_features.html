@@ -89,44 +89,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>template class for calculating common time domain audio features.  
+ <a href="class_core_time_domain_features.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_core_time_domain_features_8h_source.html">CoreTimeDomainFeatures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9ad4a54ee365b5801b54d3077ba34295"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a9ad4a54ee365b5801b54d3077ba34295">CoreTimeDomainFeatures</a> ()</td></tr>
+<tr class="memitem:a9ad4a54ee365b5801b54d3077ba34295"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ad4a54ee365b5801b54d3077ba34295"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a9ad4a54ee365b5801b54d3077ba34295">CoreTimeDomainFeatures</a> ()</td></tr>
+<tr class="memdesc:a9ad4a54ee365b5801b54d3077ba34295"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
 <tr class="separator:a9ad4a54ee365b5801b54d3077ba34295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a168914d8e3b5a3f0113e736be6f795d0"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a168914d8e3b5a3f0113e736be6f795d0">rootMeanSquare</a> (std::vector&lt; T &gt; buffer)</td></tr>
+<tr class="memdesc:a168914d8e3b5a3f0113e736be6f795d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the Root Mean Square (RMS) of an audio buffer in vector format  <a href="#a168914d8e3b5a3f0113e736be6f795d0">More...</a><br /></td></tr>
 <tr class="separator:a168914d8e3b5a3f0113e736be6f795d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6e73fcb8dcd609db651d1f2496a3297"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#ad6e73fcb8dcd609db651d1f2496a3297">peakEnergy</a> (std::vector&lt; T &gt; buffer)</td></tr>
+<tr class="memdesc:ad6e73fcb8dcd609db651d1f2496a3297"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the peak energy (max absolute value) in a time domain audio signal buffer in vector format  <a href="#ad6e73fcb8dcd609db651d1f2496a3297">More...</a><br /></td></tr>
 <tr class="separator:ad6e73fcb8dcd609db651d1f2496a3297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a526deb036d87146bd0c58ca32413a171"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a526deb036d87146bd0c58ca32413a171">zeroCrossingRate</a> (std::vector&lt; T &gt; buffer)</td></tr>
+<tr class="memdesc:a526deb036d87146bd0c58ca32413a171"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the zero crossing rate of a time domain audio signal buffer  <a href="#a526deb036d87146bd0c58ca32413a171">More...</a><br /></td></tr>
 <tr class="separator:a526deb036d87146bd0c58ca32413a171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class CoreTimeDomainFeatures&lt; T &gt;</h3>
 
-<p>template class for calculating common time domain audio features. Instantiations of the class should be of either 'float' or 'double' types and no others </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9ad4a54ee365b5801b54d3077ba34295"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_core_time_domain_features.html">CoreTimeDomainFeatures</a>&lt; T &gt;::<a class="el" href="class_core_time_domain_features.html">CoreTimeDomainFeatures</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>constructor </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p>template class for calculating common time domain audio features. </p>
+<p>Instantiations of the class should be of either 'float' or 'double' types and no others </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ad6e73fcb8dcd609db651d1f2496a3297"></a>
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +132,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the peak energy (max absolute value) in a time domain audio signal buffer in vector format </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the peak energy (max absolute value) in a time domain audio signal buffer in vector format </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>a time domain buffer containing audio samples </td></tr>
   </table>
@@ -167,7 +159,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the Root Mean Square (RMS) of an audio buffer in vector format </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the Root Mean Square (RMS) of an audio buffer in vector format </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>a time domain buffer containing audio samples </td></tr>
   </table>
@@ -192,7 +186,9 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>calculates the zero crossing rate of a time domain audio signal buffer </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>calculates the zero crossing rate of a time domain audio signal buffer </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>a time domain buffer containing audio samples </td></tr>
   </table>
@@ -209,7 +205,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 20 2014 12:13:50 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 22 2014 10:18:17 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
