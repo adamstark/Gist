@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gist_2eh',['Gist.h',['../_gist_8h.html',1,'']]]
+  ['gist_2eh',['gist.h',['../gist_8h.html',1,'']]]
 ];
