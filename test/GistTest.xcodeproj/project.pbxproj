@@ -16,6 +16,7 @@
 		E393D4581900871E003A5926 /* MFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E393D4561900871E003A5926 /* MFCC.cpp */; };
 		E3B9C74E1905573B009D3B12 /* Test_MFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3B9C74D190556C2009D3B12 /* Test_MFCC.cpp */; };
 		E3C147E61870796800551889 /* Yin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3C147E41870796800551889 /* Yin.cpp */; };
+		E3C91DD7195B8609007ABD86 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = E3C91DD3195B8609007ABD86 /* kiss_fft.c */; };
 		E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */; };
 		E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */; };
 		E3DBB20B186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3DBB201186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp */; };
@@ -51,6 +52,12 @@
 		E3B9C74D190556C2009D3B12 /* Test_MFCC.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Test_MFCC.cpp; sourceTree = "<group>"; };
 		E3C147E41870796800551889 /* Yin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Yin.cpp; sourceTree = "<group>"; };
 		E3C147E51870796800551889 /* Yin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yin.h; sourceTree = "<group>"; };
+		E3C91DD1195B8609007ABD86 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _kiss_fft_guts.h; sourceTree = "<group>"; };
+		E3C91DD2195B8609007ABD86 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		E3C91DD3195B8609007ABD86 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kiss_fft.c; sourceTree = "<group>"; };
+		E3C91DD4195B8609007ABD86 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kiss_fft.h; sourceTree = "<group>"; };
+		E3C91DD5195B8609007ABD86 /* kissfft.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = kissfft.hh; sourceTree = "<group>"; };
+		E3C91DD6195B8609007ABD86 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		E3CFFF39186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_OnsetDetectionFunction.cpp; sourceTree = "<group>"; };
 		E3D1C626186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
 		E3DBB201186E6EB700DC7B49 /* CoreFrequencyDomainFeatures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoreFrequencyDomainFeatures.cpp; sourceTree = "<group>"; };
@@ -95,6 +102,7 @@
 				E32690C8186E6BF000BC4C67 /* GistTest.1 */,
 				E34BF540186E8627006FF37D /* tests */,
 				E3DBB20F186E6F0A00DC7B49 /* src */,
+				E3C91DCF195B8609007ABD86 /* libs */,
 			);
 			path = GistTest;
 			sourceTree = "<group>";
@@ -130,6 +138,28 @@
 			);
 			name = mfcc;
 			path = ../../src/mfcc;
+			sourceTree = "<group>";
+		};
+		E3C91DCF195B8609007ABD86 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				E3C91DD0195B8609007ABD86 /* kiss_fft130 */,
+			);
+			name = libs;
+			path = ../../libs;
+			sourceTree = "<group>";
+		};
+		E3C91DD0195B8609007ABD86 /* kiss_fft130 */ = {
+			isa = PBXGroup;
+			children = (
+				E3C91DD1195B8609007ABD86 /* _kiss_fft_guts.h */,
+				E3C91DD2195B8609007ABD86 /* COPYING */,
+				E3C91DD3195B8609007ABD86 /* kiss_fft.c */,
+				E3C91DD4195B8609007ABD86 /* kiss_fft.h */,
+				E3C91DD5195B8609007ABD86 /* kissfft.hh */,
+				E3C91DD6195B8609007ABD86 /* README */,
+			);
+			path = kiss_fft130;
 			sourceTree = "<group>";
 		};
 		E3DBB200186E6EB700DC7B49 /* core */ = {
@@ -235,6 +265,7 @@
 				E3DBB20D186E6EB700DC7B49 /* OnsetDetectionFunction.cpp in Sources */,
 				E32690C7186E6BF000BC4C67 /* main.cpp in Sources */,
 				E393D4581900871E003A5926 /* MFCC.cpp in Sources */,
+				E3C91DD7195B8609007ABD86 /* kiss_fft.c in Sources */,
 				E35B1E621871C9D500E89F56 /* Test_Signals.cpp in Sources */,
 				E34D255318FC2EC4006B3446 /* Test_Gist.cpp in Sources */,
 				E3CFFF3A186F3C2800317C03 /* Test_OnsetDetectionFunction.cpp in Sources */,
@@ -325,6 +356,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DUSE_KISS_FFT",
+				);
 				OTHER_LDFLAGS = (
 					"-lboost_unit_test_framework",
 					"-lboost_unit_test_framework",
@@ -343,6 +378,10 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DUSE_KISS_FFT",
+				);
 				OTHER_LDFLAGS = (
 					"-lboost_unit_test_framework",
 					"-lboost_unit_test_framework",

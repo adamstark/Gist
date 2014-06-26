@@ -39,8 +39,15 @@
 // MFCC
 #include "mfcc/MFCC.h"
 
+//=======================================================================
 // fft
+#ifdef USE_FFTW
 #include "fftw3.h"
+#endif
+
+#ifdef USE_KISS_FFT
+#include "kiss_fft.h"
+#endif
 
 //=======================================================================
 /** Class for all performing all Gist audio analyses */
@@ -248,12 +255,25 @@ private:
             freeFFT();
         }
         
+        
+#ifdef USE_FFTW
+        // ------------------------------------------------------
         // initialise the fft time and frequency domain audio frame arrays
         fftIn = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * frameSize);		// complex array to hold fft data
         fftOut = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * frameSize);	// complex array to hold fft data
         
         // FFT plan initialisation
         p = fftw_plan_dft_1d(frameSize, fftIn, fftOut, FFTW_FORWARD, FFTW_ESTIMATE);
+#endif /* END USE_FFTW */
+        
+        
+#ifdef USE_KISS_FFT
+        // ------------------------------------------------------
+        // initialise the fft time and frequency domain audio frame arrays
+        fftIn = new kiss_fft_cpx[frameSize];
+        fftOut = new kiss_fft_cpx[frameSize];
+        cfg = kiss_fft_alloc(frameSize,0,0,0);
+#endif /* END USE_KISS_FFT */
         
         fftConfigured = true;
     }
@@ -261,17 +281,30 @@ private:
     /** Free all FFT-related data */
     void freeFFT()
     {
+        
+#ifdef USE_FFTW
         // destroy fft plan
         fftw_destroy_plan(p);
         
         fftw_free(fftIn);
         fftw_free(fftOut);
+#endif
+        
+#ifdef USE_KISS_FFT
+        // free the Kiss FFT configuration
+        free(cfg);
+        
+        delete [] fftIn;
+        delete [] fftOut;
+#endif
+        
     }
     
     
     /** perform the FFT on the current audio frame */
     void performFFT()
     {
+#ifdef USE_FFTW
         // copy samples from audio frame
         for (int i = 0;i < frameSize;i++)
         {
@@ -288,20 +321,49 @@ private:
             fftReal[i] = (T) fftOut[i][0];
             fftImag[i] = (T) fftOut[i][1];
         }
-
+#endif
+        
+#ifdef USE_KISS_FFT
+        for (int i = 0;i < frameSize;i++)
+        {
+            fftIn[i].r = (double) audioFrame[i];
+            fftIn[i].i = 0.0;
+        }
+        
+        // execute kiss fft
+        kiss_fft(cfg, fftIn, fftOut);
+        
+        // store real and imaginary parts of FFT
+        for (int i = 0;i < frameSize;i++)
+        {
+            fftReal[i] = (T) fftOut[i].r;
+            fftImag[i] = (T) fftOut[i].i;
+        }
+#endif
+        
+        
+        
         // calculate the magnitude spectrum
         for (int i = 0;i < frameSize/2;i++)
         {
-            magnitudeSpectrum[i] = sqrt(pow(fftReal[i],2) + pow(fftImag[i],2));
+            magnitudeSpectrum[i] = sqrt((fftReal[i]*fftReal[i]) + (fftImag[i]*fftImag[i]));
         }
 
     }
     
     //=======================================================================
     
+    #ifdef USE_FFTW
     fftw_plan p;                        /**< fftw plan */
 	fftw_complex *fftIn;				/**< to hold complex fft values for input */
 	fftw_complex *fftOut;               /**< to hold complex fft values for output */
+    #endif
+    
+    #ifdef USE_KISS_FFT
+    kiss_fft_cfg cfg;                   /**< Kiss FFT configuration */
+    kiss_fft_cpx *fftIn;                /**< FFT input samples, in complex form */
+    kiss_fft_cpx *fftOut;               /**< FFT output samples, in complex form */
+    #endif
     
     int frameSize;                      /**< The audio frame size */
     
