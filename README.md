@@ -1,7 +1,7 @@
 Gist - A Real-Time Audio Analysis Library
 ==================================
 
-*Version 1.0.0*
+*Version 1.0.1*
 
 Gist is a C++ based audio analysis library, written for use in real-time applications.
 
@@ -120,14 +120,26 @@ Now we can retrieve some audio features.
 Version History
 ---------------
 
-=== 1.0.0 ===
+=== 1.0.1 === (26th June 2014)
 
-The first version of Gist
+* Added the option of using Kiss FFT instead of FFTW
+
+=== 1.0.0 === (22nd June 2014)
+
+* The first version of Gist
 
 Dependencies
 ------------
 
-The Gist library depends on the FFT library [FFTW](http://fftw.org).
+The Gist library depends on one of the following FFT libraries:
+
+* [FFTW](http://fftw.org) 
+
+You will need to install this yourself, link projects using -lfftw3 and use the flag -DUSE_FFTW
+
+* [Kiss FFT](http://kissfft.sourceforge.net/) - included with project
+
+This is included with the project. To use Kiss FFT, add the flag -DUSE_FFTW
 
 License
 -------
