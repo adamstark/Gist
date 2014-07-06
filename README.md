@@ -139,7 +139,7 @@ You will need to install this yourself, link projects using -lfftw3 and use the 
 
 * [Kiss FFT](http://kissfft.sourceforge.net/) - included with project
 
-This is included with the project. To use Kiss FFT, add the flag -DUSE_FFTW
+This is included with the project. To use Kiss FFT, add the flag -DUSE_KISS_FFT
 
 License
 -------
