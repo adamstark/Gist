@@ -225,6 +225,10 @@ void Gist<T>::configureFFT()
     cfg = kiss_fft_alloc (frameSize, 0, 0, 0);
 #endif /* END USE_KISS_FFT */
     
+#ifdef USE_ACCELERATE_FFT
+    accelerateFFT.setAudioFrameSize (frameSize);
+#endif
+    
     fftConfigured = true;
 }
 
@@ -288,6 +292,27 @@ void Gist<T>::performFFT()
         fftReal[i] = (T)fftOut[i].r;
         fftImag[i] = (T)fftOut[i].i;
     }
+#endif
+    
+#ifdef USE_ACCELERATE_FFT
+    
+    T inputFrame[frameSize];
+    T outputReal[frameSize];
+    T outputImag[frameSize];
+    
+    for (int i = 0; i < frameSize; i++)
+    {
+        inputFrame[i] = audioFrame[i];
+    }
+    
+    accelerateFFT.performFFT (inputFrame, outputReal, outputImag);
+    
+    for (int i = 0; i < frameSize; i++)
+    {
+        fftReal[i] = outputReal[i];
+        fftImag[i] = outputImag[i];
+    }
+    
 #endif
     
     // calculate the magnitude spectrum

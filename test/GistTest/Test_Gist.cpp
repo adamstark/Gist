@@ -2,6 +2,7 @@
 #define GIST_TESTS
 
 #include "../../src/Gist.h"
+#include "test-signals/Test_Signals.h"
 
 #define BOOST_TEST_DYN_LINK
 #include <boost/test/unit_test.hpp>
@@ -62,6 +63,56 @@ BOOST_AUTO_TEST_CASE(TestFFT2)
         BOOST_CHECK_EQUAL(mag[i], 0.0);
     }
 }
+
+//=============================================================
+BOOST_AUTO_TEST_CASE(TestFFT3)
+{
+    Gist<float> g(256,44100);
+    
+    std::vector<float> testFrame(256);
+    
+    for (int i = 0;i < 256;i++)
+    {
+        testFrame[i] = fftTestIn[i];
+    }
+    
+    g.processAudioFrame(testFrame);
+    
+    std::vector<float> mag;
+    
+    mag = g.getMagnitudeSpectrum();
+    
+    for (int i = 1;i < mag.size();i++)
+    {
+        BOOST_CHECK_CLOSE (mag[i], fftTestMag[i], 0.001);
+    }
+}
+
+
+//=============================================================
+BOOST_AUTO_TEST_CASE(TestFFT4)
+{
+    Gist<double> g(256,44100);
+    
+    std::vector<double> testFrame(256);
+    
+    for (int i = 0;i < 256;i++)
+    {
+        testFrame[i] = fftTestIn[i];
+    }
+    
+    g.processAudioFrame(testFrame);
+    
+    std::vector<double> mag;
+    
+    mag = g.getMagnitudeSpectrum();
+    
+    for (int i = 1;i < mag.size();i++)
+    {
+        BOOST_CHECK_CLOSE (mag[i], fftTestMag[i], 0.001);
+    }
+}
+
 
 //=============================================================
 BOOST_AUTO_TEST_CASE(RMS_Test)

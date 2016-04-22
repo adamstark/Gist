@@ -21,4 +21,8 @@ extern float magnitudeSpectrum[256];
 
 extern float mfccTest1_result[13];
 
+extern float fftTestIn[256];
+
+extern float fftTestMag[256];
+
 #endif

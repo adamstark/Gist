@@ -48,6 +48,10 @@
 #include "kiss_fft.h"
 #endif
 
+#ifdef USE_ACCELERATE_FFT
+#include "fft/AccelerateFFT.h"
+#endif
+
 //=======================================================================
 /** Class for all performing all Gist audio analyses */
 template <class T>
@@ -167,6 +171,10 @@ private:
     kiss_fft_cfg cfg;     /**< Kiss FFT configuration */
     kiss_fft_cpx* fftIn;  /**< FFT input samples, in complex form */
     kiss_fft_cpx* fftOut; /**< FFT output samples, in complex form */
+#endif
+    
+#ifdef USE_ACCELERATE_FFT
+    AccelerateFFT<T> accelerateFFT;
 #endif
 
     int frameSize; /**< The audio frame size */
