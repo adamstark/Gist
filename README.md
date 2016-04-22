@@ -54,7 +54,7 @@ Or, as an array:
 	// fill audio frame with samples here
 	// !
 	
-	gist.processAudioFrame(audioFrame,512);
+	gist.processAudioFrame(audioFrame, 512);
 	
 Now we can retrieve some audio features.
 	
@@ -80,6 +80,11 @@ Now we can retrieve some audio features.
     // Spectral Flatness
     float specFlat = gist.spectralFlatness();
     
+    // Spectral Rolloff
+    float specRolloff = gist.spectralRolloff();
+    
+    // Spectral Kurtosis
+    float specKurtosis = gist.spectralKurtosis();
 
 ##### Onset Detection Functions
     
@@ -116,7 +121,7 @@ Now we can retrieve some audio features.
 	// MFCCs
 	std::vector<float> mfcc = gist.melFrequencyCepstralCoefficients();
 	
-	
+		
 Version History
 ---------------
 
@@ -140,6 +145,10 @@ You will need to install this yourself, link projects using -lfftw3 and use the 
 * [Kiss FFT](http://kissfft.sourceforge.net/) - included with project
 
 This is included with the project. To use Kiss FFT, add the flag -DUSE_KISS_FFT
+
+* [Apple Accelerate FFT](https://developer.apple.com/library/ios/documentation/Performance/Conceptual/vDSP_Programming_Guide/UsingFourierTransforms/UsingFourierTransforms.html)
+
+To use Accelerate FFT, add the flag -DUSE_ACCELERATE_FFT
 
 License
 -------
