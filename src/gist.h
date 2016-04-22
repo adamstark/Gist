@@ -54,307 +54,106 @@ template <class T>
 class Gist
 {
 public:
+    
+    //=======================================================================
     /** Constructor
      * @param frameSize_ the input audio frame size
      * @param sampleRate the input audio sample rate
      */
-    Gist (int frameSize_, int sampleRate_)
-        : fftConfigured (false), onsetDetectionFunction (frameSize_), yin (sampleRate_), mfcc (frameSize_, sampleRate_)
-    {
-        setAudioFrameSize (frameSize_);
-    }
+    Gist (int frameSize_, int sampleRate_);
 
     /** Destructor */
-    ~Gist()
-    {
-        if (fftConfigured)
-        {
-            freeFFT();
-        }
-    }
+    ~Gist();
 
     /** Set the audio frame size.
      * @param frameSize_ the frame size to use
      */
-    void setAudioFrameSize (int frameSize_)
-    {
-        frameSize = frameSize_;
-
-        audioFrame.resize (frameSize);
-        fftReal.resize (frameSize);
-        fftImag.resize (frameSize);
-        magnitudeSpectrum.resize (frameSize / 2);
-
-        configureFFT();
-
-        onsetDetectionFunction.setFrameSize (frameSize);
-        mfcc.setFrameSize (frameSize);
-    }
+    void setAudioFrameSize (int frameSize_);
 
     /** Process an audio frame
      * @param audioFrame a vector containing audio samples
      */
-    void processAudioFrame (std::vector<T> audioFrame_)
-    {
-        audioFrame = audioFrame_;
-
-        performFFT();
-    }
+    void processAudioFrame (std::vector<T> audioFrame_);
 
     /** Process an audio frame
      * @param buffer a pointer to an array containing the audio samples
      * @param numSamples the number of samples in the audio frame
      */
-    void processAudioFrame (T* buffer, unsigned long numSamples)
-    {
-        audioFrame.assign (buffer, buffer + numSamples);
-
-        performFFT();
-    }
+    void processAudioFrame (T* buffer, unsigned long numSamples);
 
     /** Gist automatically calculates the magnitude spectrum when processAudioFrame() is called, this function returns it.
      @returns the current magnitude spectrum */
-    std::vector<T> getMagnitudeSpectrum()
-    {
-        return magnitudeSpectrum;
-    }
+    std::vector<T> getMagnitudeSpectrum();
 
     //================= CORE TIME DOMAIN FEATURES =================
 
-    /** Calculates the root mean square (RMS) of the currently stored audio frame
-     * @returns the root mean square (RMS) value
-     */
-    T rootMeanSquare()
-    {
-        return coreTimeDomainFeatures.rootMeanSquare (audioFrame);
-    }
+    /** @Returns the root mean square (RMS) of the currently stored audio frame */
+    T rootMeanSquare();
 
-    /** Calculates the peak energy of the currently stored audio frame
-     * @returns the peak energy value
-     */
-    T peakEnergy()
-    {
-        return coreTimeDomainFeatures.peakEnergy (audioFrame);
-    }
+    /** @Returns the peak energy of the currently stored audio frame */
+    T peakEnergy();
 
-    /** Calculates the zero crossing rate of the currently stored audio frame
-     * @returns the zero crossing rate
-     */
-    T zeroCrossingRate()
-    {
-        return coreTimeDomainFeatures.zeroCrossingRate (audioFrame);
-    }
+    /** @Returns the zero crossing rate of the currently stored audio frame */
+    T zeroCrossingRate();
 
     //=============== CORE FREQUENCY DOMAIN FEATURES ==============
 
-    /** Calculates the spectral centroid from the magnitude spectrum 
-     * @returns the spectral centroid 
-     */
-    T spectralCentroid()
-    {
-        return coreFrequencyDomainFeatures.spectralCentroid (magnitudeSpectrum);
-    }
+    /** @Returns the spectral centroid from the magnitude spectrum */
+    T spectralCentroid();
 
-    /** Calculates the spectral crest
-     * @returns the spectral crest
-     */
-    T spectralCrest()
-    {
-        return coreFrequencyDomainFeatures.spectralCrest (magnitudeSpectrum);
-    }
+    /** @Returns the spectral crest */
+    T spectralCrest();
 
-    /** Calculates the spectral flatness from the magnitude spectrum
-     * @returns the spectral flatness
-     */
-    T spectralFlatness()
-    {
-        return coreFrequencyDomainFeatures.spectralFlatness (magnitudeSpectrum);
-    }
+    /** @Returns the spectral flatness of the magnitude spectrum */
+    T spectralFlatness();
     
-    /** Calculates the spectral rolloff from the magnitude spectrum
-     * @returns the spectral rolloff
-     */
-    T spectralRolloff()
-    {
-        return coreFrequencyDomainFeatures.spectralRolloff (magnitudeSpectrum);
-    }
+    /** @Returns the spectral rolloff of the magnitude spectrum */
+    T spectralRolloff();
     
-    /** Calculates the spectral kurtosis from the magnitude spectrum
-     * @returns the spectral kurtosis
-     */
-    T spectralKurtosis()
-    {
-        return coreFrequencyDomainFeatures.spectralKurtosis (magnitudeSpectrum);
-    }
+    /** @Returns the spectral kurtosis of the magnitude spectrum */
+    T spectralKurtosis();
 
     //================= ONSET DETECTION FUNCTIONS =================
 
-    /** Calculates the energy difference onset detection function sample for the magnitude spectrum frame
-     * @returns the energy difference onset detection function sample
-     */
-    T energyDifference()
-    {
-        return onsetDetectionFunction.energyDifference (audioFrame);
-    }
+    /** @Returns the energy difference onset detection function sample for the magnitude spectrum frame */
+    T energyDifference();
 
-    /** Calculates the spectral difference onset detection function sample for the magnitude spectrum frame
-     * @returns the spectral difference onset detection function sample
-     */
-    T spectralDifference()
-    {
-        return onsetDetectionFunction.spectralDifference (magnitudeSpectrum);
-    }
+    /** @Returns the spectral difference onset detection function sample for the magnitude spectrum frame */
+    T spectralDifference();
 
-    /** Calculates the complex spectral difference onset detection function sample for the magnitude spectrum frame
-     * @returns the complex spectral difference onset detection function sample
-     */
-    T spectralDifferenceHWR()
-    {
-        return onsetDetectionFunction.spectralDifferenceHWR (magnitudeSpectrum);
-    }
+    /** @Returns the half wave rectified complex spectral difference onset detection function sample for the magnitude spectrum frame */
+    T spectralDifferenceHWR();
 
-    /** Calculates the complex spectral difference onset detection function sample for the magnitude spectrum frame
-     * @returns the complex spectral difference onset detection function sample
-     */
-    T complexSpectralDifference()
-    {
-        return onsetDetectionFunction.complexSpectralDifference (fftReal, fftImag);
-    }
+    /** @Returns the complex spectral difference onset detection function sample for the magnitude spectrum frame */
+    T complexSpectralDifference();
 
-    /** Calculates the high frequency content onset detection function sample for the magnitude spectrum frame
-     * @returns the high frequency content onset detection function sample
-     */
-    T highFrequencyContent()
-    {
-        return onsetDetectionFunction.highFrequencyContent (magnitudeSpectrum);
-    }
+    /** @Returns the high frequency content onset detection function sample for the magnitude spectrum frame */
+    T highFrequencyContent();
 
     //=========================== PITCH ============================
 
-    /** Calculates monophonic pitch according to the Yin algorithm
-     * @returns the pitch estimate for the audio frame
-     */
-    T pitch()
-    {
-        return yin.pitchYin (audioFrame);
-    }
+    /** @Returns a monophonic pitch estimate according to the Yin algorithm */
+    T pitch();
 
     //=========================== MFCCs =============================
 
-    /** Calculates the Mel Frequency Spectrum
-     * @returns the Mel spectrum as a vector
-     */
-    std::vector<T> melFrequencySpectrum()
-    {
-        return mfcc.melFrequencySpectrum (magnitudeSpectrum);
-    }
+    /** @Returns the Mel Frequency Spectrum */
+    std::vector<T> melFrequencySpectrum();
 
-    /** Calculates Mel Frequency Cepstral Coefficients
-     * @returns the MFCCs as a vector
-     */
-    std::vector<T> melFrequencyCepstralCoefficients()
-    {
-        return mfcc.melFrequencyCepstralCoefficients (magnitudeSpectrum);
-    }
+    /** @Returns the Mel Frequency Cepstral Coefficients as a vector */
+    std::vector<T> melFrequencyCepstralCoefficients();
 
 private:
     //=======================================================================
 
-    /** configure the FFT implementation given the audio frame size) */
-    void configureFFT()
-    {
-        if (fftConfigured)
-        {
-            freeFFT();
-        }
-
-#ifdef USE_FFTW
-        // ------------------------------------------------------
-        // initialise the fft time and frequency domain audio frame arrays
-        fftIn = (fftw_complex*)fftw_malloc (sizeof (fftw_complex) * frameSize);  // complex array to hold fft data
-        fftOut = (fftw_complex*)fftw_malloc (sizeof (fftw_complex) * frameSize); // complex array to hold fft data
-
-        // FFT plan initialisation
-        p = fftw_plan_dft_1d (frameSize, fftIn, fftOut, FFTW_FORWARD, FFTW_ESTIMATE);
-#endif /* END USE_FFTW */
-
-#ifdef USE_KISS_FFT
-        // ------------------------------------------------------
-        // initialise the fft time and frequency domain audio frame arrays
-        fftIn = new kiss_fft_cpx[frameSize];
-        fftOut = new kiss_fft_cpx[frameSize];
-        cfg = kiss_fft_alloc (frameSize, 0, 0, 0);
-#endif /* END USE_KISS_FFT */
-
-        fftConfigured = true;
-    }
+    /** Configure the FFT implementation given the audio frame size) */
+    void configureFFT();
 
     /** Free all FFT-related data */
-    void freeFFT()
-    {
-#ifdef USE_FFTW
-        // destroy fft plan
-        fftw_destroy_plan (p);
-
-        fftw_free (fftIn);
-        fftw_free (fftOut);
-#endif
-
-#ifdef USE_KISS_FFT
-        // free the Kiss FFT configuration
-        free (cfg);
-
-        delete[] fftIn;
-        delete[] fftOut;
-#endif
-    }
+    void freeFFT();
 
     /** perform the FFT on the current audio frame */
-    void performFFT()
-    {
-#ifdef USE_FFTW
-        // copy samples from audio frame
-        for (int i = 0; i < frameSize; i++)
-        {
-            fftIn[i][0] = (double)audioFrame[i];
-            fftIn[i][1] = (double)0.0;
-        }
-
-        // perform the FFT
-        fftw_execute (p);
-
-        // store real and imaginary parts of FFT
-        for (int i = 0; i < frameSize; i++)
-        {
-            fftReal[i] = (T)fftOut[i][0];
-            fftImag[i] = (T)fftOut[i][1];
-        }
-#endif
-
-#ifdef USE_KISS_FFT
-        for (int i = 0; i < frameSize; i++)
-        {
-            fftIn[i].r = (double)audioFrame[i];
-            fftIn[i].i = 0.0;
-        }
-
-        // execute kiss fft
-        kiss_fft (cfg, fftIn, fftOut);
-
-        // store real and imaginary parts of FFT
-        for (int i = 0; i < frameSize; i++)
-        {
-            fftReal[i] = (T)fftOut[i].r;
-            fftImag[i] = (T)fftOut[i].i;
-        }
-#endif
-
-        // calculate the magnitude spectrum
-        for (int i = 0; i < frameSize / 2; i++)
-        {
-            magnitudeSpectrum[i] = sqrt ((fftReal[i] * fftReal[i]) + (fftImag[i] * fftImag[i]));
-        }
-    }
+    void performFFT();
 
 //=======================================================================
 
