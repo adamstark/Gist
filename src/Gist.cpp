@@ -1,6 +1,6 @@
 //=======================================================================
 /** @file Gist.cpp
- *  @brief Includes all relevant parts of the 'Gist' audio analysis library
+ *  @brief Implementation for all relevant parts of the 'Gist' audio analysis library
  *  @author Adam Stark
  *  @copyright Copyright (C) 2013  Adam Stark
  *
