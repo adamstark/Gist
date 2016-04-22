@@ -38,17 +38,17 @@ public:
     /** constructor
      * @param samplingFrequency the sampling frequency
      */
-    Yin(int samplingFrequency);
+    Yin (int samplingFrequency);
     
     /** sets the sampling frequency used to calculate pitch values
      * @param samplingFrequency the sampling frequency
      */
-    void setSamplingFrequency(int samplingFrequency);
+    void setSamplingFrequency (int samplingFrequency);
     
     /** sets the maximum frequency that the algorithm will return
      * @param maxFreq the maximum frequency
      */
-    void setMaxFrequency(T maxFreq);
+    void setMaxFrequency (T maxFreq);
     
     /** @returns the maximum frequency that the algorithm will return */
     T getMaxFrequency()
@@ -60,7 +60,7 @@ public:
      * @param frame an audio frame stored in a vector
      * @returns the estimated pitch in Hz
      */
-    T pitchYin(std::vector<T> frame);
+    T pitchYin (std::vector<T> frame);
         
 private:
     
@@ -68,7 +68,7 @@ private:
      * @param period the period in audio samples
      * @returns the pitch in Hz
      */
-    T periodToPitch(T period);
+    T periodToPitch (T period);
 
     /** this method searches the previous period estimate for a 
      * minimum and if it finds one, it is used, for the sake of consistency, 
@@ -76,7 +76,7 @@ private:
      * @param delta the cumulative mean normalised difference function
      * @returns the period found if a minimum is found, or -1 if not
      */
-    long searchForOtherRecentMinima(std::vector<T> delta);
+    long searchForOtherRecentMinima (std::vector<T> delta);
     
     /** interpolates a period estimate using parabolic interpolation
      * @param period the period estimate
@@ -85,13 +85,13 @@ private:
      * @param y3 the value of the cumulative mean normalised difference function at (period+1)
      * @returns the interpolated period
      */
-    T parabolicInterpolation(unsigned long period,T y1,T y2,T y3);
+    T parabolicInterpolation (unsigned long period,T y1,T y2,T y3);
     
     /** calculates the period candidate from the cumulative mean normalised difference function 
      * @param delta the cumulative mean normalised difference function
      * @returns the period estimate
      */
-    unsigned long getPeriodCandidate(std::vector<T> delta);
+    unsigned long getPeriodCandidate (std::vector<T> delta);
     
     /** this calculates steps 1, 2 and 3 of the Yin algorithm as set out in
      * the paper (de Cheveigné and Kawahara,2002).
@@ -99,9 +99,9 @@ private:
      * @param numSamples the number of audio samples in the frame
      * @returns the cumulative mean normalised difference function ("delta")
      */
-    void cumulativeMeanNormalisedDifferenceFunction(T *frame,unsigned long numSamples);
+    void cumulativeMeanNormalisedDifferenceFunction (T *frame,unsigned long numSamples);
     
-	T round(T val)
+	T round (T val)
 	{
 		return floor(val + 0.5);
 	}

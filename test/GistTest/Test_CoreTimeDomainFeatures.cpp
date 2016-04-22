@@ -147,6 +147,7 @@ BOOST_AUTO_TEST_SUITE_END()
 //=============================================================
 BOOST_AUTO_TEST_SUITE(ZeroCrossingRate)
 
+
 // ------------------------------------------------------------
 // 1. Check that a buffer of zeros returns zero
 BOOST_AUTO_TEST_CASE(Zero_Test)

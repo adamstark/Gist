@@ -43,7 +43,7 @@ void OnsetDetectionFunction<T>::setFrameSize (int frameSize)
     prevMagnitudeSpectrum_complexSpectralDifference.resize (frameSize);
 
     // fill it with zeros
-    for (int i = 0; i < prevMagnitudeSpectrum_spectralDifference.size (); i++)
+    for (int i = 0; i < prevMagnitudeSpectrum_spectralDifference.size(); i++)
     {
         prevMagnitudeSpectrum_spectralDifference[i] = 0.0;
         prevMagnitudeSpectrum_spectralDifferenceHWR[i] = 0.0;
@@ -68,7 +68,7 @@ T OnsetDetectionFunction<T>::energyDifference (std::vector<T> buffer)
     sum = 0; // initialise sum
 
     // sum the squares of the samples
-    for (int i = 0; i < buffer.size (); i++)
+    for (int i = 0; i < buffer.size(); i++)
     {
         sum = sum + (buffer[i] * buffer[i]);
     }
@@ -93,7 +93,7 @@ T OnsetDetectionFunction<T>::spectralDifference (std::vector<T> magnitudeSpectru
 {
     T sum = 0; // initialise sum to zero
 
-    for (int i = 0; i < magnitudeSpectrum.size (); i++)
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // calculate difference
         T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum_spectralDifference[i];
@@ -120,7 +120,7 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR (std::vector<T> magnitudeSpec
 {
     T sum = 0; // initialise sum to zero
 
-    for (int i = 0; i < magnitudeSpectrum.size (); i++)
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // calculate difference
         T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum_spectralDifferenceHWR[i];
@@ -153,7 +153,7 @@ T OnsetDetectionFunction<T>::complexSpectralDifference (std::vector<T> fftReal, 
     sum = 0; // initialise sum to zero
 
     // compute phase values from fft output and sum deviations
-    for (int i = 0; i < fftReal.size (); i++)
+    for (int i = 0; i < fftReal.size(); i++)
     {
         // calculate phase value
         phaseVal = atan2 (fftImag[i], fftReal[i]);
@@ -196,7 +196,7 @@ T OnsetDetectionFunction<T>::highFrequencyContent (std::vector<T> magnitudeSpect
 
     sum = 0; // initialise sum to zero
 
-    for (int i = 0; i < magnitudeSpectrum.size (); i++)
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
     {
         sum += (magnitudeSpectrum[i] * ((T)(i + 1)));
     }

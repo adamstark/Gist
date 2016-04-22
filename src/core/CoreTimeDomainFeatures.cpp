@@ -25,7 +25,7 @@
 
 //===========================================================
 template <class T>
-CoreTimeDomainFeatures<T>::CoreTimeDomainFeatures ()
+CoreTimeDomainFeatures<T>::CoreTimeDomainFeatures()
 {
 }
 
@@ -37,13 +37,13 @@ T CoreTimeDomainFeatures<T>::rootMeanSquare (std::vector<T> buffer)
     T sum = 0;
 
     // sum the squared samples
-    for (int i = 0; i < buffer.size (); i++)
+    for (int i = 0; i < buffer.size(); i++)
     {
         sum += pow (buffer[i], 2);
     }
 
     // return the square root of the mean of squared samples
-    return sqrt (sum / ((T)buffer.size ()));
+    return sqrt (sum / ((T)buffer.size()));
 }
 
 //===========================================================
@@ -54,7 +54,7 @@ T CoreTimeDomainFeatures<T>::peakEnergy (std::vector<T> buffer)
     T peak = -10000.0;
 
     // for each audio sample
-    for (int i = 0; i < buffer.size (); i++)
+    for (int i = 0; i < buffer.size(); i++)
     {
         // store the absolute value of the sample
         T absSample = fabs (buffer[i]);
@@ -79,7 +79,7 @@ T CoreTimeDomainFeatures<T>::zeroCrossingRate (std::vector<T> buffer)
     T zcr = 0;
 
     // for each audio sample, starting from the second one
-    for (int i = 1; i < buffer.size (); i++)
+    for (int i = 1; i < buffer.size(); i++)
     {
         // initialise two booleans indicating whether or not
         // the current and previous sample are positive

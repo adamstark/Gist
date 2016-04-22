@@ -23,9 +23,15 @@
 
 #include "CoreFrequencyDomainFeatures.h"
 
+#warning Remove these
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <limits>
+
 //===========================================================
 template <class T>
-CoreFrequencyDomainFeatures<T>::CoreFrequencyDomainFeatures ()
+CoreFrequencyDomainFeatures<T>::CoreFrequencyDomainFeatures()
 {
 }
 
@@ -40,7 +46,7 @@ T CoreFrequencyDomainFeatures<T>::spectralCentroid (std::vector<T> magnitudeSpec
     T sumWeightedAmplitudes = 0.0;
 
     // for each bin in the first half of the magnitude spectrum
-    for (int i = 0; i < magnitudeSpectrum.size (); i++)
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // sum amplitudes
         sumAmplitudes += magnitudeSpectrum[i];
@@ -68,11 +74,11 @@ T CoreFrequencyDomainFeatures<T>::spectralFlatness (std::vector<T> magnitudeSpec
 {
     double sumVal = 0.0;
     double logSumVal = 0.0;
-    double N = (double)magnitudeSpectrum.size ();
+    double N = (double)magnitudeSpectrum.size();
 
     T flatness;
 
-    for (int i = 0; i < magnitudeSpectrum.size (); i++)
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // add one to stop zero values making it always zero
         double v = (double)(1 + magnitudeSpectrum[i]);
@@ -102,9 +108,9 @@ T CoreFrequencyDomainFeatures<T>::spectralCrest (std::vector<T> magnitudeSpectru
 {
     T sumVal = 0.0;
     T maxVal = 0.0;
-    T N = (T)magnitudeSpectrum.size ();
+    T N = (T)magnitudeSpectrum.size();
 
-    for (int i = 0; i < magnitudeSpectrum.size (); i++)
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
     {
         T v = magnitudeSpectrum[i] * magnitudeSpectrum[i];
         sumVal += v;
@@ -130,6 +136,67 @@ T CoreFrequencyDomainFeatures<T>::spectralCrest (std::vector<T> magnitudeSpectru
     }
 
     return spectralCrest;
+}
+
+//===========================================================
+template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralRolloff (std::vector<T> magnitudeSpectrum, T percentile)
+{
+    T sumOfMagnitudeSpectrum = std::accumulate (magnitudeSpectrum.begin(), magnitudeSpectrum.end(), 0);
+    T threshold = sumOfMagnitudeSpectrum * percentile;
+    
+    T cumulativeSum = 0;
+    int index = 0;
+    
+    for (int i = 0; i < magnitudeSpectrum.size();i++)
+    {
+        cumulativeSum += magnitudeSpectrum[i];
+        
+        if (cumulativeSum > threshold)
+        {
+            index = i;
+            break;
+        }
+    }
+    
+    T spectralRolloff = ((T)index) / ((T)magnitudeSpectrum.size());
+    
+    return spectralRolloff;
+}
+
+//===========================================================
+template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralKurtosis (std::vector<T> magnitudeSpectrum)
+{
+    // https://en.wikipedia.org/wiki/Kurtosis#Sample_kurtosis
+    
+    T sumOfMagnitudeSpectrum = std::accumulate (magnitudeSpectrum.begin(), magnitudeSpectrum.end(), 0);
+    
+    T mean = sumOfMagnitudeSpectrum / (T)magnitudeSpectrum.size();
+    
+    T moment2 = 0;
+    T moment4 = 0;
+    
+    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    {
+        T difference = magnitudeSpectrum[i] - mean;
+        T squaredDifference = difference*difference;
+        
+        moment2 += squaredDifference;
+        moment4 += squaredDifference*squaredDifference;
+    }
+    
+    moment2 = moment2 / (T)magnitudeSpectrum.size();
+    moment4 = moment4 / (T)magnitudeSpectrum.size();
+        
+    if (moment2 == 0)
+    {
+        return -3.;
+    }
+    else
+    {
+        return (moment4 / (moment2*moment2)) - 3.;
+    }
 }
 
 //===========================================================

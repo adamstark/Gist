@@ -35,7 +35,7 @@ class CoreTimeDomainFeatures
 {
 public:
     /** constructor */
-    CoreTimeDomainFeatures ();
+    CoreTimeDomainFeatures();
 
     //===========================================================
     /** calculates the Root Mean Square (RMS) of an audio buffer

@@ -25,6 +25,7 @@
 #define __GIST__COREFREQUENCYDOMAINFEATURES__
 
 #include <vector>
+#include <numeric>
 #include <math.h>
 
 /** template class for calculating common frequency domain
@@ -35,7 +36,7 @@ class CoreFrequencyDomainFeatures
 {
 public:
     /** constructor */
-    CoreFrequencyDomainFeatures ();
+    CoreFrequencyDomainFeatures();
 
     //===========================================================
     /** calculates the spectral centroid given the first half of the magnitude spectrum
@@ -61,6 +62,25 @@ public:
      @returns the spectral crest
      */
     T spectralCrest (std::vector<T> magnitudeSpectrum);
+    
+    //===========================================================
+    /** calculates the spectral rolloff given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @param percentile the rolloff threshold
+     @returns the spectral rolloff
+     */
+    T spectralRolloff (std::vector<T> magnitudeSpectrum, T percentile = 0.85);
+    
+    //===========================================================
+    /** calculates the spectral kurtosis given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @returns the spectral kurtosis
+     */
+    T spectralKurtosis (std::vector<T> magnitudeSpectrum);
+    
+    
 };
 
 #endif

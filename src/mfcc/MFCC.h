@@ -70,7 +70,7 @@ private:
     /** Initialises the parts of the algorithm dependent on frame size, sampling frequency
      * and the number of coefficients
      */
-    void initialise ();
+    void initialise();
 
     /** Calculates the discrete cosine transform (version 2) of an input signal 
      * @param inputSignal a vector containing the input signal
@@ -82,7 +82,7 @@ private:
      * upon the frame size, sampling frequency and number of coefficients and so should be re-calculated
      * should any of those parameters change.
      */
-    void calculateMelFilterBank ();
+    void calculateMelFilterBank();
 
     /** Calculates mel from frequency
      * @param frequency the frequency in Hz

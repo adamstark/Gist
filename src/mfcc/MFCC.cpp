@@ -31,7 +31,7 @@ MFCC<T>::MFCC (int frameSize_, int samplingFrequency_)
     frameSize = frameSize_;
     samplingFrequency = samplingFrequency_;
 
-    initialise ();
+    initialise();
 }
 
 //==================================================================
@@ -40,7 +40,7 @@ void MFCC<T>::setNumCoefficients (int numCoefficients_)
 {
     numCoefficents = numCoefficients_;
 
-    initialise ();
+    initialise();
 }
 
 //==================================================================
@@ -49,7 +49,7 @@ void MFCC<T>::setFrameSize (int frameSize_)
 {
     frameSize = frameSize_;
 
-    initialise ();
+    initialise();
 }
 
 //==================================================================
@@ -58,7 +58,7 @@ void MFCC<T>::setSamplingFrequency (int samplingFrequency_)
 {
     samplingFrequency = samplingFrequency_;
 
-    initialise ();
+    initialise();
 }
 
 //==================================================================
@@ -69,7 +69,7 @@ std::vector<T> MFCC<T>::melFrequencyCepstralCoefficients (std::vector<T> magnitu
 
     melSpec = melFrequencySpectrum (magnitudeSpectrum);
 
-    for (int i = 0; i < melSpec.size (); i++)
+    for (int i = 0; i < melSpec.size(); i++)
     {
         melSpec[i] = log (melSpec[i]);
     }
@@ -87,7 +87,7 @@ std::vector<T> MFCC<T>::melFrequencySpectrum (std::vector<T> magnitudeSpectrum)
     {
         double coeff = 0;
 
-        for (int j = 0; j < magnitudeSpectrum.size (); j++)
+        for (int j = 0; j < magnitudeSpectrum.size(); j++)
         {
             coeff += (T)((magnitudeSpectrum[j] * magnitudeSpectrum[j]) * filterBank[i][j]);
         }
@@ -100,30 +100,30 @@ std::vector<T> MFCC<T>::melFrequencySpectrum (std::vector<T> magnitudeSpectrum)
 
 //==================================================================
 template <class T>
-void MFCC<T>::initialise ()
+void MFCC<T>::initialise()
 {
     magnitudeSpectrumSize = frameSize / 2;
     minFrequency = 0;
     maxFrequency = samplingFrequency / 2;
 
-    calculateMelFilterBank ();
+    calculateMelFilterBank();
 }
 
 //==================================================================
 template <class T>
 std::vector<T> MFCC<T>::discreteCosineTransform (std::vector<T> inputSignal)
 {
-    std::vector<T> outputSignal (inputSignal.size ());
+    std::vector<T> outputSignal (inputSignal.size());
 
-    T N = (T)inputSignal.size ();
+    T N = (T)inputSignal.size();
     T piOverN = M_PI / N;
 
-    for (int k = 0; k < outputSignal.size (); k++)
+    for (int k = 0; k < outputSignal.size(); k++)
     {
         T sum = 0;
         T kVal = (T)k;
 
-        for (int n = 0; n < inputSignal.size (); n++)
+        for (int n = 0; n < inputSignal.size(); n++)
         {
             T tmp = piOverN * (((T)n) + 0.5) * kVal;
 
@@ -138,7 +138,7 @@ std::vector<T> MFCC<T>::discreteCosineTransform (std::vector<T> inputSignal)
 
 //==================================================================
 template <class T>
-void MFCC<T>::calculateMelFilterBank ()
+void MFCC<T>::calculateMelFilterBank()
 {
     int maxMel = floor (frequencyToMel (maxFrequency));
     int minMel = floor (frequencyToMel (minFrequency));

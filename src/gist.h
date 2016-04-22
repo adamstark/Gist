@@ -65,11 +65,11 @@ public:
     }
 
     /** Destructor */
-    ~Gist ()
+    ~Gist()
     {
         if (fftConfigured)
         {
-            freeFFT ();
+            freeFFT();
         }
     }
 
@@ -85,7 +85,7 @@ public:
         fftImag.resize (frameSize);
         magnitudeSpectrum.resize (frameSize / 2);
 
-        configureFFT ();
+        configureFFT();
 
         onsetDetectionFunction.setFrameSize (frameSize);
         mfcc.setFrameSize (frameSize);
@@ -98,7 +98,7 @@ public:
     {
         audioFrame = audioFrame_;
 
-        performFFT ();
+        performFFT();
     }
 
     /** Process an audio frame
@@ -109,12 +109,12 @@ public:
     {
         audioFrame.assign (buffer, buffer + numSamples);
 
-        performFFT ();
+        performFFT();
     }
 
     /** Gist automatically calculates the magnitude spectrum when processAudioFrame() is called, this function returns it.
      @returns the current magnitude spectrum */
-    std::vector<T> getMagnitudeSpectrum ()
+    std::vector<T> getMagnitudeSpectrum()
     {
         return magnitudeSpectrum;
     }
@@ -124,7 +124,7 @@ public:
     /** Calculates the root mean square (RMS) of the currently stored audio frame
      * @returns the root mean square (RMS) value
      */
-    T rootMeanSquare ()
+    T rootMeanSquare()
     {
         return coreTimeDomainFeatures.rootMeanSquare (audioFrame);
     }
@@ -132,7 +132,7 @@ public:
     /** Calculates the peak energy of the currently stored audio frame
      * @returns the peak energy value
      */
-    T peakEnergy ()
+    T peakEnergy()
     {
         return coreTimeDomainFeatures.peakEnergy (audioFrame);
     }
@@ -140,7 +140,7 @@ public:
     /** Calculates the zero crossing rate of the currently stored audio frame
      * @returns the zero crossing rate
      */
-    T zeroCrossingRate ()
+    T zeroCrossingRate()
     {
         return coreTimeDomainFeatures.zeroCrossingRate (audioFrame);
     }
@@ -150,7 +150,7 @@ public:
     /** Calculates the spectral centroid from the magnitude spectrum 
      * @returns the spectral centroid 
      */
-    T spectralCentroid ()
+    T spectralCentroid()
     {
         return coreFrequencyDomainFeatures.spectralCentroid (magnitudeSpectrum);
     }
@@ -158,7 +158,7 @@ public:
     /** Calculates the spectral crest
      * @returns the spectral crest
      */
-    T spectralCrest ()
+    T spectralCrest()
     {
         return coreFrequencyDomainFeatures.spectralCrest (magnitudeSpectrum);
     }
@@ -166,9 +166,25 @@ public:
     /** Calculates the spectral flatness from the magnitude spectrum
      * @returns the spectral flatness
      */
-    T spectralFlatness ()
+    T spectralFlatness()
     {
         return coreFrequencyDomainFeatures.spectralFlatness (magnitudeSpectrum);
+    }
+    
+    /** Calculates the spectral rolloff from the magnitude spectrum
+     * @returns the spectral rolloff
+     */
+    T spectralRolloff()
+    {
+        return coreFrequencyDomainFeatures.spectralRolloff (magnitudeSpectrum);
+    }
+    
+    /** Calculates the spectral kurtosis from the magnitude spectrum
+     * @returns the spectral kurtosis
+     */
+    T spectralKurtosis()
+    {
+        return coreFrequencyDomainFeatures.spectralKurtosis (magnitudeSpectrum);
     }
 
     //================= ONSET DETECTION FUNCTIONS =================
@@ -176,7 +192,7 @@ public:
     /** Calculates the energy difference onset detection function sample for the magnitude spectrum frame
      * @returns the energy difference onset detection function sample
      */
-    T energyDifference ()
+    T energyDifference()
     {
         return onsetDetectionFunction.energyDifference (audioFrame);
     }
@@ -184,7 +200,7 @@ public:
     /** Calculates the spectral difference onset detection function sample for the magnitude spectrum frame
      * @returns the spectral difference onset detection function sample
      */
-    T spectralDifference ()
+    T spectralDifference()
     {
         return onsetDetectionFunction.spectralDifference (magnitudeSpectrum);
     }
@@ -192,7 +208,7 @@ public:
     /** Calculates the complex spectral difference onset detection function sample for the magnitude spectrum frame
      * @returns the complex spectral difference onset detection function sample
      */
-    T spectralDifferenceHWR ()
+    T spectralDifferenceHWR()
     {
         return onsetDetectionFunction.spectralDifferenceHWR (magnitudeSpectrum);
     }
@@ -200,7 +216,7 @@ public:
     /** Calculates the complex spectral difference onset detection function sample for the magnitude spectrum frame
      * @returns the complex spectral difference onset detection function sample
      */
-    T complexSpectralDifference ()
+    T complexSpectralDifference()
     {
         return onsetDetectionFunction.complexSpectralDifference (fftReal, fftImag);
     }
@@ -208,7 +224,7 @@ public:
     /** Calculates the high frequency content onset detection function sample for the magnitude spectrum frame
      * @returns the high frequency content onset detection function sample
      */
-    T highFrequencyContent ()
+    T highFrequencyContent()
     {
         return onsetDetectionFunction.highFrequencyContent (magnitudeSpectrum);
     }
@@ -218,7 +234,7 @@ public:
     /** Calculates monophonic pitch according to the Yin algorithm
      * @returns the pitch estimate for the audio frame
      */
-    T pitchYin ()
+    T pitch()
     {
         return yin.pitchYin (audioFrame);
     }
@@ -228,7 +244,7 @@ public:
     /** Calculates the Mel Frequency Spectrum
      * @returns the Mel spectrum as a vector
      */
-    std::vector<T> melFrequencySpectrum ()
+    std::vector<T> melFrequencySpectrum()
     {
         return mfcc.melFrequencySpectrum (magnitudeSpectrum);
     }
@@ -236,7 +252,7 @@ public:
     /** Calculates Mel Frequency Cepstral Coefficients
      * @returns the MFCCs as a vector
      */
-    std::vector<T> melFrequencyCepstralCoefficients ()
+    std::vector<T> melFrequencyCepstralCoefficients()
     {
         return mfcc.melFrequencyCepstralCoefficients (magnitudeSpectrum);
     }
@@ -245,11 +261,11 @@ private:
     //=======================================================================
 
     /** configure the FFT implementation given the audio frame size) */
-    void configureFFT ()
+    void configureFFT()
     {
         if (fftConfigured)
         {
-            freeFFT ();
+            freeFFT();
         }
 
 #ifdef USE_FFTW
@@ -274,7 +290,7 @@ private:
     }
 
     /** Free all FFT-related data */
-    void freeFFT ()
+    void freeFFT()
     {
 #ifdef USE_FFTW
         // destroy fft plan
@@ -294,7 +310,7 @@ private:
     }
 
     /** perform the FFT on the current audio frame */
-    void performFFT ()
+    void performFFT()
     {
 #ifdef USE_FFTW
         // copy samples from audio frame
