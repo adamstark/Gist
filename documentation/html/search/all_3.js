@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['highfrequencycontent',['highFrequencyContent',['../class_gist.html#ad914496b409f23513cfd9d166ce10ffa',1,'Gist::highFrequencyContent()'],['../class_onset_detection_function.html#ab06d22d1fe7fe92f7e56f93a6166e8de',1,'OnsetDetectionFunction::highFrequencyContent()']]]
+  ['getmagnitudespectrum',['getMagnitudeSpectrum',['../class_gist.html#a221fca25ce8fa4fd056453b2fdc7f365',1,'Gist']]],
+  ['getmaxfrequency',['getMaxFrequency',['../class_yin.html#a40802b4dd018c3656b1e7b8cac7138aa',1,'Yin']]],
+  ['gist',['Gist',['../class_gist.html',1,'Gist&lt; T &gt;'],['../class_gist.html#a6bd83aab60b9e33c8461e5e179250318',1,'Gist::Gist()']]],
+  ['gist_2ecpp',['Gist.cpp',['../_gist_8cpp.html',1,'']]],
+  ['gist_2eh',['Gist.h',['../_gist_8h.html',1,'']]],
+  ['gist_20_2d_20a_20real_2dtime_20audio_20analaysis_20library',['Gist - A Real-Time Audio Analaysis Library',['../index.html',1,'']]]
 ];

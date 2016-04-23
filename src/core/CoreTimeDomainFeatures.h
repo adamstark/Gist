@@ -32,9 +32,8 @@
  * of either 'float' or 'double' types and no others */
 template <class T>
 class CoreTimeDomainFeatures
-{  
+{
 public:
-    
     /** constructor */
     CoreTimeDomainFeatures();
 
@@ -44,22 +43,22 @@ public:
      * @param buffer a time domain buffer containing audio samples
      * @returns the RMS value
      */
-    T rootMeanSquare(std::vector<T> buffer);
-    
+    T rootMeanSquare (std::vector<T> buffer);
+
     //===========================================================
     /** calculates the peak energy (max absolute value) in a time
      * domain audio signal buffer in vector format
      * @param buffer a time domain buffer containing audio samples
      * @returns the peak energy value
      */
-    T peakEnergy(std::vector<T> buffer);
-    
+    T peakEnergy (std::vector<T> buffer);
+
     //===========================================================
     /** calculates the zero crossing rate of a time domain audio signal buffer
      * @param buffer a time domain buffer containing audio samples
      * @returns the zero crossing rate
      */
-    T zeroCrossingRate(std::vector<T> buffer);
+    T zeroCrossingRate (std::vector<T> buffer);
 };
 
 #endif

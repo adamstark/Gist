@@ -7,32 +7,32 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>ABC53021-C4FE-4566-ABC6-A585B236185D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>GistTest</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D1F71F7A-4A29-4848-8802-9E07CD324242</key>
+		<key>10891B290655B74B86C0F69E4E8998435E110F8F</key>
 		<string>https://github.com/adamstark/Gist.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>test/GistTest.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D1F71F7A-4A29-4848-8802-9E07CD324242</key>
+		<key>10891B290655B74B86C0F69E4E8998435E110F8F</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/adamstark/Gist.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D1F71F7A-4A29-4848-8802-9E07CD324242</string>
+	<string>10891B290655B74B86C0F69E4E8998435E110F8F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D1F71F7A-4A29-4848-8802-9E07CD324242</string>
+			<string>10891B290655B74B86C0F69E4E8998435E110F8F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Gist</string>
 		</dict>

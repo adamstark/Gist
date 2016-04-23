@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onsetdetectionfunction',['OnsetDetectionFunction',['../class_onset_detection_function.html',1,'']]]
+  ['mfcc',['MFCC',['../class_m_f_c_c.html',1,'']]]
 ];

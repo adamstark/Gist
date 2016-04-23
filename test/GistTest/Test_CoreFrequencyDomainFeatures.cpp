@@ -169,7 +169,7 @@ BOOST_AUTO_TEST_CASE(Ones_Test)
 }
 
 // ------------------------------------------------------------
-// 1. Check that a buffer of zeros returns 1
+// 2. Check that a buffer of zeros returns 1
 BOOST_AUTO_TEST_CASE(Zeros_Test)
 {
     CoreFrequencyDomainFeatures<float> fdf;
@@ -239,6 +239,194 @@ BOOST_AUTO_TEST_CASE(EveryFour)
     
 }
 
+
+BOOST_AUTO_TEST_SUITE_END()
+
+//=============================================================
+//==================== SPECTRAL ROLLOFF =======================
+//=============================================================
+BOOST_AUTO_TEST_SUITE(SpectralRolloff)
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of ones returns the threshold (given rounding errors due to indexing)
+BOOST_AUTO_TEST_CASE(Ones_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    float r = fdf.spectralRolloff (testSpectrum, 0.85);
+    
+    BOOST_CHECK_EQUAL (r, roundf(0.85 * 512.) / 512.);
+}
+
+
+// ------------------------------------------------------------
+// 2. Check that a buffer of zeros returns 0
+BOOST_AUTO_TEST_CASE(Zeros_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 0;
+    }
+    
+    float r = fdf.spectralRolloff (testSpectrum, 0.85);
+    
+    BOOST_CHECK_EQUAL (r, 0.0);
+    
+}
+
+// ------------------------------------------------------------
+// 3. Numeric Example
+BOOST_AUTO_TEST_CASE(NumericTest)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = i;
+    }
+    
+    float r1 = fdf.spectralRolloff (testSpectrum);
+    
+    BOOST_CHECK_EQUAL (r1, 0.921875);
+    
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = (512-i - 1);
+    }
+    
+    float r2 = fdf.spectralRolloff (testSpectrum);
+    
+    BOOST_CHECK_EQUAL (r2, 0.611328125);
+    
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+
+//=============================================================
+//==================== SPECTRAL KURTOSIS ======================
+//=============================================================
+BOOST_AUTO_TEST_SUITE(SpectralKurtosis)
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of ones returns -3.
+BOOST_AUTO_TEST_CASE(Ones_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    float r = fdf.spectralKurtosis (testSpectrum);
+    
+    BOOST_CHECK_EQUAL (r, -3.);
+}
+
+
+// ------------------------------------------------------------
+// 2. Check that a buffer of zeros returns -3.
+BOOST_AUTO_TEST_CASE(Zeros_Test)
+{
+    CoreFrequencyDomainFeatures<float> fdf;
+    
+    std::vector<float> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 0;
+    }
+    
+    float r = fdf.spectralKurtosis (testSpectrum);
+    
+    BOOST_CHECK_EQUAL (r, -3.);
+    
+}
+ 
+// ------------------------------------------------------------
+// 3. Numeric Example 1
+BOOST_AUTO_TEST_CASE(NumericTest1)
+{
+    CoreFrequencyDomainFeatures<double> fdf;
+    
+    std::vector<double> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = i;
+    }
+    
+    double r = fdf.spectralKurtosis (testSpectrum);
+        
+    BOOST_CHECK_CLOSE (r, -1.20000915531, 0.000001);
+}
+
+// ------------------------------------------------------------
+// 4. Numeric Example 2
+BOOST_AUTO_TEST_CASE(NumericTest2)
+{
+    CoreFrequencyDomainFeatures<double> fdf;
+    
+    std::vector<double> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        if (i % 2 == 0)
+        {
+            testSpectrum[i] = 1;
+        }
+        else
+        {
+            testSpectrum[i] = 0;
+        }
+    }
+    
+    double r = fdf.spectralKurtosis (testSpectrum);
+    
+    BOOST_CHECK_CLOSE (r, -2.0, 0.000001);
+}
+
+// ------------------------------------------------------------
+// 5. Numeric Example 3
+BOOST_AUTO_TEST_CASE(NumericTest3)
+{
+    CoreFrequencyDomainFeatures<double> fdf;
+    
+    std::vector<double> testSpectrum (512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        if (i % 10 == 0)
+        {
+            testSpectrum[i] = 1;
+        }
+        else
+        {
+            testSpectrum[i] = 0;
+        }
+    }
+    
+    double r = fdf.spectralKurtosis (testSpectrum);
+    
+    BOOST_CHECK_CLOSE (r, 4.95919732441, 0.000001);
+}
 
 BOOST_AUTO_TEST_SUITE_END()
 

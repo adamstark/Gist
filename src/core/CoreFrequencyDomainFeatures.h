@@ -21,11 +21,11 @@
  */
 //=======================================================================
 
-
 #ifndef __GIST__COREFREQUENCYDOMAINFEATURES__
 #define __GIST__COREFREQUENCYDOMAINFEATURES__
 
 #include <vector>
+#include <numeric>
 #include <math.h>
 
 /** template class for calculating common frequency domain
@@ -34,11 +34,10 @@
 template <class T>
 class CoreFrequencyDomainFeatures
 {
-    
 public:
     /** constructor */
     CoreFrequencyDomainFeatures();
-    
+
     //===========================================================
     /** calculates the spectral centroid given the first half of the magnitude spectrum
      of an audio signal. Do not pass the whole (i.e. mirrored) magnitude spectrum into
@@ -46,25 +45,42 @@ public:
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral centroid as an index value
      */
-    T spectralCentroid(std::vector<T> magnitudeSpectrum);
-    
+    T spectralCentroid (std::vector<T> magnitudeSpectrum);
+
     //===========================================================
     /** calculates the spectral flatness given the first half of the magnitude spectrum
      of an audio signal.
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral flatness
      */
-    T spectralFlatness(std::vector<T> magnitudeSpectrum);
-    
+    T spectralFlatness (std::vector<T> magnitudeSpectrum);
+
     //===========================================================
     /** calculates the spectral crest given the first half of the magnitude spectrum
      of an audio signal.
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral crest
      */
-    T spectralCrest(std::vector<T> magnitudeSpectrum);
+    T spectralCrest (std::vector<T> magnitudeSpectrum);
     
-
+    //===========================================================
+    /** calculates the spectral rolloff given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @param percentile the rolloff threshold
+     @returns the spectral rolloff
+     */
+    T spectralRolloff (std::vector<T> magnitudeSpectrum, T percentile = 0.85);
+    
+    //===========================================================
+    /** calculates the spectral kurtosis given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @returns the spectral kurtosis
+     */
+    T spectralKurtosis (std::vector<T> magnitudeSpectrum);
+    
+    
 };
 
 #endif
