@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yin',['Yin',['../class_yin.html',1,'']]]
+  ['onsetdetectionfunction',['OnsetDetectionFunction',['../class_onset_detection_function.html',1,'']]]
 ];

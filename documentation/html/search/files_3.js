@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['onsetdetectionfunction_2ecpp',['OnsetDetectionFunction.cpp',['../_onset_detection_function_8cpp.html',1,'']]],
-  ['onsetdetectionfunction_2eh',['OnsetDetectionFunction.h',['../_onset_detection_function_8h.html',1,'']]]
+  ['mfcc_2ecpp',['MFCC.cpp',['../_m_f_c_c_8cpp.html',1,'']]],
+  ['mfcc_2eh',['MFCC.h',['../_m_f_c_c_8h.html',1,'']]]
 ];
