@@ -1,7 +1,7 @@
 Gist - A Real-Time Audio Analysis Library
 ==================================
 
-*Version 1.0.1*
+*Version 1.0.2*
 
 Gist is a C++ based audio analysis library, written for use in real-time applications.
 
@@ -124,6 +124,12 @@ Now we can retrieve some audio features.
 		
 Version History
 ---------------
+
+=== 1.0.2 === (24th April 2016)
+
+* Added the option of using Apple Accelerate FFT
+* Added two new features: Spectral Rolloff and Spectral Kurtosis
+* Small usability and code style tweaks
 
 === 1.0.1 === (26th June 2014)
 
