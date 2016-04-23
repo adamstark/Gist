@@ -27,6 +27,7 @@
 #include <Accelerate/Accelerate.h>
 
 //===========================================================
+/** Performs the FFT using the Apple Accelerate Framework */
 template <class T>
 class AccelerateFFT
 {
