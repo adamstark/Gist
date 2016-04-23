@@ -381,7 +381,7 @@
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
-					"-DUSE_ACCELERATE_FFT",
+					"-DUSE_KISS_FFT",
 				);
 				OTHER_LDFLAGS = (
 					"-lboost_unit_test_framework",
@@ -403,7 +403,7 @@
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
-					"-DUSE_ACCELERATE_FFT",
+					"-DUSE_KISS_FFT",
 				);
 				OTHER_LDFLAGS = (
 					"-lboost_unit_test_framework",
