@@ -26,11 +26,11 @@ Gist is a template class, so instantiate it with floating point precision:
 	int frameSize = 512;
 	int sampleRate = 44100;
 
-	Gist<float> gist(frameSize,sampleRate);
+	Gist<float> gist(frameSize, sampleRate);
 	
 Or with double precision:
 
-	Gist<double> gist(frameSize,sampleRate);
+	Gist<double> gist(frameSize, sampleRate);
 
 We proceed with the documentation as if we were using floating point precision.
 
