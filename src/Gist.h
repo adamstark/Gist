@@ -61,22 +61,33 @@ public:
     
     //=======================================================================
     /** Constructor
-     * @param frameSize_ the input audio frame size
-     * @param sampleRate the input audio sample rate
+     * @param audioFrameSize the input audio frame size
+     * @param fs the input audio sample rate
      */
-    Gist (int frameSize_, int sampleRate_);
+    Gist (int audioFrameSize, int fs);
 
     /** Destructor */
     ~Gist();
 
+    //=======================================================================
     /** Set the audio frame size.
      * @param frameSize_ the frame size to use
      */
-    void setAudioFrameSize (int frameSize_);
+    void setAudioFrameSize (int audioFrameSize);
+
+    /** Set the sampling frequency of input audio 
+     * @param fs the sampling frequency 
+     */
+    void setSamplingFrequency (int fs);
     
+    //=======================================================================
     /** @Returns the audio frame size currently being used */
     int getAudioFrameSize();
+    
+    /** @Returns the audio sampling frequency being used for analysis */
+    int getSamplingFrequency();
 
+    //=======================================================================
     /** Process an audio frame
      * @param audioFrame a vector containing audio samples
      */
@@ -180,7 +191,8 @@ private:
     AccelerateFFT<T> accelerateFFT;
 #endif
 
-    int frameSize; /**< The audio frame size */
+    int frameSize;                    /**< The audio frame size */
+    int samplingFrequency;            /**< The sampling frequency used for analysis */
 
     std::vector<T> audioFrame;        /**< The current audio frame */
     std::vector<T> fftReal;           /**< The real part of the FFT for the current audio frame */

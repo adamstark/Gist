@@ -25,13 +25,14 @@
 
 //=======================================================================
 template <class T>
-Gist<T>::Gist (int frameSize_, int sampleRate_)
+Gist<T>::Gist (int audioFrameSize, int fs)
  :  fftConfigured (false),
-    onsetDetectionFunction (frameSize_),
-    yin (sampleRate_),
-    mfcc (frameSize_, sampleRate_)
+    onsetDetectionFunction (audioFrameSize),
+    yin (fs),
+    mfcc (audioFrameSize, fs)
 {
-    setAudioFrameSize (frameSize_);
+    samplingFrequency = fs;
+    setAudioFrameSize (audioFrameSize);
 }
 
 //=======================================================================
@@ -46,9 +47,9 @@ Gist<T>::~Gist()
 
 //=======================================================================
 template <class T>
-void Gist<T>::setAudioFrameSize (int frameSize_)
+void Gist<T>::setAudioFrameSize (int audioFrameSize)
 {
-    frameSize = frameSize_;
+    frameSize = audioFrameSize;
     
     audioFrame.resize (frameSize);
     fftReal.resize (frameSize);
@@ -63,9 +64,25 @@ void Gist<T>::setAudioFrameSize (int frameSize_)
 
 //=======================================================================
 template <class T>
+void Gist<T>::setSamplingFrequency (int fs)
+{
+    samplingFrequency = fs;
+    yin.setSamplingFrequency (samplingFrequency);
+    mfcc.setSamplingFrequency (samplingFrequency);
+}
+
+//=======================================================================
+template <class T>
 int Gist<T>::getAudioFrameSize()
 {
     return frameSize;
+}
+
+//=======================================================================
+template <class T>
+int Gist<T>::getSamplingFrequency()
+{
+    return samplingFrequency;
 }
 
 //=======================================================================

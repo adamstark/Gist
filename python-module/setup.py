@@ -5,7 +5,7 @@ import os, numpy
 
 name = 'gist'
 sources = [
-'gist_python_module.cpp',
+'GistPythonModule.cpp',
 '../src/Gist.cpp',
 '../src/core/CoreFrequencyDomainFeatures.cpp',
 '../src/core/CoreTimeDomainFeatures.cpp',

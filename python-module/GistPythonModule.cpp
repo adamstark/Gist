@@ -24,9 +24,30 @@ static PyObject* setAudioFrameSize (PyObject *dummy, PyObject *args)
 }
 
 //=======================================================================
+static PyObject* setSamplingFrequency (PyObject *dummy, PyObject *args)
+{
+    int samplingFrequency;
+    
+    if (!PyArg_ParseTuple(args, "i", &samplingFrequency))
+    {
+        return NULL;
+    }
+    
+    gist.setSamplingFrequency (samplingFrequency);
+    
+    return Py_BuildValue("");
+}
+
+//=======================================================================
 static PyObject* getAudioFrameSize (PyObject *dummy, PyObject *args)
 {
     return PyInt_FromLong((long) gist.getAudioFrameSize());
+}
+
+//=======================================================================
+static PyObject* getSamplingFrequency (PyObject *dummy, PyObject *args)
+{
+    return PyInt_FromLong((long) gist.getSamplingFrequency());
 }
 
 //=======================================================================
@@ -245,6 +266,9 @@ static PyMethodDef gist_methods[] = {
     /** Configuration methods */
     {"setAudioFrameSize",           setAudioFrameSize,          METH_VARARGS,   "Set the audio frame size to be used"},
     {"getAudioFrameSize",           getAudioFrameSize,          METH_VARARGS,   "Get the audio frame size currently being used"},
+    {"setSamplingFrequency",        setSamplingFrequency,       METH_VARARGS,   "Set the audio sampling frequency to be used"},
+    {"getSamplingFrequency",        getSamplingFrequency,       METH_VARARGS,   "Get the audio sampling frequency currently being used"},
+    
     {"processFrame",                processFrame,               METH_VARARGS,   "Process a single audio frame"},
     
     /** Core Time Domain Features */

@@ -4,6 +4,11 @@ from pylab import *
 
 x = np.arange (512) / 512.
 
+print "FS: ", gist.getSamplingFrequency()
+
+gist.setSamplingFrequency (48000)
+print "FS: ", gist.getSamplingFrequency()
+
 gist.setAudioFrameSize (512)
 
 gist.processFrame (x)

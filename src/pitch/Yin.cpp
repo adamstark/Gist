@@ -27,8 +27,8 @@
 template <class T>
 Yin<T>::Yin (int samplingFrequency)
 {
-    setSamplingFrequency (samplingFrequency);
-    
+    fs = samplingFrequency;
+        
     setMaxFrequency (1500);
     
     prevPeriodEstimate = 1.0;
