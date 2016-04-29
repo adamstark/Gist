@@ -111,7 +111,7 @@ Now we can retrieve some audio features.
 ##### Pitch
 
 	// Pitch Estimation
-	float pitch = gist.pitchYin();
+	float pitch = gist.pitch();
 
 ##### Mel-frequency Representations
 
