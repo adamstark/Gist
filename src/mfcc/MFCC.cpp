@@ -22,6 +22,7 @@
 //=======================================================================
 
 #include "MFCC.h"
+#include <cfloat>
 
 //==================================================================
 template <class T>
@@ -71,7 +72,7 @@ std::vector<T> MFCC<T>::melFrequencyCepstralCoefficients (std::vector<T> magnitu
 
     for (int i = 0; i < melSpec.size(); i++)
     {
-        melSpec[i] = log (melSpec[i]);
+        melSpec[i] = log (melSpec[i] + (T)FLT_MIN);
     }
 
     return discreteCosineTransform (melSpec);

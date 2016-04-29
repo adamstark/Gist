@@ -73,6 +73,9 @@ public:
      * @param frameSize_ the frame size to use
      */
     void setAudioFrameSize (int frameSize_);
+    
+    /** @Returns the audio frame size currently being used */
+    int getAudioFrameSize();
 
     /** Process an audio frame
      * @param audioFrame a vector containing audio samples
@@ -159,7 +162,7 @@ private:
     /** perform the FFT on the current audio frame */
     void performFFT();
 
-//=======================================================================
+    //=======================================================================
 
 #ifdef USE_FFTW
     fftw_plan p;          /**< fftw plan */

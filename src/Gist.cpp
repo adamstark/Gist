@@ -63,6 +63,13 @@ void Gist<T>::setAudioFrameSize (int frameSize_)
 
 //=======================================================================
 template <class T>
+int Gist<T>::getAudioFrameSize()
+{
+    return frameSize;
+}
+
+//=======================================================================
+template <class T>
 void Gist<T>::processAudioFrame (std::vector<T> audioFrame_)
 {
     audioFrame = audioFrame_;
