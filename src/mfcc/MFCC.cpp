@@ -82,8 +82,6 @@ std::vector<T> MFCC<T>::melFrequencyCepstralCoefficients (std::vector<T> magnitu
 template <class T>
 std::vector<T> MFCC<T>::melFrequencySpectrum (std::vector<T> magnitudeSpectrum)
 {
-    std::vector<T> filteredSpectrum;
-
     for (int i = 0; i < numCoefficents; i++)
     {
         double coeff = 0;
@@ -93,10 +91,10 @@ std::vector<T> MFCC<T>::melFrequencySpectrum (std::vector<T> magnitudeSpectrum)
             coeff += (T)((magnitudeSpectrum[j] * magnitudeSpectrum[j]) * filterBank[i][j]);
         }
 
-        filteredSpectrum.push_back (coeff);
+        melSpectrum[i] = coeff;
     }
 
-    return filteredSpectrum;
+    return melSpectrum;
 }
 
 //==================================================================
@@ -107,6 +105,8 @@ void MFCC<T>::initialise()
     minFrequency = 0;
     maxFrequency = samplingFrequency / 2;
 
+    melSpectrum.resize (numCoefficents);
+    
     calculateMelFilterBank();
 }
 
