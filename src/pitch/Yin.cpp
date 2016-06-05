@@ -157,7 +157,7 @@ unsigned long Yin<T>::getPeriodCandidate (std::vector<T> delta)
     
     T thresh = 0.1;
     
-    std::vector<unsigned long> candidates;
+    bool periodCandidateFound = false;
     
     T minVal = 100000;
     unsigned long minInd = 0;
@@ -174,18 +174,19 @@ unsigned long Yin<T>::getPeriodCandidate (std::vector<T> delta)
         {
             if ((delta[i] < delta[i-1]) && (delta[i] < delta[i+1]))
             {
-                candidates.push_back(i);
+                // we have found a minimum below the threshold, and because we
+                // look for them in order, this is the first one, so we accept it
+                // as the candidate period (i.e. the minimum period), and break the loop
+                period = i;
+                periodCandidateFound = true;
+                break;
             }
         }
     }
     
-    if (candidates.size() == 0)
+    if (! periodCandidateFound)
     {
         period = minInd;
-    }
-    else
-    {
-        period = candidates[0];
     }
     
     return period;
