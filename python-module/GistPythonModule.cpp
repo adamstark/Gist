@@ -194,7 +194,7 @@ static PyObject * complexSpectralDifference (PyObject *dummy, PyObject *args)
 //=======================================================================
 static PyObject * highFrequencyContent (PyObject *dummy, PyObject *args)
 {
-    double hfc = gist.complexSpectralDifference();
+    double hfc = gist.highFrequencyContent();
     
     return PyFloat_FromDouble (hfc);
 }
