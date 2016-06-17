@@ -1,9 +1,9 @@
 Gist - A Real-Time Audio Analysis Library
 ==================================
 
-*Version 1.0.2*
+*Version 1.0.3*
 
-Gist is a C++ based audio analysis library, written for use in real-time applications.
+Gist is a C++ based audio analysis library
 
 Author
 ------
@@ -26,11 +26,11 @@ Gist is a template class, so instantiate it with floating point precision:
 	int frameSize = 512;
 	int sampleRate = 44100;
 
-	Gist<float> gist(frameSize,sampleRate);
+	Gist<float> gist(frameSize, sampleRate);
 	
 Or with double precision:
 
-	Gist<double> gist(frameSize,sampleRate);
+	Gist<double> gist(frameSize, sampleRate);
 
 We proceed with the documentation as if we were using floating point precision.
 
@@ -111,7 +111,7 @@ Now we can retrieve some audio features.
 ##### Pitch
 
 	// Pitch Estimation
-	float pitch = gist.pitchYin();
+	float pitch = gist.pitch();
 
 ##### Mel-frequency Representations
 
@@ -124,6 +124,12 @@ Now we can retrieve some audio features.
 		
 Version History
 ---------------
+
+=== 1.0.3 === (17th June 2016)
+
+* Added a Python module
+* Added ability to set and get sampling frequency
+* Bug fixes and implementation improvements
 
 === 1.0.2 === (24th April 2016)
 

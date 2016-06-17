@@ -109,7 +109,10 @@ private:
     T maxFrequency;
 
     /** a vector of vectors to hold the values of the triangular filters */
-    std::vector<std::vector<T>> filterBank;
+    std::vector<std::vector<T> > filterBank;
+    
+    /** a vector to hold the mel spectrum once it has been computed */
+    std::vector<T> melSpectrum;
 };
 
 #endif /* defined(__GIST__MFCC__) */
