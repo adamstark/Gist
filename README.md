@@ -1,9 +1,9 @@
 Gist - A Real-Time Audio Analysis Library
 ==================================
 
-*Version 1.0.2*
+*Version 1.0.3*
 
-Gist is a C++ based audio analysis library, written for use in real-time applications.
+Gist is a C++ based audio analysis library
 
 Author
 ------
@@ -124,6 +124,12 @@ Now we can retrieve some audio features.
 		
 Version History
 ---------------
+
+=== 1.0.3 === (17th June 2016)
+
+* Added a Python module
+* Added ability to set and get sampling frequency
+* Bug fixes and implementation improvements
 
 === 1.0.2 === (24th April 2016)
 

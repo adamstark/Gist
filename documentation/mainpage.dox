@@ -1,7 +1,7 @@
 /**
- \mainpage Gist - A Real-Time Audio Analaysis Library
+ \mainpage Gist - A Real-Time Audio Analysis Library
 
-Gist is a C++ based audio analysis library for use in real-time -- i.e. performances and installations.
+Gist is a C++ based audio analysis library
 
 Author
 ------
