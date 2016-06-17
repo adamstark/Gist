@@ -20,4 +20,4 @@ You may need to prefix the second command with 'sudo', depending upon your syste
 Usage
 -----
 
-TO DO...
+Please see the file `example.py` for usage examples

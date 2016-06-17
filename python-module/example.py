@@ -1,17 +1,35 @@
 import numpy as np 
+
+# ================================
+# import the gist module
 import gist
-from pylab import *
 
-x = np.arange (512) / 512.
+# ====================== Setting up ===================
 
-print "FS: ", gist.getSamplingFrequency()
+# Commented out for now
 
-gist.setSamplingFrequency (48000)
-print "FS: ", gist.getSamplingFrequency()
+# Get the sampling frequency
+#fs = gist.getSamplingFrequency()
 
-gist.setAudioFrameSize (512)
+# Set the sampling frequency
+#gist.setSamplingFrequency (48000)
 
-gist.processFrame (x)
+# Set the audio frame size that the module expects
+#gist.setAudioFrameSize (512)
+
+# ====================== Extracting Features ===================
+
+# This example shows how to get features from a single audio frame
+
+# Create an arbitrary sin wave as an audio frame
+audioFrame = np.sin (np.arange((512.)) * np.pi / 180. * 4 )
+
+# Process the audio frame
+gist.processFrame (audioFrame)
+
+# Now we extract features and print them out...
+
+# ====================== Core Time Domain Features ===================
 
 print ""
 print "--- CORE TIME DOMAIN FEATURES ---"
@@ -20,6 +38,8 @@ print "RMS:", gist.rms()
 print "Peak Energy:", gist.peakEnergy()
 print "Zero Crossing Rate:", gist.zeroCrossingRate()
 print ""
+
+# ====================== Core Frequency Domain Features ===================
 
 print "--- CORE FREQUENCY DOMAIN FEATURES ---"
 print ""
@@ -30,6 +50,8 @@ print "Spectral Rolloff:", gist.spectralRolloff()
 print "Spectral Kurtosis:", gist.spectralKurtosis()
 print ""
 
+# ========================= Onset Detection Functions =======================
+
 print "--- ONSET DETECTION FUNCTIONS ---"
 print ""
 print "Energy Difference:", gist.energyDifference()
@@ -39,10 +61,14 @@ print "Complex Spectral Difference:", gist.complexSpectralDifference()
 print "High Frequency Content:", gist.highFrequencyContent()
 print ""
 
+# ========================= Pitch =======================
+
 print "--- PITCH ---"
 print ""
 print "Pitch:", gist.pitch()
 print ""
+
+# ======================= Spectra ========================
 
 print "--- SPECTRA ---"
 print ""
