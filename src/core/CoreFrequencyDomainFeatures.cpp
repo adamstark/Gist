@@ -23,12 +23,6 @@
 
 #include "CoreFrequencyDomainFeatures.h"
 
-#warning Remove these
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <limits>
-
 //===========================================================
 template <class T>
 CoreFrequencyDomainFeatures<T>::CoreFrequencyDomainFeatures()
