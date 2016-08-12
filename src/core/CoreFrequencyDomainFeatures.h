@@ -73,6 +73,22 @@ public:
     T spectralRolloff (std::vector<T> magnitudeSpectrum, T percentile = 0.85);
     
     //===========================================================
+    /** calculates the spectral spread given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @returns the spectral spread
+     */
+    T spectralSpread (std::vector<T> magnitiudeSpectrum);
+    
+    //===========================================================
+    /** calculates the spectral skewness given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @returns the spectral skewness
+     */
+    T spectralSkewness (std::vector<T> magnitiudeSpectrum);
+    
+    //===========================================================
     /** calculates the spectral kurtosis given the first half of the magnitude spectrum
      of an audio signal.
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
@@ -80,7 +96,13 @@ public:
      */
     T spectralKurtosis (std::vector<T> magnitudeSpectrum);
     
-    
+    //===========================================================
+    /** calculates the spectral decrease given the first half of the magnitude spectrum
+     of an audio signal.
+     @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
+     @returns the spectral decrease
+     */
+    T spectralDecrease (std::vector<T> magnitudeSpectrum);
 };
 
 #endif

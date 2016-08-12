@@ -25,6 +25,43 @@
 
 //===========================================================
 template <class T>
+T power (int value, int exponent)
+{
+    int result = 1;
+    
+    for (int i = 0;i < exponent;i++)
+    {
+        result *= value;
+    }
+    
+    return (T) result;
+}
+
+//===========================================================
+template <class T>
+T spectralStatistic (std::vector<T> magnitudeSpectrum, int i)
+{
+    T sumVal1 = 0;
+    T sumVal2 = 0;
+    
+    for (int k = 0; k < magnitudeSpectrum.size(); k++)
+    {
+        sumVal1 += power<T> (k, i) * magnitudeSpectrum[k];
+        sumVal2 += magnitudeSpectrum[k];
+    }
+    
+    if (sumVal2 == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return sumVal1 / sumVal2;
+    }
+}
+
+//===========================================================
+template <class T>
 CoreFrequencyDomainFeatures<T>::CoreFrequencyDomainFeatures()
 {
 }
@@ -160,6 +197,40 @@ T CoreFrequencyDomainFeatures<T>::spectralRolloff (std::vector<T> magnitudeSpect
 
 //===========================================================
 template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralSpread (std::vector<T> magnitiudeSpectrum)
+{
+    T u1 = spectralStatistic (magnitiudeSpectrum, 1);
+    T u2 = spectralStatistic (magnitiudeSpectrum, 2);
+    
+    T result = u2 - u1 * u1;
+    
+    if (result >= 0)
+    {
+        return sqrt (result);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+//===========================================================
+template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralSkewness (std::vector<T> magnitiudeSpectrum)
+{
+    T u1 = spectralStatistic (magnitiudeSpectrum, 1);
+    T u2 = spectralStatistic (magnitiudeSpectrum, 2);
+    T u3 = spectralStatistic (magnitiudeSpectrum, 3);
+    T ss = spectralSpread (magnitiudeSpectrum);
+    
+    T result = (2. * (u1 * u1 * u1)) - 3 * u1 * u2 + u3;
+    result = result / (ss * ss * ss);
+    
+    return result;
+}
+
+//===========================================================
+template <class T>
 T CoreFrequencyDomainFeatures<T>::spectralKurtosis (std::vector<T> magnitudeSpectrum)
 {
     // https://en.wikipedia.org/wiki/Kurtosis#Sample_kurtosis
@@ -190,6 +261,31 @@ T CoreFrequencyDomainFeatures<T>::spectralKurtosis (std::vector<T> magnitudeSpec
     else
     {
         return (moment4 / (moment2*moment2)) - 3.;
+    }
+}
+
+//===========================================================
+template <class T>
+T CoreFrequencyDomainFeatures<T>::spectralDecrease (std::vector<T> magnitudeSpectrum)
+{
+    T sumVal1 = 0;
+    T sumVal2 = 0;
+    
+    for (int k = 1; k < magnitudeSpectrum.size(); k++)
+    {
+        T difference = magnitudeSpectrum[k] - magnitudeSpectrum[0];
+        
+        sumVal1 += difference / (T)k;
+        sumVal2 += magnitudeSpectrum[k];
+    }
+    
+    if (sumVal2 == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return sumVal1 / sumVal2;
     }
 }
 
