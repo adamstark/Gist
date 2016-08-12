@@ -28,7 +28,7 @@
 
 //=======================================================================
 /** A type indicator for different windows */
-enum class WindowType
+enum WindowType
 {
     RectangularWindow,
     HanningWindow,

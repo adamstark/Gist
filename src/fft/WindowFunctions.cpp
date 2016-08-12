@@ -28,22 +28,22 @@
 template <class T>
 std::vector<T> WindowFunctions<T>::createWindow (int numSamples, WindowType windowType)
 {
-    if (windowType == WindowType::HanningWindow)
+    if (windowType == HanningWindow)
     {
         std::vector<T> window = createHanningWindow (numSamples);
         return window;
     }
-    else if (windowType == WindowType::HammingWindow)
+    else if (windowType == HammingWindow)
     {
         std::vector<T> window = createHammingWindow (numSamples);
         return window;
     }
-    else if (windowType == WindowType::BlackmanWindow)
+    else if (windowType == BlackmanWindow)
     {
         std::vector<T> window = createBlackmanWindow (numSamples);
         return window;
     }
-    else if (windowType == WindowType::TukeyWindow)
+    else if (windowType == TukeyWindow)
     {
         std::vector<T> window = createTukeyWindow (numSamples);
         return window;
