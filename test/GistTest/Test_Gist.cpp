@@ -15,7 +15,7 @@ BOOST_AUTO_TEST_SUITE(GistTest)
 //=============================================================
 BOOST_AUTO_TEST_CASE(TestFFT1)
 {
-    Gist<float> g(512,44100);
+    Gist<float> g (512, 44100, WindowType::RectangularWindow);
     
     std::vector<float> testFrame(512);
     
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(TestFFT1)
 //=============================================================
 BOOST_AUTO_TEST_CASE(TestFFT2)
 {
-    Gist<float> g(512,44100);
+    Gist<float> g(512, 44100, WindowType::RectangularWindow);
         
     std::vector<float> testFrame(512);
     
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(TestFFT2)
 //=============================================================
 BOOST_AUTO_TEST_CASE(TestFFT3)
 {
-    Gist<float> g(256,44100);
+    Gist<float> g (256, 44100, WindowType::RectangularWindow);
     
     std::vector<float> testFrame(256);
     
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(TestFFT3)
 //=============================================================
 BOOST_AUTO_TEST_CASE(TestFFT4)
 {
-    Gist<double> g(256,44100);
+    Gist<double> g (256, 44100, WindowType::RectangularWindow);
     
     std::vector<double> testFrame(256);
     

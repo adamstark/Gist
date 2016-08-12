@@ -25,11 +25,12 @@
 
 //=======================================================================
 template <class T>
-Gist<T>::Gist (int audioFrameSize, int fs)
+Gist<T>::Gist (int audioFrameSize, int fs, WindowType windowType_)
  :  fftConfigured (false),
     onsetDetectionFunction (audioFrameSize),
     yin (fs),
-    mfcc (audioFrameSize, fs)
+    mfcc (audioFrameSize, fs),
+    windowType (windowType_)
 {
     samplingFrequency = fs;
     setAudioFrameSize (audioFrameSize);
@@ -52,6 +53,9 @@ void Gist<T>::setAudioFrameSize (int audioFrameSize)
     frameSize = audioFrameSize;
     
     audioFrame.resize (frameSize);
+    
+    windowFunction = WindowFunctions<T>::createWindow (audioFrameSize, windowType);
+        
     fftReal.resize (frameSize);
     fftImag.resize (frameSize);
     magnitudeSpectrum.resize (frameSize / 2);
@@ -96,9 +100,9 @@ void Gist<T>::processAudioFrame (std::vector<T> audioFrame_)
 
 //=======================================================================
 template <class T>
-void Gist<T>::processAudioFrame (T* buffer, unsigned long numSamples)
+void Gist<T>::processAudioFrame (const T* frame, int numSamples)
 {
-    audioFrame.assign (buffer, buffer + numSamples);
+    audioFrame.assign (frame, frame + numSamples);
     
     performFFT();
 }
@@ -285,7 +289,7 @@ void Gist<T>::performFFT()
     // copy samples from audio frame
     for (int i = 0; i < frameSize; i++)
     {
-        fftIn[i][0] = (double)audioFrame[i];
+        fftIn[i][0] = (double)(audioFrame[i] * windowFunction[i]);
         fftIn[i][1] = (double)0.0;
     }
     
@@ -303,7 +307,7 @@ void Gist<T>::performFFT()
 #ifdef USE_KISS_FFT
     for (int i = 0; i < frameSize; i++)
     {
-        fftIn[i].r = (double)audioFrame[i];
+        fftIn[i].r = (double)(audioFrame[i] * windowFunction[i]);
         fftIn[i].i = 0.0;
     }
     
@@ -326,7 +330,7 @@ void Gist<T>::performFFT()
     
     for (int i = 0; i < frameSize; i++)
     {
-        inputFrame[i] = audioFrame[i];
+        inputFrame[i] = audioFrame[i] * windowFunction[i];
     }
     
     accelerateFFT.performFFT (inputFrame, outputReal, outputImag);

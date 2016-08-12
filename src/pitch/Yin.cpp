@@ -109,7 +109,7 @@ T Yin<T>::pitchYin (std::vector<T> frame)
 
 //===========================================================
 template <class T>
-void Yin<T>::cumulativeMeanNormalisedDifferenceFunction (T* frame,unsigned long numSamples)
+void Yin<T>::cumulativeMeanNormalisedDifferenceFunction (T* frame, unsigned long numSamples)
 {
     T cumulativeSum = 0.0;
     

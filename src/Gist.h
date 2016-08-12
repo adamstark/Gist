@@ -52,6 +52,8 @@
 #include "fft/AccelerateFFT.h"
 #endif
 
+#include "fft/WindowFunctions.h"
+
 //=======================================================================
 /** Class for all performing all Gist audio analyses */
 template <class T>
@@ -64,7 +66,7 @@ public:
      * @param audioFrameSize the input audio frame size
      * @param fs the input audio sample rate
      */
-    Gist (int audioFrameSize, int fs);
+    Gist (int audioFrameSize, int fs, WindowType windowType = WindowType::HanningWindow);
 
     /** Destructor */
     ~Gist();
@@ -94,10 +96,10 @@ public:
     void processAudioFrame (std::vector<T> audioFrame_);
 
     /** Process an audio frame
-     * @param buffer a pointer to an array containing the audio samples
+     * @param frame a pointer to an array containing the audio frame
      * @param numSamples the number of samples in the audio frame
      */
-    void processAudioFrame (T* buffer, unsigned long numSamples);
+    void processAudioFrame (const T* frame, int numSamples);
 
     /** Gist automatically calculates the magnitude spectrum when processAudioFrame() is called, this function returns it.
      @returns the current magnitude spectrum */
@@ -193,8 +195,10 @@ private:
 
     int frameSize;                    /**< The audio frame size */
     int samplingFrequency;            /**< The sampling frequency used for analysis */
+    WindowType windowType;            /**< The window type used in FFT analysis */
 
     std::vector<T> audioFrame;        /**< The current audio frame */
+    std::vector<T> windowFunction;    /**< The window function used in FFT processing */
     std::vector<T> fftReal;           /**< The real part of the FFT for the current audio frame */
     std::vector<T> fftImag;           /**< The imaginary part of the FFT for the current audio frame */
     std::vector<T> magnitudeSpectrum; /**< The magnitude spectrum of the current audio frame */
