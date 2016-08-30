@@ -163,7 +163,7 @@ void MFCC<T>::calculateMelFilterBank()
         double f = i * (maxMel - minMel) / (numCoefficents + 1) + minMel;
 
         double tmp = log (1 + 1000.0 / 700.0) / 1000.0;
-        tmp = (exp (f * tmp) - 1) / 22050;
+        tmp = (exp (f * tmp) - 1) / (samplingFrequency / 2);
 
         tmp = 0.5 + 700 * ((double)magnitudeSpectrumSize) * tmp;
 
