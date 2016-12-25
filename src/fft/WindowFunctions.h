@@ -24,7 +24,9 @@
 #ifndef __WindowFunctions__
 #define __WindowFunctions__
 
+#define _USE_MATH_DEFINES
 #include <vector>
+#include <cmath>
 
 //=======================================================================
 /** A type indicator for different windows */
