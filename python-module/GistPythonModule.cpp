@@ -233,7 +233,8 @@ static PyObject * magnitudeSpectrum (PyObject *dummy, PyObject *args)
 //=======================================================================
 static PyObject * melFrequencySpectrum (PyObject *dummy, PyObject *args)
 {
-    std::vector<double> melFrequencySpectrum = gist.melFrequencySpectrum();
+    gist.calculateMelFrequencySpectrum();
+    std::vector<double> melFrequencySpectrum = gist.melFrequencySpectrum;
     
     int numDimensions = 1;
     npy_intp numElements = melFrequencySpectrum.size();
@@ -248,7 +249,8 @@ static PyObject * melFrequencySpectrum (PyObject *dummy, PyObject *args)
 //=======================================================================
 static PyObject * mfccs (PyObject *dummy, PyObject *args)
 {
-    std::vector<double> mfccs = gist.melFrequencyCepstralCoefficients();
+    gist.calculateMelFrequencyCepstralCoefficients();
+    std::vector<double> mfccs = gist.MFCCs;
     
     int numDimensions = 1;
     npy_intp numElements = mfccs.size();
