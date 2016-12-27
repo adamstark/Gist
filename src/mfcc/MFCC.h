@@ -28,6 +28,7 @@
 #include <vector>
 #include <cmath>
 
+//=======================================================================
 /** Template class for calculating Mel Frequency Cepstral Coefficients
  * Instantiations of the class should be of either 'float' or
  * 'double' types and no others */
@@ -35,9 +36,12 @@ template <class T>
 class MFCC
 {
 public:
+    
+    //=======================================================================
     /** Constructor */
     MFCC (int frameSize_, int samplingFrequency_);
 
+    //=======================================================================
     /** Set the number of coefficients to calculate
      * @param numCoefficients_ the number of coefficients to calculate 
      */
@@ -53,30 +57,41 @@ public:
      */
     void setSamplingFrequency (int samplingFrequency_);
 
-    /** Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal. Note that
-     * the magnitude spectrum passed to the function is not the full mirrored magnitude spectrum, but only the
-     * first half. The frame size passed to the constructor should be twice the length of the magnitude spectrum.
+    //=======================================================================
+    /** Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal. The result
+     * is stored in the public vector MFCCs.
+     * 
+     * Note that the magnitude spectrum passed to the function is not the full mirrored magnitude spectrum, but 
+     * only the first half. The frame size passed to the constructor should be twice the length of the magnitude spectrum.
      * @param magnitudeSpectrum the magnitude spectrum in vector format
-     * @returns a vector containing the MFCCs
      */
-    std::vector<T> melFrequencyCepstralCoefficients (std::vector<T> magnitudeSpectrum);
+    void calculateMelFrequencyCepstralCoefficients (std::vector<T> magnitudeSpectrum);
 
-    /** Calculates the magnitude spectrum on a Mel scale
-     * @returns a vector containing the Mel spectrum
+    /** Calculates the magnitude spectrum on a Mel scale. The result is stored in
+     * the public vector melSpectrum.
      */
-    std::vector<T> melFrequencySpectrum (std::vector<T> magnitudeSpectrum);
+    void calculateMelFrequencySpectrum (std::vector<T> magnitudeSpectrum);
 
+    //=======================================================================
+    /** a vector to hold the mel spectrum once it has been computed */
+    std::vector<T> melSpectrum;
+    
+    /** a vector to hold the MFCCs once they have been computed */
+    std::vector<T> MFCCs;
+    
 private:
     /** Initialises the parts of the algorithm dependent on frame size, sampling frequency
      * and the number of coefficients
      */
     void initialise();
 
-    /** Calculates the discrete cosine transform (version 2) of an input signal 
+    /** Calculates the discrete cosine transform (version 2) of an input signal, performing it in place
+     * (i.e. the result is stored in the vector passed to the function)
+     *
      * @param inputSignal a vector containing the input signal
-     * @returns a vector containing the DCT of the input signal
+     * @param numElements the number of elements in the input signal
      */
-    std::vector<T> discreteCosineTransform (std::vector<T> inputSignal);
+    void discreteCosineTransform (std::vector<T>& inputSignal, const size_t numElements);
 
     /** Calculates the triangular filters used in the algorithm. These will be different depending
      * upon the frame size, sampling frequency and number of coefficients and so should be re-calculated
@@ -110,9 +125,6 @@ private:
 
     /** a vector of vectors to hold the values of the triangular filters */
     std::vector<std::vector<T> > filterBank;
-    
-    /** a vector to hold the mel spectrum once it has been computed */
-    std::vector<T> melSpectrum;
 };
 
 #endif /* defined(__GIST__MFCC__) */

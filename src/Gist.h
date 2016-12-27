@@ -103,7 +103,7 @@ public:
 
     /** Gist automatically calculates the magnitude spectrum when processAudioFrame() is called, this function returns it.
      @returns the current magnitude spectrum */
-    std::vector<T> getMagnitudeSpectrum();
+    const std::vector<T>& getMagnitudeSpectrum();
 
     //================= CORE TIME DOMAIN FEATURES =================
 
@@ -157,12 +157,15 @@ public:
 
     //=========================== MFCCs =============================
 
-    /** @Returns the Mel Frequency Spectrum */
-    std::vector<T> melFrequencySpectrum();
+    /** Calculates the Mel Frequency Spectrum. The result is stored in the vector melFrequencySpectrum */
+    void calculateMelFrequencySpectrum();
 
-    /** @Returns the Mel Frequency Cepstral Coefficients as a vector */
-    std::vector<T> melFrequencyCepstralCoefficients();
-
+    /** Calculates the Mel-frequency Cepstral Coefficients. The result is stored in the vector MFCCs */
+    void calculateMelFrequencyCepstralCoefficients();
+    
+    std::vector<T>& melFrequencySpectrum;
+    std::vector<T>& MFCCs;
+    
 private:
     //=======================================================================
 
