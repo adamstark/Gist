@@ -31,7 +31,7 @@ CoreFrequencyDomainFeatures<T>::CoreFrequencyDomainFeatures()
 
 //===========================================================
 template <class T>
-T CoreFrequencyDomainFeatures<T>::spectralCentroid (std::vector<T> magnitudeSpectrum)
+T CoreFrequencyDomainFeatures<T>::spectralCentroid (const std::vector<T>& magnitudeSpectrum)
 {
     // to hold sum of amplitudes
     T sumAmplitudes = 0.0;
@@ -64,7 +64,7 @@ T CoreFrequencyDomainFeatures<T>::spectralCentroid (std::vector<T> magnitudeSpec
 
 //===========================================================
 template <class T>
-T CoreFrequencyDomainFeatures<T>::spectralFlatness (std::vector<T> magnitudeSpectrum)
+T CoreFrequencyDomainFeatures<T>::spectralFlatness (const std::vector<T>& magnitudeSpectrum)
 {
     double sumVal = 0.0;
     double logSumVal = 0.0;
@@ -98,7 +98,7 @@ T CoreFrequencyDomainFeatures<T>::spectralFlatness (std::vector<T> magnitudeSpec
 
 //===========================================================
 template <class T>
-T CoreFrequencyDomainFeatures<T>::spectralCrest (std::vector<T> magnitudeSpectrum)
+T CoreFrequencyDomainFeatures<T>::spectralCrest (const std::vector<T>& magnitudeSpectrum)
 {
     T sumVal = 0.0;
     T maxVal = 0.0;
@@ -134,7 +134,7 @@ T CoreFrequencyDomainFeatures<T>::spectralCrest (std::vector<T> magnitudeSpectru
 
 //===========================================================
 template <class T>
-T CoreFrequencyDomainFeatures<T>::spectralRolloff (std::vector<T> magnitudeSpectrum, T percentile)
+T CoreFrequencyDomainFeatures<T>::spectralRolloff (const std::vector<T>& magnitudeSpectrum, T percentile)
 {
     T sumOfMagnitudeSpectrum = std::accumulate (magnitudeSpectrum.begin(), magnitudeSpectrum.end(), 0);
     T threshold = sumOfMagnitudeSpectrum * percentile;
@@ -160,7 +160,7 @@ T CoreFrequencyDomainFeatures<T>::spectralRolloff (std::vector<T> magnitudeSpect
 
 //===========================================================
 template <class T>
-T CoreFrequencyDomainFeatures<T>::spectralKurtosis (std::vector<T> magnitudeSpectrum)
+T CoreFrequencyDomainFeatures<T>::spectralKurtosis (const std::vector<T>& magnitudeSpectrum)
 {
     // https://en.wikipedia.org/wiki/Kurtosis#Sample_kurtosis
     

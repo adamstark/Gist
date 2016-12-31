@@ -180,7 +180,7 @@ BOOST_AUTO_TEST_CASE(ZeroCrossingRate_Test)
     
     float r1 = g.zeroCrossingRate();
     
-    float r2 = tdf.zeroCrossingRate(testFrame);
+    float r2 = tdf.zeroCrossingRate (testFrame);
     
     BOOST_CHECK_EQUAL(r1,r2);
     
@@ -204,7 +204,7 @@ BOOST_AUTO_TEST_CASE(SpectralCentroid_Test)
     
     float r1 = g.spectralCentroid();
     
-    float r2 = fdf.spectralCentroid(g.getMagnitudeSpectrum());
+    float r2 = fdf.spectralCentroid (g.getMagnitudeSpectrum());
     
     BOOST_CHECK_EQUAL(r1,r2);
     

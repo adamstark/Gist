@@ -65,12 +65,12 @@ public:
      * only the first half. The frame size passed to the constructor should be twice the length of the magnitude spectrum.
      * @param magnitudeSpectrum the magnitude spectrum in vector format
      */
-    void calculateMelFrequencyCepstralCoefficients (std::vector<T> magnitudeSpectrum);
+    void calculateMelFrequencyCepstralCoefficients (const std::vector<T>& magnitudeSpectrum);
 
     /** Calculates the magnitude spectrum on a Mel scale. The result is stored in
      * the public vector melSpectrum.
      */
-    void calculateMelFrequencySpectrum (std::vector<T> magnitudeSpectrum);
+    void calculateMelFrequencySpectrum (const std::vector<T>& magnitudeSpectrum);
 
     //=======================================================================
     /** a vector to hold the mel spectrum once it has been computed */

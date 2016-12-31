@@ -62,7 +62,7 @@ void MFCC<T>::setSamplingFrequency (int samplingFrequency_)
 
 //==================================================================
 template <class T>
-void MFCC<T>::calculateMelFrequencyCepstralCoefficients (std::vector<T> magnitudeSpectrum)
+void MFCC<T>::calculateMelFrequencyCepstralCoefficients (const std::vector<T>& magnitudeSpectrum)
 {
     calculateMelFrequencySpectrum (magnitudeSpectrum);
     
@@ -74,7 +74,7 @@ void MFCC<T>::calculateMelFrequencyCepstralCoefficients (std::vector<T> magnitud
 
 //==================================================================
 template <class T>
-void MFCC<T>::calculateMelFrequencySpectrum (std::vector<T> magnitudeSpectrum)
+void MFCC<T>::calculateMelFrequencySpectrum (const std::vector<T>& magnitudeSpectrum)
 {
     for (int i = 0; i < numCoefficents; i++)
     {

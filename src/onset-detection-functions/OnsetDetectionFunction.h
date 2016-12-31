@@ -51,7 +51,7 @@ public:
      * @param buffer the time domain audio frame containing audio samples
      * @returns the energy difference onset detection function sample for the frame
      */
-    T energyDifference (std::vector<T> buffer);
+    T energyDifference (const std::vector<T>& buffer);
 
     //===========================================================
     /** calculates the spectral difference between the current magnitude
@@ -59,7 +59,7 @@ public:
      * @param magnitudeSpectrum a vector containing the magnitude spectrum
      * @returns the spectral difference onset detection function sample
      */
-    T spectralDifference (std::vector<T> magnitudeSpectrum);
+    T spectralDifference (const std::vector<T>& magnitudeSpectrum);
 
     //===========================================================
     /** calculates the half wave rectified spectral difference between the 
@@ -67,7 +67,7 @@ public:
      * @param magnitudeSpectrum a vector containing the magnitude spectrum
      * @returns the HWR spectral difference onset detection function sample
      */
-    T spectralDifferenceHWR (std::vector<T> magnitudeSpectrum);
+    T spectralDifferenceHWR (const std::vector<T>& magnitudeSpectrum);
 
     //===========================================================
     /** calculates the complex spectral difference from the real and imaginary parts 
@@ -76,7 +76,7 @@ public:
      * @param fftImag a vector containing the imaginary part of the FFT
      * @returns the complex spectral difference onset detection function sample
      */
-    T complexSpectralDifference (std::vector<T> fftReal, std::vector<T> fftImag);
+    T complexSpectralDifference (const std::vector<T>& fftReal, const std::vector<T>& fftImag);
 
     //===========================================================
     /** calculates the high frequency content onset detection function from
@@ -84,7 +84,7 @@ public:
      * @param magnitudeSpectrum a vector containing the magnitude spectrum
      * @returns the high frequency content onset detection function sample
      */
-    T highFrequencyContent (std::vector<T> magnitudeSpectrum);
+    T highFrequencyContent (const std::vector<T>& magnitudeSpectrum);
 
 private:
     /** maps phasein into the [-pi:pi] range */
