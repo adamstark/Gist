@@ -1,7 +1,10 @@
-Gist - A Real-Time Audio Analysis Library
-==================================
+<!-- Version and License Badges -->
+![Version](https://img.shields.io/badge/version-1.0.3-green.svg?style=flat-square) 
+![License](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square) 
+![Language](https://img.shields.io/badge/language-C++-yellow.svg?style=flat-square) 
 
-*Version 1.0.3*
+Gist - An Audio Analysis Library
+==================================
 
 Gist is a C++ based audio analysis library
 
@@ -26,11 +29,11 @@ Gist is a template class, so instantiate it with floating point precision:
 	int frameSize = 512;
 	int sampleRate = 44100;
 
-	Gist<float> gist(frameSize, sampleRate);
+	Gist<float> gist (frameSize, sampleRate);
 	
 Or with double precision:
 
-	Gist<double> gist(frameSize, sampleRate);
+	Gist<double> gist (frameSize, sampleRate);
 
 We proceed with the documentation as if we were using floating point precision.
 
@@ -44,7 +47,7 @@ Once you have an audio frame, pass it to the Gist object. You can do this either
 	// fill audio frame with samples here
 	// !
 	
-	gist.processAudioFrame(audioFrame);
+	gist.processAudioFrame (audioFrame);
 	
 Or, as an array:
 
@@ -54,7 +57,7 @@ Or, as an array:
 	// fill audio frame with samples here
 	// !
 	
-	gist.processAudioFrame(audioFrame, 512);
+	gist.processAudioFrame (audioFrame, 512);
 	
 Now we can retrieve some audio features.
 	
