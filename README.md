@@ -1,10 +1,12 @@
+![Version](images/header.png) 
+
+Gist - An Audio Analysis Library
+==================================
+
 <!-- Version and License Badges -->
 ![Version](https://img.shields.io/badge/version-1.0.3-green.svg?style=flat-square) 
 ![License](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square) 
 ![Language](https://img.shields.io/badge/language-C++-yellow.svg?style=flat-square) 
-
-Gist - An Audio Analysis Library
-==================================
 
 Gist is a C++ based audio analysis library
 
