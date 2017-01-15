@@ -1,4 +1,4 @@
-![Version](images/header.png) 
+<div align="center"><img src="images/header.png"></div> 
 
 Gist - An Audio Analysis Library
 ==================================
