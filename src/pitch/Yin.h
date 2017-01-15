@@ -27,6 +27,7 @@
 #include <vector>
 #include <cmath>
 
+//===========================================================
 /** template class for the pitch detection algorithm Yin.
  * Instantiations of the class should be of either 'float' or
  * 'double' types and no others */
@@ -35,11 +36,14 @@ class Yin
 {
     
 public:
+    
+    //===========================================================
     /** constructor
      * @param samplingFrequency the sampling frequency
      */
     Yin (int samplingFrequency);
     
+    //===========================================================
     /** sets the sampling frequency used to calculate pitch values
      * @param samplingFrequency the sampling frequency
      */
@@ -50,12 +54,14 @@ public:
      */
     void setMaxFrequency (T maxFreq);
     
+    //===========================================================
     /** @returns the maximum frequency that the algorithm will return */
     T getMaxFrequency()
     {
         return ((T) fs) / ((T) minPeriod);
     }
     
+    //===========================================================
     /** calculates the pitch of the audio frame passed to it
      * @param frame an audio frame stored in a vector
      * @returns the estimated pitch in Hz
@@ -64,6 +70,7 @@ public:
         
 private:
     
+    //===========================================================
     /** converts periods to pitch in Hz
      * @param period the period in audio samples
      * @returns the pitch in Hz
