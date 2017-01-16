@@ -30,9 +30,7 @@ Gist<T>::Gist (int audioFrameSize, int fs, WindowType windowType_)
     onsetDetectionFunction (audioFrameSize),
     yin (fs),
     mfcc (audioFrameSize, fs),
-    windowType (windowType_),
-    melFrequencySpectrum (mfcc.melSpectrum),
-    MFCCs (mfcc.MFCCs)
+    windowType (windowType_)
 {
     samplingFrequency = fs;
     setAudioFrameSize (audioFrameSize);
@@ -216,16 +214,18 @@ T Gist<T>::pitch()
 
 //=======================================================================
 template <class T>
-void Gist<T>::calculateMelFrequencySpectrum()
+const std::vector<T>& Gist<T>::getMelFrequencySpectrum()
 {
     mfcc.calculateMelFrequencySpectrum (magnitudeSpectrum);
+    return mfcc.melSpectrum;
 }
 
 //=======================================================================
 template <class T>
-void Gist<T>::calculateMelFrequencyCepstralCoefficients()
+const std::vector<T>& Gist<T>::getMelFrequencyCepstralCoefficients()
 {
     mfcc.calculateMelFrequencyCepstralCoefficients (magnitudeSpectrum);
+    return mfcc.MFCCs;
 }
 
 //=======================================================================

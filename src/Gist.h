@@ -156,15 +156,12 @@ public:
     T pitch();
 
     //=========================== MFCCs =============================
-
-    /** Calculates the Mel Frequency Spectrum. The result is stored in the vector melFrequencySpectrum */
-    void calculateMelFrequencySpectrum();
-
-    /** Calculates the Mel-frequency Cepstral Coefficients. The result is stored in the vector MFCCs */
-    void calculateMelFrequencyCepstralCoefficients();
     
-    std::vector<T>& melFrequencySpectrum;
-    std::vector<T>& MFCCs;
+    /** Calculates the Mel Frequency Spectrum */
+    const std::vector<T>& getMelFrequencySpectrum();
+
+    /** Calculates the Mel-frequency Cepstral Coefficients */
+    const std::vector<T>& getMelFrequencyCepstralCoefficients();
     
 private:
     //=======================================================================
