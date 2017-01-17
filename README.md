@@ -111,7 +111,7 @@ Now we can retrieve some audio features.
 ##### FFT Magnitude Spectrum
 
 	// FFT Magnitude Spectrum
-	std::vector<float> magSpec = gist.getMagnitudeSpectrum();
+	const std::vector<float>& magSpec = gist.getMagnitudeSpectrum();
 	
 ##### Pitch
 
@@ -121,10 +121,10 @@ Now we can retrieve some audio features.
 ##### Mel-frequency Representations
 
 	// Mel-frequency Spectrum
-	std::vector<float> melSpec = gist.melFrequencySpectrum();
+	const std::vector<float>& melSpec = gist.getMelFrequencySpectrum();
 	
 	// MFCCs
-	std::vector<float> mfcc = gist.melFrequencyCepstralCoefficients();
+	const std::vector<float>& mfcc = gist.getMelFrequencyCepstralCoefficients();
 	
 		
 Version History
