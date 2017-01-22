@@ -22,6 +22,7 @@
 //=======================================================================
 
 #include "Gist.h"
+#include <assert.h>
 
 //=======================================================================
 template <class T>
@@ -91,10 +92,13 @@ int Gist<T>::getSamplingFrequency()
 
 //=======================================================================
 template <class T>
-void Gist<T>::processAudioFrame (std::vector<T> audioFrame_)
+void Gist<T>::processAudioFrame (const std::vector<T>& a)
 {
-    audioFrame = audioFrame_;
+    // you are passing an audio frame of a different size to the
+    // audio frame size setup in Gist
+    assert (a.size() == audioFrame.size());
     
+    std::copy (a.begin(), a.end(), audioFrame.begin());
     performFFT();
 }
 
@@ -102,7 +106,12 @@ void Gist<T>::processAudioFrame (std::vector<T> audioFrame_)
 template <class T>
 void Gist<T>::processAudioFrame (const T* frame, int numSamples)
 {
-    audioFrame.assign (frame, frame + numSamples);
+    // you are passing an audio frame of a different size to the
+    // audio frame size setup in Gist
+    assert (numSamples == audioFrame.size());
+    
+    for (int i = 0; i < audioFrame.size(); i++)
+        audioFrame[i] = frame[i];
     
     performFFT();
 }
