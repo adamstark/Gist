@@ -60,7 +60,7 @@ void OnsetDetectionFunction<T>::setFrameSize (int frameSize)
 
 //===========================================================
 template <class T>
-T OnsetDetectionFunction<T>::energyDifference (std::vector<T> buffer)
+T OnsetDetectionFunction<T>::energyDifference (const std::vector<T>& buffer)
 {
     T sum;
     T difference;
@@ -89,7 +89,7 @@ T OnsetDetectionFunction<T>::energyDifference (std::vector<T> buffer)
 
 //===========================================================
 template <class T>
-T OnsetDetectionFunction<T>::spectralDifference (std::vector<T> magnitudeSpectrum)
+T OnsetDetectionFunction<T>::spectralDifference (const std::vector<T>& magnitudeSpectrum)
 {
     T sum = 0; // initialise sum to zero
 
@@ -116,7 +116,7 @@ T OnsetDetectionFunction<T>::spectralDifference (std::vector<T> magnitudeSpectru
 
 //===========================================================
 template <class T>
-T OnsetDetectionFunction<T>::spectralDifferenceHWR (std::vector<T> magnitudeSpectrum)
+T OnsetDetectionFunction<T>::spectralDifferenceHWR (const std::vector<T>& magnitudeSpectrum)
 {
     T sum = 0; // initialise sum to zero
 
@@ -141,7 +141,7 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR (std::vector<T> magnitudeSpec
 
 //===========================================================
 template <class T>
-T OnsetDetectionFunction<T>::complexSpectralDifference (std::vector<T> fftReal, std::vector<T> fftImag)
+T OnsetDetectionFunction<T>::complexSpectralDifference (const std::vector<T>& fftReal, const std::vector<T>& fftImag)
 {
     T dev, pdev;
     T sum;
@@ -190,7 +190,7 @@ T OnsetDetectionFunction<T>::complexSpectralDifference (std::vector<T> fftReal, 
 
 //===========================================================
 template <class T>
-T OnsetDetectionFunction<T>::highFrequencyContent (std::vector<T> magnitudeSpectrum)
+T OnsetDetectionFunction<T>::highFrequencyContent (const std::vector<T>& magnitudeSpectrum)
 {
     T sum;
 

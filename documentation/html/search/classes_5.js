@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yin',['Yin',['../class_yin.html',1,'']]]
+  ['windowfunctions',['WindowFunctions',['../class_window_functions.html',1,'']]]
 ];

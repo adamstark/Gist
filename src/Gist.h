@@ -52,6 +52,8 @@
 #include "fft/AccelerateFFT.h"
 #endif
 
+#include "fft/WindowFunctions.h"
+
 //=======================================================================
 /** Class for all performing all Gist audio analyses */
 template <class T>
@@ -63,8 +65,9 @@ public:
     /** Constructor
      * @param audioFrameSize the input audio frame size
      * @param fs the input audio sample rate
+     * @param windowType the type of window function to use
      */
-    Gist (int audioFrameSize, int fs);
+    Gist (int audioFrameSize, int fs, WindowType windowType = HanningWindow);
 
     /** Destructor */
     ~Gist();
@@ -91,17 +94,17 @@ public:
     /** Process an audio frame
      * @param audioFrame a vector containing audio samples
      */
-    void processAudioFrame (std::vector<T> audioFrame_);
+    void processAudioFrame (const std::vector<T>& audioFrame_);
 
     /** Process an audio frame
-     * @param buffer a pointer to an array containing the audio samples
+     * @param frame a pointer to an array containing the audio frame
      * @param numSamples the number of samples in the audio frame
      */
-    void processAudioFrame (T* buffer, unsigned long numSamples);
+    void processAudioFrame (const T* frame, int numSamples);
 
     /** Gist automatically calculates the magnitude spectrum when processAudioFrame() is called, this function returns it.
      @returns the current magnitude spectrum */
-    std::vector<T> getMagnitudeSpectrum();
+    const std::vector<T>& getMagnitudeSpectrum();
 
     //================= CORE TIME DOMAIN FEATURES =================
 
@@ -154,13 +157,13 @@ public:
     T pitch();
 
     //=========================== MFCCs =============================
+    
+    /** Calculates the Mel Frequency Spectrum */
+    const std::vector<T>& getMelFrequencySpectrum();
 
-    /** @Returns the Mel Frequency Spectrum */
-    std::vector<T> melFrequencySpectrum();
-
-    /** @Returns the Mel Frequency Cepstral Coefficients as a vector */
-    std::vector<T> melFrequencyCepstralCoefficients();
-
+    /** Calculates the Mel-frequency Cepstral Coefficients */
+    const std::vector<T>& getMelFrequencyCepstralCoefficients();
+    
 private:
     //=======================================================================
 
@@ -193,8 +196,10 @@ private:
 
     int frameSize;                    /**< The audio frame size */
     int samplingFrequency;            /**< The sampling frequency used for analysis */
+    WindowType windowType;            /**< The window type used in FFT analysis */
 
     std::vector<T> audioFrame;        /**< The current audio frame */
+    std::vector<T> windowFunction;    /**< The window function used in FFT processing */
     std::vector<T> fftReal;           /**< The real part of the FFT for the current audio frame */
     std::vector<T> fftImag;           /**< The imaginary part of the FFT for the current audio frame */
     std::vector<T> magnitudeSpectrum; /**< The magnitude spectrum of the current audio frame */

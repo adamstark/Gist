@@ -11,7 +11,8 @@ sources = [
 '../src/core/CoreTimeDomainFeatures.cpp',
 '../src/mfcc/MFCC.cpp',
 '../src/onset-detection-functions/OnsetDetectionFunction.cpp',
-'../src/pitch/Yin.cpp'
+'../src/pitch/Yin.cpp',
+'../src/fft/WindowFunctions.cpp'
 ]
 
 include_dirs = [

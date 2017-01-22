@@ -45,7 +45,7 @@ public:
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral centroid as an index value
      */
-    T spectralCentroid (std::vector<T> magnitudeSpectrum);
+    T spectralCentroid (const std::vector<T>& magnitudeSpectrum);
 
     //===========================================================
     /** calculates the spectral flatness given the first half of the magnitude spectrum
@@ -53,7 +53,7 @@ public:
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral flatness
      */
-    T spectralFlatness (std::vector<T> magnitudeSpectrum);
+    T spectralFlatness (const std::vector<T>& magnitudeSpectrum);
 
     //===========================================================
     /** calculates the spectral crest given the first half of the magnitude spectrum
@@ -61,7 +61,7 @@ public:
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral crest
      */
-    T spectralCrest (std::vector<T> magnitudeSpectrum);
+    T spectralCrest (const std::vector<T>& magnitudeSpectrum);
     
     //===========================================================
     /** calculates the spectral rolloff given the first half of the magnitude spectrum
@@ -70,7 +70,7 @@ public:
      @param percentile the rolloff threshold
      @returns the spectral rolloff
      */
-    T spectralRolloff (std::vector<T> magnitudeSpectrum, T percentile = 0.85);
+    T spectralRolloff (const std::vector<T>& magnitudeSpectrum, T percentile = 0.85);
     
     //===========================================================
     /** calculates the spectral kurtosis given the first half of the magnitude spectrum
@@ -78,7 +78,7 @@ public:
      @param magnitudeSpectrum the first half of the magnitude spectrum (i.e. not mirrored)
      @returns the spectral kurtosis
      */
-    T spectralKurtosis (std::vector<T> magnitudeSpectrum);
+    T spectralKurtosis (const std::vector<T>& magnitudeSpectrum);
     
     
 };

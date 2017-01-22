@@ -22,14 +22,16 @@
 //=======================================================================
 
 #include "Gist.h"
+#include <assert.h>
 
 //=======================================================================
 template <class T>
-Gist<T>::Gist (int audioFrameSize, int fs)
+Gist<T>::Gist (int audioFrameSize, int fs, WindowType windowType_)
  :  fftConfigured (false),
     onsetDetectionFunction (audioFrameSize),
     yin (fs),
-    mfcc (audioFrameSize, fs)
+    mfcc (audioFrameSize, fs),
+    windowType (windowType_)
 {
     samplingFrequency = fs;
     setAudioFrameSize (audioFrameSize);
@@ -52,6 +54,9 @@ void Gist<T>::setAudioFrameSize (int audioFrameSize)
     frameSize = audioFrameSize;
     
     audioFrame.resize (frameSize);
+    
+    windowFunction = WindowFunctions<T>::createWindow (audioFrameSize, windowType);
+        
     fftReal.resize (frameSize);
     fftImag.resize (frameSize);
     magnitudeSpectrum.resize (frameSize / 2);
@@ -87,25 +92,33 @@ int Gist<T>::getSamplingFrequency()
 
 //=======================================================================
 template <class T>
-void Gist<T>::processAudioFrame (std::vector<T> audioFrame_)
+void Gist<T>::processAudioFrame (const std::vector<T>& a)
 {
-    audioFrame = audioFrame_;
+    // you are passing an audio frame of a different size to the
+    // audio frame size setup in Gist
+    assert (a.size() == audioFrame.size());
+    
+    std::copy (a.begin(), a.end(), audioFrame.begin());
+    performFFT();
+}
+
+//=======================================================================
+template <class T>
+void Gist<T>::processAudioFrame (const T* frame, int numSamples)
+{
+    // you are passing an audio frame of a different size to the
+    // audio frame size setup in Gist
+    assert (numSamples == audioFrame.size());
+    
+    for (int i = 0; i < audioFrame.size(); i++)
+        audioFrame[i] = frame[i];
     
     performFFT();
 }
 
 //=======================================================================
 template <class T>
-void Gist<T>::processAudioFrame (T* buffer, unsigned long numSamples)
-{
-    audioFrame.assign (buffer, buffer + numSamples);
-    
-    performFFT();
-}
-
-//=======================================================================
-template <class T>
-std::vector<T> Gist<T>::getMagnitudeSpectrum()
+const std::vector<T>& Gist<T>::getMagnitudeSpectrum()
 {
     return magnitudeSpectrum;
 }
@@ -210,16 +223,18 @@ T Gist<T>::pitch()
 
 //=======================================================================
 template <class T>
-std::vector<T> Gist<T>::melFrequencySpectrum()
+const std::vector<T>& Gist<T>::getMelFrequencySpectrum()
 {
-    return mfcc.melFrequencySpectrum (magnitudeSpectrum);
+    mfcc.calculateMelFrequencySpectrum (magnitudeSpectrum);
+    return mfcc.melSpectrum;
 }
 
 //=======================================================================
 template <class T>
-std::vector<T> Gist<T>::melFrequencyCepstralCoefficients()
+const std::vector<T>& Gist<T>::getMelFrequencyCepstralCoefficients()
 {
-    return mfcc.melFrequencyCepstralCoefficients (magnitudeSpectrum);
+    mfcc.calculateMelFrequencyCepstralCoefficients (magnitudeSpectrum);
+    return mfcc.MFCCs;
 }
 
 //=======================================================================
@@ -285,7 +300,7 @@ void Gist<T>::performFFT()
     // copy samples from audio frame
     for (int i = 0; i < frameSize; i++)
     {
-        fftIn[i][0] = (double)audioFrame[i];
+        fftIn[i][0] = (double)(audioFrame[i] * windowFunction[i]);
         fftIn[i][1] = (double)0.0;
     }
     
@@ -303,7 +318,7 @@ void Gist<T>::performFFT()
 #ifdef USE_KISS_FFT
     for (int i = 0; i < frameSize; i++)
     {
-        fftIn[i].r = (double)audioFrame[i];
+        fftIn[i].r = (double)(audioFrame[i] * windowFunction[i]);
         fftIn[i].i = 0.0;
     }
     
@@ -326,7 +341,7 @@ void Gist<T>::performFFT()
     
     for (int i = 0; i < frameSize; i++)
     {
-        inputFrame[i] = audioFrame[i];
+        inputFrame[i] = audioFrame[i] * windowFunction[i];
     }
     
     accelerateFFT.performFFT (inputFrame, outputReal, outputImag);

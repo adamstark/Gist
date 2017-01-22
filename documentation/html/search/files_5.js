@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['yin_2ecpp',['Yin.cpp',['../_yin_8cpp.html',1,'']]],
-  ['yin_2eh',['Yin.h',['../_yin_8h.html',1,'']]]
+  ['windowfunctions_2ecpp',['WindowFunctions.cpp',['../_window_functions_8cpp.html',1,'']]],
+  ['windowfunctions_2eh',['WindowFunctions.h',['../_window_functions_8h.html',1,'']]]
 ];

@@ -24,6 +24,9 @@
 #ifndef __AccelerateFFT__
 #define __AccelerateFFT__
 
+// this fixes a conflict with JUCE, remove if you don't need it
+#define VIMAGE_H
+
 #include <Accelerate/Accelerate.h>
 
 //===========================================================

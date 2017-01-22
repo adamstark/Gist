@@ -1,7 +1,12 @@
-Gist - A Real-Time Audio Analysis Library
+<div align="center"><img src="images/header.png"></div> 
+
+Gist - An Audio Analysis Library
 ==================================
 
-*Version 1.0.3*
+<!-- Version and License Badges -->
+![Version](https://img.shields.io/badge/version-1.0.4-green.svg?style=flat-square) 
+![License](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square) 
+![Language](https://img.shields.io/badge/language-C++-yellow.svg?style=flat-square) 
 
 Gist is a C++ based audio analysis library
 
@@ -26,11 +31,11 @@ Gist is a template class, so instantiate it with floating point precision:
 	int frameSize = 512;
 	int sampleRate = 44100;
 
-	Gist<float> gist(frameSize, sampleRate);
+	Gist<float> gist (frameSize, sampleRate);
 	
 Or with double precision:
 
-	Gist<double> gist(frameSize, sampleRate);
+	Gist<double> gist (frameSize, sampleRate);
 
 We proceed with the documentation as if we were using floating point precision.
 
@@ -44,7 +49,7 @@ Once you have an audio frame, pass it to the Gist object. You can do this either
 	// fill audio frame with samples here
 	// !
 	
-	gist.processAudioFrame(audioFrame);
+	gist.processAudioFrame (audioFrame);
 	
 Or, as an array:
 
@@ -54,7 +59,7 @@ Or, as an array:
 	// fill audio frame with samples here
 	// !
 	
-	gist.processAudioFrame(audioFrame, 512);
+	gist.processAudioFrame (audioFrame, 512);
 	
 Now we can retrieve some audio features.
 	
@@ -106,7 +111,7 @@ Now we can retrieve some audio features.
 ##### FFT Magnitude Spectrum
 
 	// FFT Magnitude Spectrum
-	std::vector<float> magSpec = gist.getMagnitudeSpectrum();
+	const std::vector<float>& magSpec = gist.getMagnitudeSpectrum();
 	
 ##### Pitch
 
@@ -116,14 +121,20 @@ Now we can retrieve some audio features.
 ##### Mel-frequency Representations
 
 	// Mel-frequency Spectrum
-	std::vector<float> melSpec = gist.melFrequencySpectrum();
+	const std::vector<float>& melSpec = gist.getMelFrequencySpectrum();
 	
 	// MFCCs
-	std::vector<float> mfcc = gist.melFrequencyCepstralCoefficients();
+	const std::vector<float>& mfcc = gist.getMelFrequencyCepstralCoefficients();
 	
 		
 Version History
 ---------------
+
+=== 1.0.4 === (22nd January 2017)
+
+* Small changes to the interface for MFCCs and Mel Spectrum
+* Many internal improvements
+* Added window functions
 
 === 1.0.3 === (17th June 2016)
 

@@ -65,14 +65,14 @@ void Yin<T>::setMaxFrequency (T maxFreq)
 
 //===========================================================
 template <class T>
-T Yin<T>::pitchYin (std::vector<T> frame)
+T Yin<T>::pitchYin (const std::vector<T>& frame)
 {
     unsigned long period;
     T fPeriod;
     
     // steps 1, 2 and 3 of the Yin algorithm
     // get the difference function ("delta")
-    cumulativeMeanNormalisedDifferenceFunction (&frame[0],frame.size());
+    cumulativeMeanNormalisedDifferenceFunction (frame);
     
     // first, see if the previous period estimate has a minima
     long continuityPeriod = searchForOtherRecentMinima (delta);
@@ -109,12 +109,10 @@ T Yin<T>::pitchYin (std::vector<T> frame)
 
 //===========================================================
 template <class T>
-void Yin<T>::cumulativeMeanNormalisedDifferenceFunction (T* frame,unsigned long numSamples)
+void Yin<T>::cumulativeMeanNormalisedDifferenceFunction (const std::vector<T>& frame)
 {
     T cumulativeSum = 0.0;
-    
-    //std::vector<T> delta;
-    unsigned long L = numSamples/2;
+    unsigned long L = (unsigned long) frame.size() / 2;
     
     delta.resize(L);
     
@@ -150,7 +148,7 @@ void Yin<T>::cumulativeMeanNormalisedDifferenceFunction (T* frame,unsigned long 
 
 //===========================================================
 template <class T>
-unsigned long Yin<T>::getPeriodCandidate (std::vector<T> delta)
+unsigned long Yin<T>::getPeriodCandidate (const std::vector<T>& delta)
 {
     unsigned long minPeriod = 30;
     unsigned long period;
@@ -213,7 +211,7 @@ T Yin<T>::parabolicInterpolation (unsigned long period,T y1,T y2,T y3)
 
 //===========================================================
 template <class T>
-long Yin<T>::searchForOtherRecentMinima (std::vector<T> delta)
+long Yin<T>::searchForOtherRecentMinima (const std::vector<T>& delta)
 {
     long newMinima = -1;
     

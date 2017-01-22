@@ -31,7 +31,7 @@ CoreTimeDomainFeatures<T>::CoreTimeDomainFeatures()
 
 //===========================================================
 template <class T>
-T CoreTimeDomainFeatures<T>::rootMeanSquare (std::vector<T> buffer)
+T CoreTimeDomainFeatures<T>::rootMeanSquare (const std::vector<T>& buffer)
 {
     // create variable to hold the sum
     T sum = 0;
@@ -48,7 +48,7 @@ T CoreTimeDomainFeatures<T>::rootMeanSquare (std::vector<T> buffer)
 
 //===========================================================
 template <class T>
-T CoreTimeDomainFeatures<T>::peakEnergy (std::vector<T> buffer)
+T CoreTimeDomainFeatures<T>::peakEnergy (const std::vector<T>& buffer)
 {
     // create variable with very small value to hold the peak value
     T peak = -10000.0;
@@ -73,7 +73,7 @@ T CoreTimeDomainFeatures<T>::peakEnergy (std::vector<T> buffer)
 
 //===========================================================
 template <class T>
-T CoreTimeDomainFeatures<T>::zeroCrossingRate (std::vector<T> buffer)
+T CoreTimeDomainFeatures<T>::zeroCrossingRate (const std::vector<T>& buffer)
 {
     // create a variable to hold the zero crossing rate
     T zcr = 0;

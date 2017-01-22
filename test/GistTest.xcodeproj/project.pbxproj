@@ -13,6 +13,7 @@
 		E34BF545186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34BF543186E86BF006FF37D /* Test_CoreTimeDomainFeatures.cpp */; };
 		E34D255318FC2EC4006B3446 /* Test_Gist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E34D255218FC2EC4006B3446 /* Test_Gist.cpp */; };
 		E35B1E621871C9D500E89F56 /* Test_Signals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E35B1E601871C9D500E89F56 /* Test_Signals.cpp */; };
+		E38EC0ED1D34586C00C236D3 /* WindowFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E38EC0EC1D34586C00C236D3 /* WindowFunctions.cpp */; };
 		E393D4581900871E003A5926 /* MFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E393D4561900871E003A5926 /* MFCC.cpp */; };
 		E3A9178A1CCA209200896653 /* Gist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3A917881CCA1D2A00896653 /* Gist.cpp */; };
 		E3A9178E1CCA236900896653 /* AccelerateFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3A9178C1CCA236900896653 /* AccelerateFFT.cpp */; };
@@ -50,6 +51,8 @@
 		E35B1E5D1871C53800E89F56 /* Gist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gist.h; path = ../../src/Gist.h; sourceTree = "<group>"; };
 		E35B1E601871C9D500E89F56 /* Test_Signals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test_Signals.cpp; sourceTree = "<group>"; };
 		E35B1E611871C9D500E89F56 /* Test_Signals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Signals.h; sourceTree = "<group>"; };
+		E38EC0EB1D34581B00C236D3 /* WindowFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowFunctions.h; sourceTree = "<group>"; };
+		E38EC0EC1D34586C00C236D3 /* WindowFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WindowFunctions.cpp; sourceTree = "<group>"; };
 		E393D4561900871E003A5926 /* MFCC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MFCC.cpp; sourceTree = "<group>"; };
 		E393D4571900871E003A5926 /* MFCC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFCC.h; sourceTree = "<group>"; };
 		E3A917881CCA1D2A00896653 /* Gist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gist.cpp; path = ../../src/Gist.cpp; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 			children = (
 				E3A9178C1CCA236900896653 /* AccelerateFFT.cpp */,
 				E3A9178D1CCA236900896653 /* AccelerateFFT.h */,
+				E38EC0EC1D34586C00C236D3 /* WindowFunctions.cpp */,
+				E38EC0EB1D34581B00C236D3 /* WindowFunctions.h */,
 			);
 			name = fft;
 			path = ../../src/fft;
@@ -253,7 +258,7 @@
 		E32690BB186E6BF000BC4C67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Adam Stark";
 			};
 			buildConfigurationList = E32690BE186E6BF000BC4C67 /* Build configuration list for PBXProject "GistTest" */;
@@ -279,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C147E61870796800551889 /* Yin.cpp in Sources */,
+				E38EC0ED1D34586C00C236D3 /* WindowFunctions.cpp in Sources */,
 				E3B9C74E1905573B009D3B12 /* Test_MFCC.cpp in Sources */,
 				E3D1C627186F33A000EBBDFB /* Test_CoreFrequencyDomainFeatures.cpp in Sources */,
 				E306AC3B1870BBA800FF8DA9 /* Test_Pitch.cpp in Sources */,
@@ -304,7 +310,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -313,13 +318,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -342,7 +353,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -351,14 +361,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

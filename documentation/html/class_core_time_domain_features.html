@@ -101,15 +101,15 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a9ad4a54ee365b5801b54d3077ba34295">CoreTimeDomainFeatures</a> ()</td></tr>
 <tr class="memdesc:a9ad4a54ee365b5801b54d3077ba34295"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
 <tr class="separator:a9ad4a54ee365b5801b54d3077ba34295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a168914d8e3b5a3f0113e736be6f795d0"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a168914d8e3b5a3f0113e736be6f795d0">rootMeanSquare</a> (std::vector&lt; T &gt; buffer)</td></tr>
-<tr class="memdesc:a168914d8e3b5a3f0113e736be6f795d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the Root Mean Square (RMS) of an audio buffer in vector format  <a href="#a168914d8e3b5a3f0113e736be6f795d0">More...</a><br /></td></tr>
-<tr class="separator:a168914d8e3b5a3f0113e736be6f795d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6e73fcb8dcd609db651d1f2496a3297"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#ad6e73fcb8dcd609db651d1f2496a3297">peakEnergy</a> (std::vector&lt; T &gt; buffer)</td></tr>
-<tr class="memdesc:ad6e73fcb8dcd609db651d1f2496a3297"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the peak energy (max absolute value) in a time domain audio signal buffer in vector format  <a href="#ad6e73fcb8dcd609db651d1f2496a3297">More...</a><br /></td></tr>
-<tr class="separator:ad6e73fcb8dcd609db651d1f2496a3297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a526deb036d87146bd0c58ca32413a171"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a526deb036d87146bd0c58ca32413a171">zeroCrossingRate</a> (std::vector&lt; T &gt; buffer)</td></tr>
-<tr class="memdesc:a526deb036d87146bd0c58ca32413a171"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the zero crossing rate of a time domain audio signal buffer  <a href="#a526deb036d87146bd0c58ca32413a171">More...</a><br /></td></tr>
-<tr class="separator:a526deb036d87146bd0c58ca32413a171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b3940a61dd70ae5739ab3c89f738f6"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a87b3940a61dd70ae5739ab3c89f738f6">rootMeanSquare</a> (const std::vector&lt; T &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:a87b3940a61dd70ae5739ab3c89f738f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the Root Mean Square (RMS) of an audio buffer in vector format  <a href="#a87b3940a61dd70ae5739ab3c89f738f6">More...</a><br /></td></tr>
+<tr class="separator:a87b3940a61dd70ae5739ab3c89f738f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc8b25d4f21810f15540604efe03fd1b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#abc8b25d4f21810f15540604efe03fd1b">peakEnergy</a> (const std::vector&lt; T &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:abc8b25d4f21810f15540604efe03fd1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the peak energy (max absolute value) in a time domain audio signal buffer in vector format  <a href="#abc8b25d4f21810f15540604efe03fd1b">More...</a><br /></td></tr>
+<tr class="separator:abc8b25d4f21810f15540604efe03fd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c26c29421f32a657aedb56e9dc020e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_time_domain_features.html#a92c26c29421f32a657aedb56e9dc020e">zeroCrossingRate</a> (const std::vector&lt; T &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:a92c26c29421f32a657aedb56e9dc020e"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the zero crossing rate of a time domain audio signal buffer  <a href="#a92c26c29421f32a657aedb56e9dc020e">More...</a><br /></td></tr>
+<tr class="separator:a92c26c29421f32a657aedb56e9dc020e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
@@ -118,7 +118,7 @@ class CoreTimeDomainFeatures&lt; T &gt;</h3>
 <p>template class for calculating common time domain audio features. </p>
 <p>Instantiations of the class should be of either 'float' or 'double' types and no others </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6e73fcb8dcd609db651d1f2496a3297"></a>
+<a class="anchor" id="abc8b25d4f21810f15540604efe03fd1b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -127,7 +127,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T <a class="el" href="class_core_time_domain_features.html">CoreTimeDomainFeatures</a>&lt; T &gt;::peakEnergy </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; T &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -145,7 +145,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a168914d8e3b5a3f0113e736be6f795d0"></a>
+<a class="anchor" id="a87b3940a61dd70ae5739ab3c89f738f6"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -154,7 +154,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T <a class="el" href="class_core_time_domain_features.html">CoreTimeDomainFeatures</a>&lt; T &gt;::rootMeanSquare </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; T &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -172,7 +172,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a526deb036d87146bd0c58ca32413a171"></a>
+<a class="anchor" id="a92c26c29421f32a657aedb56e9dc020e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -181,7 +181,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T <a class="el" href="class_core_time_domain_features.html">CoreTimeDomainFeatures</a>&lt; T &gt;::zeroCrossingRate </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; T &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -206,7 +206,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 17 2016 20:24:53 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 22 2017 16:36:19 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

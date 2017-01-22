@@ -27,11 +27,11 @@ BOOST_AUTO_TEST_CASE(ExampleMagnitudeSpectrumTest)
         magnitudeSpecV[i] = magnitudeSpectrum[i];
     }
     
-    std::vector<float> r = mfcc.melFrequencyCepstralCoefficients(magnitudeSpecV);
+    mfcc.calculateMelFrequencyCepstralCoefficients (magnitudeSpecV);
     
-    for (int i = 0;i < r.size();i++)
+    for (int i = 0;i < mfcc.MFCCs.size();i++)
     {
-        BOOST_CHECK_CLOSE(r[i],mfccTest1_result[i],0.01);
+        BOOST_CHECK_CLOSE (mfcc.MFCCs[i], mfccTest1_result[i], 0.01);
     }
 }
 
