@@ -1,0 +1,93 @@
+configurations
+{
+   Linkage {
+      choices: { dynamic,static };
+      dynamic.description = "Dynamic";
+      static.description = "Static";
+   }
+   Toolset {
+      key : "PlatformToolset";
+      choices: { v140 };
+   };
+}
+
+nuget
+{
+   nuspec
+   {
+      id = Gist;
+      version: 1.0.1;
+      title: Gist Audio Processing Library;
+      authors: { Adam Stark };
+      owners: { Adam Stark };
+      licenseUrl: "https://github.com/adamstark/Gist/blob/master/LICENSE.txt";
+      projectUrl: "https://github.com/TechSmith/Gist";
+      iconUrl: "https://github.com/adamstark/Gist/blob/master/logo.png";
+      requireLicenseAcceptance: false;
+      summary: C++ Audio Analysis Library;
+      description: @"C++ Audio Analysis Library.
+         New features:
+            v1.0.1: Wrapped into a native nuget package
+         Breaking changes:
+         Bug fixes:
+         Misc:
+         ";
+      copyright: "Copyright (C) 2013-2017 Adam Stark. All rights reserved.";
+      tags: { native, audio, processing, vs2015, cpp, nomfc };
+   };
+   
+   files
+   {
+
+      NestedInclude:  { #destination = ${d_include}Gist; 
+                        ..\src\Gist.h; }
+					
+      NestedIncludeCore:  { #destination = ${d_include}Gist\core; 
+                            ..\src\core\*.h; }
+
+		NestedIncludeFFT1:  { #destination = ${d_include}libs\kiss_fft130; 
+                           ..\libs\kiss_fft130\*.h; }
+
+		NestedIncludeFFT2:  { #destination = ${d_include}fft; 
+                           ..\src\fft\*.h; }
+
+		NestedIncludeMFCC:  { #destination = ${d_include}Gist\mfcc; 
+                            ..\src\mfcc\*.h; }
+						
+		NestedIncludeOnset:  { #destination = ${d_include}Gist\onset-detection-functions; 
+                             ..\src\onset-detection-functions\*.h; }
+						
+		NestedIncludePitch:  { #destination = ${d_include}Gist\pitch; 
+                             ..\src\pitch\*.h; }
+
+      libpdb:         { #destination = ${d_lib}; }
+
+      ("Win32,x64", "v140", "Debug,Release", "Dynamic,Static") =>
+      {
+         [${0},${1},${2},${3}]
+         {
+            lib:         { ${2}${3}${0}\Gist.lib; }
+            libpdb:      { ${2}${3}${0}\Gist.pdb; }
+         };
+      };
+   };
+
+   props
+   {
+      // Additional declarations to insert into consuming projects before most of the
+      // project settings. (These may be modified in visual studio by a developer
+      // consuming this package.)
+      // This node is typically not needed for most packages and may be omitted.
+   }
+
+   targets
+   {
+      // Additional declarations to insert into consuming projects after most of the
+      // project settings. (These may NOT be modified in visual studio by a developer
+      // consuming this package.)
+      // This node is often used to set defines that are required that must be set by
+      // the consuming project in order to correctly link to the libraries in this
+      // package.  Such defines may be set either globally or only set under specific
+      // conditions.
+   }
+}
