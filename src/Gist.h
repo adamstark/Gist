@@ -24,6 +24,8 @@
 #ifndef __GISTHEADER__
 #define __GISTHEADER__
 
+#define USE_KISS_FFT 1
+
 //=======================================================================
 // core
 #include "core/CoreTimeDomainFeatures.h"
@@ -45,7 +47,7 @@
 #endif
 
 #ifdef USE_KISS_FFT
-#include "kiss_fft.h"
+#include "..\libs\kiss_fft130\kiss_fft.h"
 #endif
 
 #ifdef USE_ACCELERATE_FFT

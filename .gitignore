@@ -4,3 +4,8 @@ xcuserdata
 python-module/build
 max-externals/project/Build
 *.xccheckout
+
+# Visual Studio / Windows
+*.tlog
+.vs/
+*.idb

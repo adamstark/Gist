@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{9467aa61-0ca6-4142-8642-73fdb9513833}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\core\CoreFrequencyDomainFeatures.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\CoreTimeDomainFeatures.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Gist.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mfcc\MFCC.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\onset-detection-functions\OnsetDetectionFunction.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fft\WindowFunctions.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pitch\Yin.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\src\core\CoreFrequencyDomainFeatures.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\CoreTimeDomainFeatures.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Gist.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mfcc\MFCC.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\onset-detection-functions\OnsetDetectionFunction.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\fft\WindowFunctions.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pitch\Yin.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClCompile Include="..\libs\kiss_fft130\kiss_fft.c">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\libs\kiss_fft130\_kiss_fft_guts.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\kiss_fft130\kiss_fft.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libs\kiss_fft130\kissfft.hh">
+      <Filter>Src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
