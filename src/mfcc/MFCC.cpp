@@ -110,7 +110,7 @@ void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const size_t
     // the input signal must have the number of elements specified in the numElements variable
     assert (inputSignal.size() == numElements);
     
-    T signal[numElements]; // copy to work on
+    T* signal = new T[numElements]; // copy to work on
     
     for (int i = 0; i < numElements; i++)
         signal[i] = inputSignal[i];
@@ -132,6 +132,7 @@ void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const size_t
 
         inputSignal[k] = (T)(2 * sum);
     }
+    delete[] signal;
 }
 
 //==================================================================
