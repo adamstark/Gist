@@ -105,7 +105,7 @@ void MFCC<T>::initialise()
 
 //==================================================================
 template <class T>
-void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const size_t numElements)
+void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const std::size_t numElements)
 {
     // the input signal must have the number of elements specified in the numElements variable
     assert (inputSignal.size() == numElements);
