@@ -91,7 +91,7 @@ private:
      * @param inputSignal a vector containing the input signal
      * @param numElements the number of elements in the input signal
      */
-    void discreteCosineTransform (std::vector<T>& inputSignal, const size_t numElements);
+    void discreteCosineTransform (std::vector<T>& inputSignal, const std::size_t numElements);
 
     /** Calculates the triangular filters used in the algorithm. These will be different depending
      * upon the frame size, sampling frequency and number of coefficients and so should be re-calculated
