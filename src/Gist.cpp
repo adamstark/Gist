@@ -27,11 +27,11 @@
 //=======================================================================
 template <class T>
 Gist<T>::Gist (int audioFrameSize, int fs, WindowType windowType_)
- :  fftConfigured (false),
+ :  windowType (windowType_),
+    fftConfigured (false),
     onsetDetectionFunction (audioFrameSize),
     yin (fs),
-    mfcc (audioFrameSize, fs),
-    windowType (windowType_)
+    mfcc (audioFrameSize, fs)
 {
     samplingFrequency = fs;
     setAudioFrameSize (audioFrameSize);
