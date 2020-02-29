@@ -94,7 +94,7 @@ public:
     /** Process an audio frame
      * @param audioFrame a vector containing audio samples
      */
-    void processAudioFrame (const std::vector<T>& audioFrame_);
+    void processAudioFrame (const std::vector<T>& audioFrame);
 
     /** Process an audio frame
      * @param frame a pointer to an array containing the audio frame

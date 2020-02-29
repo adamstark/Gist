@@ -37,7 +37,7 @@ T CoreTimeDomainFeatures<T>::rootMeanSquare (const std::vector<T>& buffer)
     T sum = 0;
 
     // sum the squared samples
-    for (int i = 0; i < buffer.size(); i++)
+    for (size_t i = 0; i < buffer.size(); i++)
     {
         sum += pow (buffer[i], 2);
     }
@@ -54,7 +54,7 @@ T CoreTimeDomainFeatures<T>::peakEnergy (const std::vector<T>& buffer)
     T peak = -10000.0;
 
     // for each audio sample
-    for (int i = 0; i < buffer.size(); i++)
+    for (size_t i = 0; i < buffer.size(); i++)
     {
         // store the absolute value of the sample
         T absSample = fabs (buffer[i]);
@@ -79,7 +79,7 @@ T CoreTimeDomainFeatures<T>::zeroCrossingRate (const std::vector<T>& buffer)
     T zcr = 0;
 
     // for each audio sample, starting from the second one
-    for (int i = 1; i < buffer.size(); i++)
+    for (size_t i = 1; i < buffer.size(); i++)
     {
         // initialise two booleans indicating whether or not
         // the current and previous sample are positive

@@ -66,7 +66,7 @@ void MFCC<T>::calculateMelFrequencyCepstralCoefficients (const std::vector<T>& m
 {
     calculateMelFrequencySpectrum (magnitudeSpectrum);
     
-    for (int i = 0; i < melSpectrum.size(); i++)
+    for (size_t i = 0; i < melSpectrum.size(); i++)
         MFCCs[i] = log (melSpectrum[i] + (T)FLT_MIN);
 
     discreteCosineTransform (MFCCs, MFCCs.size());
@@ -80,10 +80,8 @@ void MFCC<T>::calculateMelFrequencySpectrum (const std::vector<T>& magnitudeSpec
     {
         double coeff = 0;
         
-        for (int j = 0; j < magnitudeSpectrum.size(); j++)
-        {
+        for (size_t j = 0; j < magnitudeSpectrum.size(); j++)
             coeff += (T)((magnitudeSpectrum[j] * magnitudeSpectrum[j]) * filterBank[i][j]);
-        }
         
         melSpectrum[i] = coeff;
     }
@@ -99,35 +97,36 @@ void MFCC<T>::initialise()
 
     melSpectrum.resize (numCoefficents);
     MFCCs.resize (numCoefficents);
+    dctSignal.resize (numCoefficents);
     
     calculateMelFilterBank();
 }
 
 //==================================================================
 template <class T>
-void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const size_t numElements)
+void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const std::size_t numElements)
 {
     // the input signal must have the number of elements specified in the numElements variable
     assert (inputSignal.size() == numElements);
     
-    T signal[numElements]; // copy to work on
-    
-    for (int i = 0; i < numElements; i++)
-        signal[i] = inputSignal[i];
+    // this should already be the case - sanity check
+    assert (dctSignal.size() == numElements);
+        
+    for (size_t i = 0; i < numElements; i++)
+        dctSignal[i] = inputSignal[i];
     
     T N = (T)numElements;
     T piOverN = M_PI / N;
 
-    for (int k = 0; k < numElements; k++)
+    for (size_t k = 0; k < numElements; k++)
     {
         T sum = 0;
         T kVal = (T)k;
 
-        for (int n = 0; n < numElements; n++)
+        for (size_t n = 0; n < numElements; n++)
         {
             T tmp = piOverN * (((T)n) + 0.5) * kVal;
-
-            sum += signal[n] * cos (tmp);
+            sum += dctSignal[n] * cos (tmp);
         }
 
         inputSignal[k] = (T)(2 * sum);
@@ -148,9 +147,7 @@ void MFCC<T>::calculateMelFilterBank()
         filterBank[i].resize (magnitudeSpectrumSize);
 
         for (int j = 0; j < magnitudeSpectrumSize; j++)
-        {
             filterBank[i][j] = 0.0;
-        }
     }
 
     std::vector<int> centreIndices;
@@ -161,13 +158,10 @@ void MFCC<T>::calculateMelFilterBank()
 
         double tmp = log (1 + 1000.0 / 700.0) / 1000.0;
         tmp = (exp (f * tmp) - 1) / (samplingFrequency / 2);
-
         tmp = 0.5 + 700 * ((double)magnitudeSpectrumSize) * tmp;
-
         tmp = floor (tmp);
 
         int centreIndex = (int)tmp;
-
         centreIndices.push_back (centreIndex);
     }
 
@@ -182,15 +176,11 @@ void MFCC<T>::calculateMelFilterBank()
 
         // upward slope
         for (int k = filterBeginIndex; k < filterCenterIndex; k++)
-        {
             filterBank[i][k] = ((T)(k - filterBeginIndex)) / triangleRangeUp;
-        }
 
         // downwards slope
         for (int k = filterCenterIndex; k < filterEndIndex; k++)
-        {
             filterBank[i][k] = ((T)(filterEndIndex - k)) / triangleRangeDown;
-        }
     }
 }
 

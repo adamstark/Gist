@@ -80,9 +80,7 @@ std::vector<T> WindowFunctions<T>::createHammingWindow (int numSamples)
     T numSamplesMinus1 = (T) (numSamples - 1);		// the number of samples minus 1
     
     for (int i = 0; i < numSamples; i++)
-    {
         window[i] = 0.54 - (0.46 * cos (2 * M_PI * ((T)i / numSamplesMinus1)));
-    }
     
     return window;
 }
@@ -96,9 +94,7 @@ std::vector<T> WindowFunctions<T>::createBlackmanWindow (int numSamples)
     T numSamplesMinus1 = (T) (numSamples - 1);		// the number of samples minus 1
         
     for (int i = 0; i < numSamples; i++)
-    {
         window[i] = 0.42 - (0.5 * cos (2. * M_PI * ((T)i / numSamplesMinus1))) + (0.08 * cos (4. * M_PI * ((T)i / numSamplesMinus1)));
-    }
     
     return window;
 }
@@ -141,9 +137,7 @@ std::vector<T> WindowFunctions<T>::createRectangularWindow (int numSamples)
     std::vector<T> window (numSamples);
     
     for (int i = 0; i < numSamples; i++)
-    {
         window[i] = 1.;
-    }
     
     return window;
 }

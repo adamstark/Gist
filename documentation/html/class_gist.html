@@ -118,14 +118,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gist.html#a8f2086ae2507795b0984402044856f1d">getSamplingFrequency</a> ()</td></tr>
 <tr class="memdesc:a8f2086ae2507795b0984402044856f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the audio sampling frequency being used for analysis <br /></td></tr>
 <tr class="separator:a8f2086ae2507795b0984402044856f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a544609921f956eaee40eb5bcb65f77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gist.html#a1a544609921f956eaee40eb5bcb65f77">processAudioFrame</a> (const std::vector&lt; T &gt; &amp;audioFrame_)</td></tr>
-<tr class="memdesc:a1a544609921f956eaee40eb5bcb65f77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process an audio frame.  <a href="#a1a544609921f956eaee40eb5bcb65f77">More...</a><br /></td></tr>
-<tr class="separator:a1a544609921f956eaee40eb5bcb65f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8181a7e0f5e6709620418851f73de869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gist.html#a8181a7e0f5e6709620418851f73de869">processAudioFrame</a> (const std::vector&lt; T &gt; &amp;audioFrame)</td></tr>
+<tr class="memdesc:a8181a7e0f5e6709620418851f73de869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process an audio frame.  <a href="#a8181a7e0f5e6709620418851f73de869">More...</a><br /></td></tr>
+<tr class="separator:a8181a7e0f5e6709620418851f73de869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e967cbcc144cdad901c850d55d33746"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gist.html#a9e967cbcc144cdad901c850d55d33746">processAudioFrame</a> (const T *frame, int numSamples)</td></tr>
 <tr class="memdesc:a9e967cbcc144cdad901c850d55d33746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process an audio frame.  <a href="#a9e967cbcc144cdad901c850d55d33746">More...</a><br /></td></tr>
 <tr class="separator:a9e967cbcc144cdad901c850d55d33746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62093b46f5f27179cc1f09ab268bdc0f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gist.html#a62093b46f5f27179cc1f09ab268bdc0f">getMagnitudeSpectrum</a> ()</td></tr>
-<tr class="memdesc:a62093b46f5f27179cc1f09ab268bdc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_gist.html" title="Class for all performing all Gist audio analyses. ">Gist</a> automatically calculates the magnitude spectrum when <a class="el" href="class_gist.html#a1a544609921f956eaee40eb5bcb65f77" title="Process an audio frame. ">processAudioFrame()</a> is called, this function returns it.  <a href="#a62093b46f5f27179cc1f09ab268bdc0f">More...</a><br /></td></tr>
+<tr class="memdesc:a62093b46f5f27179cc1f09ab268bdc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_gist.html" title="Class for all performing all Gist audio analyses. ">Gist</a> automatically calculates the magnitude spectrum when <a class="el" href="class_gist.html#a8181a7e0f5e6709620418851f73de869" title="Process an audio frame. ">processAudioFrame()</a> is called, this function returns it.  <a href="#a62093b46f5f27179cc1f09ab268bdc0f">More...</a><br /></td></tr>
 <tr class="separator:a62093b46f5f27179cc1f09ab268bdc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119486afd79a8ac114761f30cb7a9c12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a119486afd79a8ac114761f30cb7a9c12"></a>
 T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gist.html#a119486afd79a8ac114761f30cb7a9c12">rootMeanSquare</a> ()</td></tr>
@@ -258,12 +258,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_gist.html" title="Class for all performing all Gist audio analyses. ">Gist</a> automatically calculates the magnitude spectrum when <a class="el" href="class_gist.html#a1a544609921f956eaee40eb5bcb65f77" title="Process an audio frame. ">processAudioFrame()</a> is called, this function returns it. </p>
+<p><a class="el" href="class_gist.html" title="Class for all performing all Gist audio analyses. ">Gist</a> automatically calculates the magnitude spectrum when <a class="el" href="class_gist.html#a8181a7e0f5e6709620418851f73de869" title="Process an audio frame. ">processAudioFrame()</a> is called, this function returns it. </p>
 <dl class="section return"><dt>Returns</dt><dd>the current magnitude spectrum </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1a544609921f956eaee40eb5bcb65f77"></a>
+<a class="anchor" id="a8181a7e0f5e6709620418851f73de869"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -273,7 +273,7 @@ template&lt;class T &gt; </div>
           <td class="memname">void <a class="el" href="class_gist.html">Gist</a>&lt; T &gt;::processAudioFrame </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>audioFrame_</em></td><td>)</td>
+          <td class="paramname"><em>audioFrame</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -385,7 +385,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 22 2017 16:36:19 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 29 2020 09:16:55 for Gist by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
