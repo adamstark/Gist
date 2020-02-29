@@ -40,7 +40,7 @@ T CoreFrequencyDomainFeatures<T>::spectralCentroid (const std::vector<T>& magnit
     T sumWeightedAmplitudes = 0.0;
 
     // for each bin in the first half of the magnitude spectrum
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // sum amplitudes
         sumAmplitudes += magnitudeSpectrum[i];
@@ -72,7 +72,7 @@ T CoreFrequencyDomainFeatures<T>::spectralFlatness (const std::vector<T>& magnit
 
     T flatness;
 
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // add one to stop zero values making it always zero
         double v = (double)(1 + magnitudeSpectrum[i]);
@@ -85,13 +85,9 @@ T CoreFrequencyDomainFeatures<T>::spectralFlatness (const std::vector<T>& magnit
     logSumVal = logSumVal / N;
 
     if (sumVal > 0)
-    {
         flatness = (T)(exp (logSumVal) / sumVal);
-    }
     else
-    {
         flatness = 0.0;
-    }
 
     return flatness;
 }
@@ -104,15 +100,13 @@ T CoreFrequencyDomainFeatures<T>::spectralCrest (const std::vector<T>& magnitude
     T maxVal = 0.0;
     T N = (T)magnitudeSpectrum.size();
 
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         T v = magnitudeSpectrum[i] * magnitudeSpectrum[i];
         sumVal += v;
 
         if (v > maxVal)
-        {
             maxVal = v;
-        }
     }
 
     T spectralCrest;
@@ -120,7 +114,6 @@ T CoreFrequencyDomainFeatures<T>::spectralCrest (const std::vector<T>& magnitude
     if (sumVal > 0)
     {
         T meanVal = sumVal / N;
-
         spectralCrest = maxVal / meanVal;
     }
     else
@@ -142,13 +135,13 @@ T CoreFrequencyDomainFeatures<T>::spectralRolloff (const std::vector<T>& magnitu
     T cumulativeSum = 0;
     int index = 0;
     
-    for (int i = 0; i < magnitudeSpectrum.size();i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         cumulativeSum += magnitudeSpectrum[i];
         
         if (cumulativeSum > threshold)
         {
-            index = i;
+            index = static_cast<int> (i);
             break;
         }
     }
@@ -171,7 +164,7 @@ T CoreFrequencyDomainFeatures<T>::spectralKurtosis (const std::vector<T>& magnit
     T moment2 = 0;
     T moment4 = 0;
     
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         T difference = magnitudeSpectrum[i] - mean;
         T squaredDifference = difference*difference;

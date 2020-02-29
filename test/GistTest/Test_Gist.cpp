@@ -32,7 +32,7 @@ BOOST_AUTO_TEST_CASE(TestFFT1)
     
     mag = g.getMagnitudeSpectrum();
     
-    for (int i = 0;i < mag.size();i++)
+    for (size_t i = 0; i < mag.size(); i++)
     {
         BOOST_CHECK_EQUAL(mag[i], 1.0);
     }
@@ -45,23 +45,19 @@ BOOST_AUTO_TEST_CASE(TestFFT2)
         
     std::vector<float> testFrame(512);
     
-    for (int i = 0;i < 512;i++)
-    {
+    for (int i = 0; i < 512; i++)
         testFrame[i] = 1.0;
-    }
     
-    g.processAudioFrame(testFrame);
+    g.processAudioFrame (testFrame);
     
     std::vector<float> mag;
     
     mag = g.getMagnitudeSpectrum();
     
-    BOOST_CHECK_EQUAL(mag[0], testFrame.size());
+    BOOST_CHECK_EQUAL (mag[0], testFrame.size());
     
-    for (int i = 1;i < mag.size();i++)
-    {
-        BOOST_CHECK_EQUAL(mag[i], 0.0);
-    }
+    for (size_t i = 1; i < mag.size(); i++)
+        BOOST_CHECK_EQUAL (mag[i], 0.0);
 }
 
 //=============================================================
@@ -71,10 +67,8 @@ BOOST_AUTO_TEST_CASE(TestFFT3)
     
     std::vector<float> testFrame(256);
     
-    for (int i = 0;i < 256;i++)
-    {
+    for (int i = 0; i < 256; i++)
         testFrame[i] = fftTestIn[i];
-    }
     
     g.processAudioFrame(testFrame);
     
@@ -82,7 +76,7 @@ BOOST_AUTO_TEST_CASE(TestFFT3)
     
     mag = g.getMagnitudeSpectrum();
     
-    for (int i = 1;i < mag.size();i++)
+    for (size_t i = 1; i < mag.size(); i++)
     {
         BOOST_CHECK_CLOSE (mag[i], fftTestMag[i], 0.001);
     }
@@ -96,18 +90,16 @@ BOOST_AUTO_TEST_CASE(TestFFT4)
     
     std::vector<double> testFrame(256);
     
-    for (int i = 0;i < 256;i++)
-    {
+    for (int i = 0; i < 256; i++)
         testFrame[i] = fftTestIn[i];
-    }
     
-    g.processAudioFrame(testFrame);
+    g.processAudioFrame (testFrame);
     
     std::vector<double> mag;
     
     mag = g.getMagnitudeSpectrum();
     
-    for (int i = 1;i < mag.size();i++)
+    for (size_t i = 1; i < mag.size(); i++)
     {
         BOOST_CHECK_CLOSE (mag[i], fftTestMag[i], 0.001);
     }
@@ -121,21 +113,16 @@ BOOST_AUTO_TEST_CASE(RMS_Test)
     
     CoreTimeDomainFeatures<float> tdf;
     
-    std::vector<float> testFrame(512);
+    std::vector<float> testFrame (512);
     
-    for (int i = 0;i < 512;i++)
-    {
+    for (int i = 0; i < 512; i++)
         testFrame[i] = ((float)((rand() % 1000) - 500)) / 1000.;
-    }
     
-    g.processAudioFrame(testFrame);
+    g.processAudioFrame (testFrame);
     
     float r1 = g.rootMeanSquare();
-    
     float r2 = tdf.rootMeanSquare(testFrame);
-
-    BOOST_CHECK_EQUAL(r1,r2);
-    
+    BOOST_CHECK_EQUAL (r1, r2);
 }
 
 //=============================================================

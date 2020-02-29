@@ -28,9 +28,7 @@ template <class T>
 Yin<T>::Yin (int samplingFrequency)
 {
     fs = samplingFrequency;
-        
     setMaxFrequency (1500);
-    
     prevPeriodEstimate = 1.0;
 }
 
@@ -39,9 +37,7 @@ template <class T>
 void Yin<T>::setSamplingFrequency (int samplingFrequency)
 {
     int oldFs = fs;
-    
     fs = samplingFrequency;
-    
     minPeriod = ((float) fs) / ((float) oldFs) * minPeriod;
 }
 
@@ -54,12 +50,9 @@ void Yin<T>::setMaxFrequency (T maxFreq)
     // if maxFrequency is zero or less than 200Hz, assume a bug
     // and set it to an arbitrary value fo 2000Hz
     if (maxFreq <= 200)
-    {
         maxFreq = 2000.;
-    }
 
     minPeriodFloating = ((T) fs) / maxFreq;
-    
     minPeriod = (int) ceil (minPeriodFloating);
 }
 
@@ -119,25 +112,23 @@ void Yin<T>::cumulativeMeanNormalisedDifferenceFunction (const std::vector<T>& f
     T *deltaPointer = &delta[0];
 
     // for each time lag tau
-    for (int tau = 0;tau < L;tau++)
+    for (unsigned long tau = 0; tau < L; tau++)
     {
         *deltaPointer = 0.0;
         
         // sum all squared differences for all samples up to half way through
         // the frame between the sample and the sample 'tau' samples away
-        for (int j = 0;j < L;j++)
+        for (unsigned long j = 0; j < L; j++)
         {
-            T diff = frame[j] - frame[j+tau];
-            *deltaPointer += (diff*diff);
+            T diff = frame[j] - frame[j + tau];
+            *deltaPointer += (diff * diff);
         }
         
         // calculate the cumulative sum of tau values to date
         cumulativeSum = cumulativeSum + delta[tau];
         
         if (cumulativeSum > 0)
-        {
-            *deltaPointer = *deltaPointer *tau / cumulativeSum;
-        }
+            *deltaPointer = *deltaPointer * tau / cumulativeSum;
         
         deltaPointer++;
     }
@@ -192,7 +183,7 @@ unsigned long Yin<T>::getPeriodCandidate (const std::vector<T>& delta)
 
 //===========================================================
 template <class T>
-T Yin<T>::parabolicInterpolation (unsigned long period,T y1,T y2,T y3)
+T Yin<T>::parabolicInterpolation (unsigned long period, T y1, T y2, T y3)
 {
     // if all elements are the same, our interpolation algorithm
     // will end up with a divide-by-zero, so just return the original
@@ -203,8 +194,7 @@ T Yin<T>::parabolicInterpolation (unsigned long period,T y1,T y2,T y3)
     }
     else
     {
-        T newPeriod = ((T)period) + (y3-y1) / (2. * (2* y2-y3-y1));
-    
+        T newPeriod = ((T)period) + (y3 - y1) / (2. * (2 * y2 - y3 - y1));
         return newPeriod;
     }
 }
@@ -219,11 +209,11 @@ long Yin<T>::searchForOtherRecentMinima (const std::vector<T>& delta)
     
     prevEst = (long) round(prevPeriodEstimate);
     
-    for (long i = prevEst-1;i <= prevEst+1;i++)
+    for (long i = prevEst - 1; i <= prevEst + 1; i++)
     {
-        if ((i > 0) && (i < delta.size()-1))
+        if ((i > 0) && (i < static_cast<long> (delta.size() - 1)))
         {
-            if ((delta[i] < delta[i-1]) && (delta[i] < delta[i+1]))
+            if ((delta[i] < delta[i - 1]) && (delta[i] < delta[i + 1]))
             {
                 newMinima = i;
             }

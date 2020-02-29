@@ -43,7 +43,7 @@ void OnsetDetectionFunction<T>::setFrameSize (int frameSize)
     prevMagnitudeSpectrum_complexSpectralDifference.resize (frameSize);
 
     // fill it with zeros
-    for (int i = 0; i < prevMagnitudeSpectrum_spectralDifference.size(); i++)
+    for (size_t i = 0; i < prevMagnitudeSpectrum_spectralDifference.size(); i++)
     {
         prevMagnitudeSpectrum_spectralDifference[i] = 0.0;
         prevMagnitudeSpectrum_spectralDifferenceHWR[i] = 0.0;
@@ -68,23 +68,17 @@ T OnsetDetectionFunction<T>::energyDifference (const std::vector<T>& buffer)
     sum = 0; // initialise sum
 
     // sum the squares of the samples
-    for (int i = 0; i < buffer.size(); i++)
-    {
+    for (size_t i = 0; i < buffer.size(); i++)
         sum = sum + (buffer[i] * buffer[i]);
-    }
 
     difference = sum - prevEnergySum; // sample is first order difference in energy
 
     prevEnergySum = sum; // store energy value for next calculation
 
     if (difference > 0)
-    {
         return difference;
-    }
     else
-    {
         return 0.0;
-    }
 }
 
 //===========================================================
@@ -93,7 +87,7 @@ T OnsetDetectionFunction<T>::spectralDifference (const std::vector<T>& magnitude
 {
     T sum = 0; // initialise sum to zero
 
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // calculate difference
         T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum_spectralDifference[i];
@@ -120,7 +114,7 @@ T OnsetDetectionFunction<T>::spectralDifferenceHWR (const std::vector<T>& magnit
 {
     T sum = 0; // initialise sum to zero
 
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
     {
         // calculate difference
         T diff = magnitudeSpectrum[i] - prevMagnitudeSpectrum_spectralDifferenceHWR[i];
@@ -153,7 +147,7 @@ T OnsetDetectionFunction<T>::complexSpectralDifference (const std::vector<T>& ff
     sum = 0; // initialise sum to zero
 
     // compute phase values from fft output and sum deviations
-    for (int i = 0; i < fftReal.size(); i++)
+    for (size_t i = 0; i < fftReal.size(); i++)
     {
         // calculate phase value
         phaseVal = atan2 (fftImag[i], fftReal[i]);
@@ -192,14 +186,10 @@ T OnsetDetectionFunction<T>::complexSpectralDifference (const std::vector<T>& ff
 template <class T>
 T OnsetDetectionFunction<T>::highFrequencyContent (const std::vector<T>& magnitudeSpectrum)
 {
-    T sum;
+    T sum = 0;
 
-    sum = 0; // initialise sum to zero
-
-    for (int i = 0; i < magnitudeSpectrum.size(); i++)
-    {
+    for (size_t i = 0; i < magnitudeSpectrum.size(); i++)
         sum += (magnitudeSpectrum[i] * ((T)(i + 1)));
-    }
 
     return sum;
 }
@@ -210,15 +200,11 @@ T OnsetDetectionFunction<T>::princarg (T phaseVal)
 {
     // if phase value is less than or equal to -pi then add 2*pi
     while (phaseVal <= (-M_PI))
-    {
         phaseVal = phaseVal + (2 * M_PI);
-    }
 
     // if phase value is larger than pi, then subtract 2*pi
     while (phaseVal > M_PI)
-    {
         phaseVal = phaseVal - (2 * M_PI);
-    }
 
     return phaseVal;
 }

@@ -108,9 +108,9 @@ void Gist<T>::processAudioFrame (const T* frame, int numSamples)
 {
     // you are passing an audio frame of a different size to the
     // audio frame size setup in Gist
-    assert (numSamples == audioFrame.size());
+    assert (static_cast<size_t> (numSamples) == audioFrame.size());
     
-    for (int i = 0; i < audioFrame.size(); i++)
+    for (size_t i = 0; i < audioFrame.size(); i++)
         audioFrame[i] = frame[i];
     
     performFFT();

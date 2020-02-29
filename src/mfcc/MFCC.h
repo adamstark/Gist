@@ -27,6 +27,7 @@
 #define _USE_MATH_DEFINES
 #include <vector>
 #include <cmath>
+#include <stddef.h>
 
 //=======================================================================
 /** Template class for calculating Mel Frequency Cepstral Coefficients
