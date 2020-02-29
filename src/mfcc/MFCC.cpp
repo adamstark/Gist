@@ -99,6 +99,7 @@ void MFCC<T>::initialise()
 
     melSpectrum.resize (numCoefficents);
     MFCCs.resize (numCoefficents);
+    dctSignal.resize (numCoefficents);
     
     calculateMelFilterBank();
 }
@@ -110,10 +111,11 @@ void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const std::s
     // the input signal must have the number of elements specified in the numElements variable
     assert (inputSignal.size() == numElements);
     
-    T signal[numElements]; // copy to work on
-    
+    // this should already be the case - sanity check
+    assert (dctSignal.size() == numElements);
+        
     for (int i = 0; i < numElements; i++)
-        signal[i] = inputSignal[i];
+        dctSignal[i] = inputSignal[i];
     
     T N = (T)numElements;
     T piOverN = M_PI / N;
@@ -127,7 +129,7 @@ void MFCC<T>::discreteCosineTransform (std::vector<T>& inputSignal, const std::s
         {
             T tmp = piOverN * (((T)n) + 0.5) * kVal;
 
-            sum += signal[n] * cos (tmp);
+            sum += dctSignal[n] * cos (tmp);
         }
 
         inputSignal[k] = (T)(2 * sum);

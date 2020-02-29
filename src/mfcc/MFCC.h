@@ -125,6 +125,7 @@ private:
 
     /** a vector of vectors to hold the values of the triangular filters */
     std::vector<std::vector<T> > filterBank;
+    std::vector<T> dctSignal;
 };
 
 #endif /* defined(__GIST__MFCC__) */
