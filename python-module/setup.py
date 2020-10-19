@@ -2,6 +2,16 @@
 # build command : python setup.py build build_ext --inplace
 from numpy.distutils.core import setup, Extension
 import os, numpy
+import sys
+
+if not sys.version_info.major == 3 and sys.version_info.minor >= 6:
+      print ("")
+      print ("Python Version Error")
+      print ("")
+      print ("This script must be run using Python 3.6 or later.")
+      print ("You are trying to run it using Python " + str (sys.version_info.major) + "." + str (sys.version_info.minor))
+      print ("")
+      exit()
 
 name = 'gist'
 sources = [
