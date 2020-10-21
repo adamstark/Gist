@@ -24,6 +24,8 @@
 #include "AccelerateFFT.h"
 #include <assert.h>
 
+#ifdef USE_ACCELERATE_FFT
+
 //=======================================================================
 template <class T>
 AccelerateFFT<T>::AccelerateFFT()
@@ -176,3 +178,5 @@ void AccelerateFFT<double>::performFFT (double* buffer, double* real, double* im
 //===========================================================
 template class AccelerateFFT<float>;
 template class AccelerateFFT<double>;
+
+#endif
