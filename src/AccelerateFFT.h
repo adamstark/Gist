@@ -24,6 +24,8 @@
 #ifndef __AccelerateFFT__
 #define __AccelerateFFT__
 
+#ifdef USE_ACCELERATE_FFT
+
 // this fixes a conflict with JUCE, remove if you don't need it
 #define VIMAGE_H
 
@@ -60,5 +62,7 @@ private:
     
     bool configured;
 };
+
+#endif
 
 #endif /* __AccelerateFFT__ */
