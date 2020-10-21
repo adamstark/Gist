@@ -1,0 +1,78 @@
+\hypertarget{class_window_functions}{}\doxysection{Window\+Functions$<$ T $>$ Class Template Reference}
+\label{class_window_functions}\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Window\+Functions.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions_a0233ac737501aedc9f67e5b3aec0dde5}{create\+Window}} (int num\+Samples, \mbox{\hyperlink{_window_functions_8h_a476342970f954b62d70552bcbb5ee509}{Window\+Type}} window\+Type)
+\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions_a6f7cd7646bb9ad354917d4030714a028}{create\+Hanning\+Window}} (int num\+Samples)
+\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions_a7f01bf8d2a775b40c5b81a455b27892b}{create\+Hamming\+Window}} (int num\+Samples)
+\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions_ad516ce10d7ba198fd687c432e1d16f1c}{create\+Blackman\+Window}} (int num\+Samples)
+\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions_a485150c4d8f13c8edc22c9117a66c97e}{create\+Tukey\+Window}} (int num\+Samples, T alpha=0.\+5)
+\item 
+static std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions_aaf66e6aad01f857abe8c8a16f4987e0d}{create\+Rectangular\+Window}} (int num\+Samples)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Window\+Functions$<$ T $>$}
+
+A collection of different window functions 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_window_functions_ad516ce10d7ba198fd687c432e1d16f1c}\label{class_window_functions_ad516ce10d7ba198fd687c432e1d16f1c}} 
+\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}!createBlackmanWindow@{createBlackmanWindow}}
+\index{createBlackmanWindow@{createBlackmanWindow}!WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createBlackmanWindow()}{createBlackmanWindow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions}{Window\+Functions}}$<$ T $>$\+::create\+Blackman\+Window (\begin{DoxyParamCaption}\item[{int}]{num\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@\+Returns a Blackman window \mbox{\Hypertarget{class_window_functions_a7f01bf8d2a775b40c5b81a455b27892b}\label{class_window_functions_a7f01bf8d2a775b40c5b81a455b27892b}} 
+\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}!createHammingWindow@{createHammingWindow}}
+\index{createHammingWindow@{createHammingWindow}!WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createHammingWindow()}{createHammingWindow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions}{Window\+Functions}}$<$ T $>$\+::create\+Hamming\+Window (\begin{DoxyParamCaption}\item[{int}]{num\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@\+Returns a Hamming window \mbox{\Hypertarget{class_window_functions_a6f7cd7646bb9ad354917d4030714a028}\label{class_window_functions_a6f7cd7646bb9ad354917d4030714a028}} 
+\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}!createHanningWindow@{createHanningWindow}}
+\index{createHanningWindow@{createHanningWindow}!WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createHanningWindow()}{createHanningWindow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions}{Window\+Functions}}$<$ T $>$\+::create\+Hanning\+Window (\begin{DoxyParamCaption}\item[{int}]{num\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@\+Returns a Hanning window \mbox{\Hypertarget{class_window_functions_aaf66e6aad01f857abe8c8a16f4987e0d}\label{class_window_functions_aaf66e6aad01f857abe8c8a16f4987e0d}} 
+\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}!createRectangularWindow@{createRectangularWindow}}
+\index{createRectangularWindow@{createRectangularWindow}!WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createRectangularWindow()}{createRectangularWindow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions}{Window\+Functions}}$<$ T $>$\+::create\+Rectangular\+Window (\begin{DoxyParamCaption}\item[{int}]{num\+Samples }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@\+Returns a Rectangular window \mbox{\Hypertarget{class_window_functions_a485150c4d8f13c8edc22c9117a66c97e}\label{class_window_functions_a485150c4d8f13c8edc22c9117a66c97e}} 
+\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}!createTukeyWindow@{createTukeyWindow}}
+\index{createTukeyWindow@{createTukeyWindow}!WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createTukeyWindow()}{createTukeyWindow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions}{Window\+Functions}}$<$ T $>$\+::create\+Tukey\+Window (\begin{DoxyParamCaption}\item[{int}]{num\+Samples,  }\item[{T}]{alpha = {\ttfamily 0.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@\+Returns a Tukey window \mbox{\Hypertarget{class_window_functions_a0233ac737501aedc9f67e5b3aec0dde5}\label{class_window_functions_a0233ac737501aedc9f67e5b3aec0dde5}} 
+\index{WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!WindowFunctions$<$ T $>$@{WindowFunctions$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_window_functions}{Window\+Functions}}$<$ T $>$\+::create\+Window (\begin{DoxyParamCaption}\item[{int}]{num\+Samples,  }\item[{\mbox{\hyperlink{_window_functions_8h_a476342970f954b62d70552bcbb5ee509}{Window\+Type}}}]{window\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@\+Returns a window with a specified type 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_window_functions_8h}{Window\+Functions.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_window_functions_8cpp}{Window\+Functions.\+cpp}}\end{DoxyCompactItemize}

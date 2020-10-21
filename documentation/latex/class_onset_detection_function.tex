@@ -1,0 +1,137 @@
+\hypertarget{class_onset_detection_function}{}\doxysection{Onset\+Detection\+Function$<$ T $>$ Class Template Reference}
+\label{class_onset_detection_function}\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Onset\+Detection\+Function.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_onset_detection_function_af49350ec29f47e93206628b7f5b9b0f3}{Onset\+Detection\+Function}} (int frame\+Size)
+\item 
+void \mbox{\hyperlink{class_onset_detection_function_a17e91f81e73010b4dfb4bea1283ca84e}{set\+Frame\+Size}} (int frame\+Size)
+\item 
+T \mbox{\hyperlink{class_onset_detection_function_aec25101672aae244d006693d5480f56d}{energy\+Difference}} (const std\+::vector$<$ T $>$ \&buffer)
+\item 
+T \mbox{\hyperlink{class_onset_detection_function_a12a23a4dcda765017438dcb1104579fc}{spectral\+Difference}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\item 
+T \mbox{\hyperlink{class_onset_detection_function_a4925ba80c211247a4e3211c8d48647a7}{spectral\+Difference\+H\+WR}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\item 
+T \mbox{\hyperlink{class_onset_detection_function_a10b1c9c3f105fa965bcef1d00f219f32}{complex\+Spectral\+Difference}} (const std\+::vector$<$ T $>$ \&fft\+Real, const std\+::vector$<$ T $>$ \&fft\+Imag)
+\item 
+T \mbox{\hyperlink{class_onset_detection_function_a5cc022aa08b8fb4a1b22565d4898bfb0}{high\+Frequency\+Content}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Onset\+Detection\+Function$<$ T $>$}
+
+template class for calculating onset detection functions Instantiations of the class should be of either \textquotesingle{}float\textquotesingle{} or \textquotesingle{}double\textquotesingle{} types and no others 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_onset_detection_function_af49350ec29f47e93206628b7f5b9b0f3}\label{class_onset_detection_function_af49350ec29f47e93206628b7f5b9b0f3}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!OnsetDetectionFunction@{OnsetDetectionFunction}}
+\index{OnsetDetectionFunction@{OnsetDetectionFunction}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{OnsetDetectionFunction()}{OnsetDetectionFunction()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::\mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}} (\begin{DoxyParamCaption}\item[{int}]{frame\+Size }\end{DoxyParamCaption})}
+
+constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_onset_detection_function_a10b1c9c3f105fa965bcef1d00f219f32}\label{class_onset_detection_function_a10b1c9c3f105fa965bcef1d00f219f32}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!complexSpectralDifference@{complexSpectralDifference}}
+\index{complexSpectralDifference@{complexSpectralDifference}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{complexSpectralDifference()}{complexSpectralDifference()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::complex\+Spectral\+Difference (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{fft\+Real,  }\item[{const std\+::vector$<$ T $>$ \&}]{fft\+Imag }\end{DoxyParamCaption})}
+
+calculates the complex spectral difference from the real and imaginary parts of the F\+FT 
+\begin{DoxyParams}{Parameters}
+{\em fft\+Real} & a vector containing the real part of the F\+FT \\
+\hline
+{\em fft\+Imag} & a vector containing the imaginary part of the F\+FT \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the complex spectral difference onset detection function sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_onset_detection_function_aec25101672aae244d006693d5480f56d}\label{class_onset_detection_function_aec25101672aae244d006693d5480f56d}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!energyDifference@{energyDifference}}
+\index{energyDifference@{energyDifference}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{energyDifference()}{energyDifference()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::energy\+Difference (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{buffer }\end{DoxyParamCaption})}
+
+calculates the energy difference onset detection function 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & the time domain audio frame containing audio samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the energy difference onset detection function sample for the frame 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_onset_detection_function_a5cc022aa08b8fb4a1b22565d4898bfb0}\label{class_onset_detection_function_a5cc022aa08b8fb4a1b22565d4898bfb0}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!highFrequencyContent@{highFrequencyContent}}
+\index{highFrequencyContent@{highFrequencyContent}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{highFrequencyContent()}{highFrequencyContent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::high\+Frequency\+Content (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the high frequency content onset detection function from the magnitude spectrum 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & a vector containing the magnitude spectrum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the high frequency content onset detection function sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_onset_detection_function_a17e91f81e73010b4dfb4bea1283ca84e}\label{class_onset_detection_function_a17e91f81e73010b4dfb4bea1283ca84e}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!setFrameSize@{setFrameSize}}
+\index{setFrameSize@{setFrameSize}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setFrameSize()}{setFrameSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::set\+Frame\+Size (\begin{DoxyParamCaption}\item[{int}]{frame\+Size }\end{DoxyParamCaption})}
+
+Sets the frame size of internal buffers. Assumes all magnitude spectra are passed as the first half (i.\+e. not mirrored) 
+\begin{DoxyParams}{Parameters}
+{\em frame\+Size} & the frame size \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_onset_detection_function_a12a23a4dcda765017438dcb1104579fc}\label{class_onset_detection_function_a12a23a4dcda765017438dcb1104579fc}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!spectralDifference@{spectralDifference}}
+\index{spectralDifference@{spectralDifference}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralDifference()}{spectralDifference()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::spectral\+Difference (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the spectral difference between the current magnitude spectrum and the previous magnitude spectrum 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & a vector containing the magnitude spectrum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the spectral difference onset detection function sample 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_onset_detection_function_a4925ba80c211247a4e3211c8d48647a7}\label{class_onset_detection_function_a4925ba80c211247a4e3211c8d48647a7}} 
+\index{OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}!spectralDifferenceHWR@{spectralDifferenceHWR}}
+\index{spectralDifferenceHWR@{spectralDifferenceHWR}!OnsetDetectionFunction$<$ T $>$@{OnsetDetectionFunction$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralDifferenceHWR()}{spectralDifferenceHWR()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_onset_detection_function}{Onset\+Detection\+Function}}$<$ T $>$\+::spectral\+Difference\+H\+WR (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the half wave rectified spectral difference between the current magnitude spectrum and the previous magnitude spectrum 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & a vector containing the magnitude spectrum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the H\+WR spectral difference onset detection function sample 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_onset_detection_function_8h}{Onset\+Detection\+Function.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_onset_detection_function_8cpp}{Onset\+Detection\+Function.\+cpp}}\end{DoxyCompactItemize}
