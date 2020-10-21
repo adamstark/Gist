@@ -1,0 +1,286 @@
+\hypertarget{class_gist}{}\doxysection{Gist$<$ T $>$ Class Template Reference}
+\label{class_gist}\index{Gist$<$ T $>$@{Gist$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Gist.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gist_ad06bd1f6595462f491a27be9621b2ae6}{Gist}} (int audio\+Frame\+Size, int fs, \mbox{\hyperlink{_window_functions_8h_a476342970f954b62d70552bcbb5ee509}{Window\+Type}} window\+Type=Hanning\+Window)
+\item 
+\mbox{\hyperlink{class_gist_ae3823eec9133f41e5532aa4e9245d601}{$\sim$\+Gist}} ()
+\item 
+void \mbox{\hyperlink{class_gist_a2243f8b9d6218b0fea0c7fb69db223c8}{set\+Audio\+Frame\+Size}} (int audio\+Frame\+Size)
+\item 
+void \mbox{\hyperlink{class_gist_ad08a41fa421e2d90bd0260bf1f9345bf}{set\+Sampling\+Frequency}} (int fs)
+\item 
+int \mbox{\hyperlink{class_gist_a57d1aec0cc7cccaab6fd8df67f56e49e}{get\+Audio\+Frame\+Size}} ()
+\item 
+int \mbox{\hyperlink{class_gist_a8f2086ae2507795b0984402044856f1d}{get\+Sampling\+Frequency}} ()
+\item 
+void \mbox{\hyperlink{class_gist_a8181a7e0f5e6709620418851f73de869}{process\+Audio\+Frame}} (const std\+::vector$<$ T $>$ \&audio\+Frame)
+\item 
+void \mbox{\hyperlink{class_gist_a9e967cbcc144cdad901c850d55d33746}{process\+Audio\+Frame}} (const T $\ast$frame, int num\+Samples)
+\item 
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_gist_a62093b46f5f27179cc1f09ab268bdc0f}{get\+Magnitude\+Spectrum}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a119486afd79a8ac114761f30cb7a9c12}{root\+Mean\+Square}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a22a058723cb4d4a98e017c2a2029304a}{peak\+Energy}} ()
+\item 
+T \mbox{\hyperlink{class_gist_ae5d576aa8246b19c910ed22c8c71a2ba}{zero\+Crossing\+Rate}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a3c80eab0a204e7b8fe0d5122e9f86a36}{spectral\+Centroid}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a01c8d772518a681a12b0163c31683ce3}{spectral\+Crest}} ()
+\item 
+T \mbox{\hyperlink{class_gist_aa0d96b91269ff27e2fde1623521b54a1}{spectral\+Flatness}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a000f12e312c6380e0187e57d278e2fda}{spectral\+Rolloff}} ()
+\item 
+T \mbox{\hyperlink{class_gist_aa7517af751b083587fbb24d8914ece4e}{spectral\+Kurtosis}} ()
+\item 
+T \mbox{\hyperlink{class_gist_ae4336335b364f840fcdeba53fe2c932b}{energy\+Difference}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a2bdee19b1b69b341b36d0d711b76ea26}{spectral\+Difference}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a9d98ce8bf30ec34c63fc636ca346ad44}{spectral\+Difference\+H\+WR}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a07c5816a44631ab8c032b0a746b7faf1}{complex\+Spectral\+Difference}} ()
+\item 
+T \mbox{\hyperlink{class_gist_ad914496b409f23513cfd9d166ce10ffa}{high\+Frequency\+Content}} ()
+\item 
+T \mbox{\hyperlink{class_gist_a3f054be12bf39205a1e56b829de3c3ff}{pitch}} ()
+\item 
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_gist_aaf28f8fb83f9a95af0f384525c5d9e40}{get\+Mel\+Frequency\+Spectrum}} ()
+\item 
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_gist_a16a5df613bc1920a2dea1694947db1f1}{get\+Mel\+Frequency\+Cepstral\+Coefficients}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Gist$<$ T $>$}
+
+Class for all performing all \mbox{\hyperlink{class_gist}{Gist}} audio analyses 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gist_ad06bd1f6595462f491a27be9621b2ae6}\label{class_gist_ad06bd1f6595462f491a27be9621b2ae6}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!Gist@{Gist}}
+\index{Gist@{Gist}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Gist()}{Gist()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::\mbox{\hyperlink{class_gist}{Gist}} (\begin{DoxyParamCaption}\item[{int}]{audio\+Frame\+Size,  }\item[{int}]{fs,  }\item[{\mbox{\hyperlink{_window_functions_8h_a476342970f954b62d70552bcbb5ee509}{Window\+Type}}}]{window\+Type = {\ttfamily HanningWindow} }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em audio\+Frame\+Size} & the input audio frame size \\
+\hline
+{\em fs} & the input audio sample rate \\
+\hline
+{\em window\+Type} & the type of window function to use \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gist_ae3823eec9133f41e5532aa4e9245d601}\label{class_gist_ae3823eec9133f41e5532aa4e9245d601}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!````~Gist@{$\sim$Gist}}
+\index{````~Gist@{$\sim$Gist}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Gist()}{~Gist()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_gist}{Gist}}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gist_a07c5816a44631ab8c032b0a746b7faf1}\label{class_gist_a07c5816a44631ab8c032b0a746b7faf1}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!complexSpectralDifference@{complexSpectralDifference}}
+\index{complexSpectralDifference@{complexSpectralDifference}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{complexSpectralDifference()}{complexSpectralDifference()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::complex\+Spectral\+Difference}
+
+@\+Returns the complex spectral difference onset detection function sample for the magnitude spectrum frame \mbox{\Hypertarget{class_gist_ae4336335b364f840fcdeba53fe2c932b}\label{class_gist_ae4336335b364f840fcdeba53fe2c932b}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!energyDifference@{energyDifference}}
+\index{energyDifference@{energyDifference}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{energyDifference()}{energyDifference()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::energy\+Difference}
+
+@\+Returns the energy difference onset detection function sample for the magnitude spectrum frame \mbox{\Hypertarget{class_gist_a57d1aec0cc7cccaab6fd8df67f56e49e}\label{class_gist_a57d1aec0cc7cccaab6fd8df67f56e49e}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!getAudioFrameSize@{getAudioFrameSize}}
+\index{getAudioFrameSize@{getAudioFrameSize}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAudioFrameSize()}{getAudioFrameSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::get\+Audio\+Frame\+Size}
+
+@\+Returns the audio frame size currently being used \mbox{\Hypertarget{class_gist_a62093b46f5f27179cc1f09ab268bdc0f}\label{class_gist_a62093b46f5f27179cc1f09ab268bdc0f}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!getMagnitudeSpectrum@{getMagnitudeSpectrum}}
+\index{getMagnitudeSpectrum@{getMagnitudeSpectrum}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getMagnitudeSpectrum()}{getMagnitudeSpectrum()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::get\+Magnitude\+Spectrum}
+
+\mbox{\hyperlink{class_gist}{Gist}} automatically calculates the magnitude spectrum when \mbox{\hyperlink{class_gist_a8181a7e0f5e6709620418851f73de869}{process\+Audio\+Frame()}} is called, this function returns it. \begin{DoxyReturn}{Returns}
+the current magnitude spectrum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gist_a16a5df613bc1920a2dea1694947db1f1}\label{class_gist_a16a5df613bc1920a2dea1694947db1f1}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!getMelFrequencyCepstralCoefficients@{getMelFrequencyCepstralCoefficients}}
+\index{getMelFrequencyCepstralCoefficients@{getMelFrequencyCepstralCoefficients}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getMelFrequencyCepstralCoefficients()}{getMelFrequencyCepstralCoefficients()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::get\+Mel\+Frequency\+Cepstral\+Coefficients}
+
+Calculates the Mel-\/frequency Cepstral Coefficients \mbox{\Hypertarget{class_gist_aaf28f8fb83f9a95af0f384525c5d9e40}\label{class_gist_aaf28f8fb83f9a95af0f384525c5d9e40}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!getMelFrequencySpectrum@{getMelFrequencySpectrum}}
+\index{getMelFrequencySpectrum@{getMelFrequencySpectrum}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getMelFrequencySpectrum()}{getMelFrequencySpectrum()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::get\+Mel\+Frequency\+Spectrum}
+
+Calculates the Mel Frequency Spectrum \mbox{\Hypertarget{class_gist_a8f2086ae2507795b0984402044856f1d}\label{class_gist_a8f2086ae2507795b0984402044856f1d}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!getSamplingFrequency@{getSamplingFrequency}}
+\index{getSamplingFrequency@{getSamplingFrequency}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSamplingFrequency()}{getSamplingFrequency()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::get\+Sampling\+Frequency}
+
+@\+Returns the audio sampling frequency being used for analysis \mbox{\Hypertarget{class_gist_ad914496b409f23513cfd9d166ce10ffa}\label{class_gist_ad914496b409f23513cfd9d166ce10ffa}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!highFrequencyContent@{highFrequencyContent}}
+\index{highFrequencyContent@{highFrequencyContent}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{highFrequencyContent()}{highFrequencyContent()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::high\+Frequency\+Content}
+
+@\+Returns the high frequency content onset detection function sample for the magnitude spectrum frame \mbox{\Hypertarget{class_gist_a22a058723cb4d4a98e017c2a2029304a}\label{class_gist_a22a058723cb4d4a98e017c2a2029304a}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!peakEnergy@{peakEnergy}}
+\index{peakEnergy@{peakEnergy}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{peakEnergy()}{peakEnergy()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::peak\+Energy}
+
+@\+Returns the peak energy of the currently stored audio frame \mbox{\Hypertarget{class_gist_a3f054be12bf39205a1e56b829de3c3ff}\label{class_gist_a3f054be12bf39205a1e56b829de3c3ff}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!pitch@{pitch}}
+\index{pitch@{pitch}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pitch()}{pitch()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::pitch}
+
+@\+Returns a monophonic pitch estimate according to the \mbox{\hyperlink{class_yin}{Yin}} algorithm \mbox{\Hypertarget{class_gist_a8181a7e0f5e6709620418851f73de869}\label{class_gist_a8181a7e0f5e6709620418851f73de869}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!processAudioFrame@{processAudioFrame}}
+\index{processAudioFrame@{processAudioFrame}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{processAudioFrame()}{processAudioFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::process\+Audio\+Frame (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{audio\+Frame }\end{DoxyParamCaption})}
+
+Process an audio frame 
+\begin{DoxyParams}{Parameters}
+{\em audio\+Frame} & a vector containing audio samples \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gist_a9e967cbcc144cdad901c850d55d33746}\label{class_gist_a9e967cbcc144cdad901c850d55d33746}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!processAudioFrame@{processAudioFrame}}
+\index{processAudioFrame@{processAudioFrame}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{processAudioFrame()}{processAudioFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::process\+Audio\+Frame (\begin{DoxyParamCaption}\item[{const T $\ast$}]{frame,  }\item[{int}]{num\+Samples }\end{DoxyParamCaption})}
+
+Process an audio frame 
+\begin{DoxyParams}{Parameters}
+{\em frame} & a pointer to an array containing the audio frame \\
+\hline
+{\em num\+Samples} & the number of samples in the audio frame \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gist_a119486afd79a8ac114761f30cb7a9c12}\label{class_gist_a119486afd79a8ac114761f30cb7a9c12}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!rootMeanSquare@{rootMeanSquare}}
+\index{rootMeanSquare@{rootMeanSquare}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rootMeanSquare()}{rootMeanSquare()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::root\+Mean\+Square}
+
+@\+Returns the root mean square (R\+MS) of the currently stored audio frame \mbox{\Hypertarget{class_gist_a2243f8b9d6218b0fea0c7fb69db223c8}\label{class_gist_a2243f8b9d6218b0fea0c7fb69db223c8}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!setAudioFrameSize@{setAudioFrameSize}}
+\index{setAudioFrameSize@{setAudioFrameSize}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAudioFrameSize()}{setAudioFrameSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::set\+Audio\+Frame\+Size (\begin{DoxyParamCaption}\item[{int}]{audio\+Frame\+Size }\end{DoxyParamCaption})}
+
+Set the audio frame size. 
+\begin{DoxyParams}{Parameters}
+{\em frame\+Size\+\_\+} & the frame size to use \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gist_ad08a41fa421e2d90bd0260bf1f9345bf}\label{class_gist_ad08a41fa421e2d90bd0260bf1f9345bf}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!setSamplingFrequency@{setSamplingFrequency}}
+\index{setSamplingFrequency@{setSamplingFrequency}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSamplingFrequency()}{setSamplingFrequency()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::set\+Sampling\+Frequency (\begin{DoxyParamCaption}\item[{int}]{fs }\end{DoxyParamCaption})}
+
+Set the sampling frequency of input audio 
+\begin{DoxyParams}{Parameters}
+{\em fs} & the sampling frequency \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gist_a3c80eab0a204e7b8fe0d5122e9f86a36}\label{class_gist_a3c80eab0a204e7b8fe0d5122e9f86a36}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralCentroid@{spectralCentroid}}
+\index{spectralCentroid@{spectralCentroid}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralCentroid()}{spectralCentroid()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Centroid}
+
+@\+Returns the spectral centroid from the magnitude spectrum \mbox{\Hypertarget{class_gist_a01c8d772518a681a12b0163c31683ce3}\label{class_gist_a01c8d772518a681a12b0163c31683ce3}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralCrest@{spectralCrest}}
+\index{spectralCrest@{spectralCrest}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralCrest()}{spectralCrest()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Crest}
+
+@\+Returns the spectral crest \mbox{\Hypertarget{class_gist_a2bdee19b1b69b341b36d0d711b76ea26}\label{class_gist_a2bdee19b1b69b341b36d0d711b76ea26}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralDifference@{spectralDifference}}
+\index{spectralDifference@{spectralDifference}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralDifference()}{spectralDifference()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Difference}
+
+@\+Returns the spectral difference onset detection function sample for the magnitude spectrum frame \mbox{\Hypertarget{class_gist_a9d98ce8bf30ec34c63fc636ca346ad44}\label{class_gist_a9d98ce8bf30ec34c63fc636ca346ad44}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralDifferenceHWR@{spectralDifferenceHWR}}
+\index{spectralDifferenceHWR@{spectralDifferenceHWR}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralDifferenceHWR()}{spectralDifferenceHWR()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Difference\+H\+WR}
+
+@\+Returns the half wave rectified complex spectral difference onset detection function sample for the magnitude spectrum frame \mbox{\Hypertarget{class_gist_aa0d96b91269ff27e2fde1623521b54a1}\label{class_gist_aa0d96b91269ff27e2fde1623521b54a1}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralFlatness@{spectralFlatness}}
+\index{spectralFlatness@{spectralFlatness}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralFlatness()}{spectralFlatness()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Flatness}
+
+@\+Returns the spectral flatness of the magnitude spectrum \mbox{\Hypertarget{class_gist_aa7517af751b083587fbb24d8914ece4e}\label{class_gist_aa7517af751b083587fbb24d8914ece4e}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralKurtosis@{spectralKurtosis}}
+\index{spectralKurtosis@{spectralKurtosis}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralKurtosis()}{spectralKurtosis()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Kurtosis}
+
+@\+Returns the spectral kurtosis of the magnitude spectrum \mbox{\Hypertarget{class_gist_a000f12e312c6380e0187e57d278e2fda}\label{class_gist_a000f12e312c6380e0187e57d278e2fda}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!spectralRolloff@{spectralRolloff}}
+\index{spectralRolloff@{spectralRolloff}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralRolloff()}{spectralRolloff()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::spectral\+Rolloff}
+
+@\+Returns the spectral rolloff of the magnitude spectrum \mbox{\Hypertarget{class_gist_ae5d576aa8246b19c910ed22c8c71a2ba}\label{class_gist_ae5d576aa8246b19c910ed22c8c71a2ba}} 
+\index{Gist$<$ T $>$@{Gist$<$ T $>$}!zeroCrossingRate@{zeroCrossingRate}}
+\index{zeroCrossingRate@{zeroCrossingRate}!Gist$<$ T $>$@{Gist$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{zeroCrossingRate()}{zeroCrossingRate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_gist}{Gist}}$<$ T $>$\+::zero\+Crossing\+Rate}
+
+@\+Returns the zero crossing rate of the currently stored audio frame 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_gist_8h}{Gist.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_gist_8cpp}{Gist.\+cpp}}\end{DoxyCompactItemize}

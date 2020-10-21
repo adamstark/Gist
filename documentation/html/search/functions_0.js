@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['calculatemelfrequencycepstralcoefficients',['calculateMelFrequencyCepstralCoefficients',['../class_m_f_c_c.html#a8b79346b954a2897df75fd7d544ed3a2',1,'MFCC']]],
-  ['calculatemelfrequencyspectrum',['calculateMelFrequencySpectrum',['../class_m_f_c_c.html#a7e46a59e9c70940cefe0db04a774914c',1,'MFCC']]],
-  ['complexspectraldifference',['complexSpectralDifference',['../class_gist.html#a07c5816a44631ab8c032b0a746b7faf1',1,'Gist::complexSpectralDifference()'],['../class_onset_detection_function.html#a10b1c9c3f105fa965bcef1d00f219f32',1,'OnsetDetectionFunction::complexSpectralDifference()']]],
-  ['corefrequencydomainfeatures',['CoreFrequencyDomainFeatures',['../class_core_frequency_domain_features.html#a080fdc5259f5762f99cc7e0911eb03f2',1,'CoreFrequencyDomainFeatures']]],
-  ['coretimedomainfeatures',['CoreTimeDomainFeatures',['../class_core_time_domain_features.html#a9ad4a54ee365b5801b54d3077ba34295',1,'CoreTimeDomainFeatures']]],
-  ['createblackmanwindow',['createBlackmanWindow',['../class_window_functions.html#ad516ce10d7ba198fd687c432e1d16f1c',1,'WindowFunctions']]],
-  ['createhammingwindow',['createHammingWindow',['../class_window_functions.html#a7f01bf8d2a775b40c5b81a455b27892b',1,'WindowFunctions']]],
-  ['createhanningwindow',['createHanningWindow',['../class_window_functions.html#a6f7cd7646bb9ad354917d4030714a028',1,'WindowFunctions']]],
-  ['createrectangularwindow',['createRectangularWindow',['../class_window_functions.html#aaf66e6aad01f857abe8c8a16f4987e0d',1,'WindowFunctions']]],
-  ['createtukeywindow',['createTukeyWindow',['../class_window_functions.html#a485150c4d8f13c8edc22c9117a66c97e',1,'WindowFunctions']]],
-  ['createwindow',['createWindow',['../class_window_functions.html#a0233ac737501aedc9f67e5b3aec0dde5',1,'WindowFunctions']]]
+  ['calculatemelfrequencycepstralcoefficients_89',['calculateMelFrequencyCepstralCoefficients',['../class_m_f_c_c.html#a8b79346b954a2897df75fd7d544ed3a2',1,'MFCC']]],
+  ['calculatemelfrequencyspectrum_90',['calculateMelFrequencySpectrum',['../class_m_f_c_c.html#a7e46a59e9c70940cefe0db04a774914c',1,'MFCC']]],
+  ['complexspectraldifference_91',['complexSpectralDifference',['../class_gist.html#a07c5816a44631ab8c032b0a746b7faf1',1,'Gist::complexSpectralDifference()'],['../class_onset_detection_function.html#a10b1c9c3f105fa965bcef1d00f219f32',1,'OnsetDetectionFunction::complexSpectralDifference()']]],
+  ['corefrequencydomainfeatures_92',['CoreFrequencyDomainFeatures',['../class_core_frequency_domain_features.html#a080fdc5259f5762f99cc7e0911eb03f2',1,'CoreFrequencyDomainFeatures']]],
+  ['coretimedomainfeatures_93',['CoreTimeDomainFeatures',['../class_core_time_domain_features.html#a9ad4a54ee365b5801b54d3077ba34295',1,'CoreTimeDomainFeatures']]],
+  ['createblackmanwindow_94',['createBlackmanWindow',['../class_window_functions.html#ad516ce10d7ba198fd687c432e1d16f1c',1,'WindowFunctions']]],
+  ['createhammingwindow_95',['createHammingWindow',['../class_window_functions.html#a7f01bf8d2a775b40c5b81a455b27892b',1,'WindowFunctions']]],
+  ['createhanningwindow_96',['createHanningWindow',['../class_window_functions.html#a6f7cd7646bb9ad354917d4030714a028',1,'WindowFunctions']]],
+  ['createrectangularwindow_97',['createRectangularWindow',['../class_window_functions.html#aaf66e6aad01f857abe8c8a16f4987e0d',1,'WindowFunctions']]],
+  ['createtukeywindow_98',['createTukeyWindow',['../class_window_functions.html#a485150c4d8f13c8edc22c9117a66c97e',1,'WindowFunctions']]],
+  ['createwindow_99',['createWindow',['../class_window_functions.html#a0233ac737501aedc9f67e5b3aec0dde5',1,'WindowFunctions']]]
 ];

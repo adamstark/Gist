@@ -26,17 +26,17 @@
 
 //=======================================================================
 // core
-#include "core/CoreTimeDomainFeatures.h"
-#include "core/CoreFrequencyDomainFeatures.h"
+#include "CoreTimeDomainFeatures.h"
+#include "CoreFrequencyDomainFeatures.h"
 
 // onset detection functions
-#include "onset-detection-functions/OnsetDetectionFunction.h"
+#include "OnsetDetectionFunction.h"
 
 // pitch detection
-#include "pitch/Yin.h"
+#include "Yin.h"
 
 // MFCC
-#include "mfcc/MFCC.h"
+#include "MFCC.h"
 
 //=======================================================================
 // fft
@@ -49,10 +49,14 @@
 #endif
 
 #ifdef USE_ACCELERATE_FFT
-#include "fft/AccelerateFFT.h"
+#include "AccelerateFFT.h"
 #endif
 
-#include "fft/WindowFunctions.h"
+#if !(defined(USE_FFTW) ^ defined(USE_KISS_FFT) ^ defined (USE_ACCELERATE_FFT))
+#error "You must define one FFT macro to ensure you select a FFT implementation - either USE_FFTW, USE_KISS_FFT or USE_ACCELERATE_FFT. You have either not defined one of these macros or you have defined more than one of them."
+#endif
+
+#include "WindowFunctions.h"
 
 //=======================================================================
 /** Class for all performing all Gist audio analyses */

@@ -1,0 +1,87 @@
+\hypertarget{class_core_time_domain_features}{}\doxysection{Core\+Time\+Domain\+Features$<$ T $>$ Class Template Reference}
+\label{class_core_time_domain_features}\index{CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Core\+Time\+Domain\+Features.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_core_time_domain_features_a9ad4a54ee365b5801b54d3077ba34295}{Core\+Time\+Domain\+Features}} ()
+\item 
+T \mbox{\hyperlink{class_core_time_domain_features_a87b3940a61dd70ae5739ab3c89f738f6}{root\+Mean\+Square}} (const std\+::vector$<$ T $>$ \&buffer)
+\item 
+T \mbox{\hyperlink{class_core_time_domain_features_abc8b25d4f21810f15540604efe03fd1b}{peak\+Energy}} (const std\+::vector$<$ T $>$ \&buffer)
+\item 
+T \mbox{\hyperlink{class_core_time_domain_features_a92c26c29421f32a657aedb56e9dc020e}{zero\+Crossing\+Rate}} (const std\+::vector$<$ T $>$ \&buffer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Core\+Time\+Domain\+Features$<$ T $>$}
+
+template class for calculating common time domain audio features. Instantiations of the class should be of either \textquotesingle{}float\textquotesingle{} or \textquotesingle{}double\textquotesingle{} types and no others 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_core_time_domain_features_a9ad4a54ee365b5801b54d3077ba34295}\label{class_core_time_domain_features_a9ad4a54ee365b5801b54d3077ba34295}} 
+\index{CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}!CoreTimeDomainFeatures@{CoreTimeDomainFeatures}}
+\index{CoreTimeDomainFeatures@{CoreTimeDomainFeatures}!CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CoreTimeDomainFeatures()}{CoreTimeDomainFeatures()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_core_time_domain_features}{Core\+Time\+Domain\+Features}}$<$ T $>$\+::\mbox{\hyperlink{class_core_time_domain_features}{Core\+Time\+Domain\+Features}}}
+
+constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_core_time_domain_features_abc8b25d4f21810f15540604efe03fd1b}\label{class_core_time_domain_features_abc8b25d4f21810f15540604efe03fd1b}} 
+\index{CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}!peakEnergy@{peakEnergy}}
+\index{peakEnergy@{peakEnergy}!CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{peakEnergy()}{peakEnergy()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_time_domain_features}{Core\+Time\+Domain\+Features}}$<$ T $>$\+::peak\+Energy (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{buffer }\end{DoxyParamCaption})}
+
+calculates the peak energy (max absolute value) in a time domain audio signal buffer in vector format 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & a time domain buffer containing audio samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the peak energy value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_core_time_domain_features_a87b3940a61dd70ae5739ab3c89f738f6}\label{class_core_time_domain_features_a87b3940a61dd70ae5739ab3c89f738f6}} 
+\index{CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}!rootMeanSquare@{rootMeanSquare}}
+\index{rootMeanSquare@{rootMeanSquare}!CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rootMeanSquare()}{rootMeanSquare()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_time_domain_features}{Core\+Time\+Domain\+Features}}$<$ T $>$\+::root\+Mean\+Square (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{buffer }\end{DoxyParamCaption})}
+
+calculates the Root Mean Square (R\+MS) of an audio buffer in vector format 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & a time domain buffer containing audio samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the R\+MS value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_core_time_domain_features_a92c26c29421f32a657aedb56e9dc020e}\label{class_core_time_domain_features_a92c26c29421f32a657aedb56e9dc020e}} 
+\index{CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}!zeroCrossingRate@{zeroCrossingRate}}
+\index{zeroCrossingRate@{zeroCrossingRate}!CoreTimeDomainFeatures$<$ T $>$@{CoreTimeDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{zeroCrossingRate()}{zeroCrossingRate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_time_domain_features}{Core\+Time\+Domain\+Features}}$<$ T $>$\+::zero\+Crossing\+Rate (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{buffer }\end{DoxyParamCaption})}
+
+calculates the zero crossing rate of a time domain audio signal buffer 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & a time domain buffer containing audio samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the zero crossing rate 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_core_time_domain_features_8h}{Core\+Time\+Domain\+Features.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_core_time_domain_features_8cpp}{Core\+Time\+Domain\+Features.\+cpp}}\end{DoxyCompactItemize}

@@ -41,13 +41,13 @@ static PyObject* setSamplingFrequency (PyObject *dummy, PyObject *args)
 //=======================================================================
 static PyObject* getAudioFrameSize (PyObject *dummy, PyObject *args)
 {
-    return PyInt_FromLong((long) gist.getAudioFrameSize());
+    return PyLong_FromLong((long) gist.getAudioFrameSize());
 }
 
 //=======================================================================
 static PyObject* getSamplingFrequency (PyObject *dummy, PyObject *args)
 {
-    return PyInt_FromLong((long) gist.getSamplingFrequency());
+    return PyLong_FromLong((long) gist.getSamplingFrequency());
 }
 
 //=======================================================================
@@ -301,24 +301,33 @@ static PyMethodDef gist_methods[] = {
     {NULL, NULL, 0, NULL} /* Sentinel */
 };
 
-
+static struct PyModuleDef gist_definition = {
+    PyModuleDef_HEAD_INIT,
+    "gist",
+    "Python bindings for the Gist C++ based audio analysis library.",
+    -1,
+    gist_methods
+};
 
 //=======================================================================
-PyMODINIT_FUNC initgist (void)
+PyMODINIT_FUNC PyInit_gist (void)
 {
-    (void)Py_InitModule("gist", gist_methods);
     import_array();
+    return PyModule_Create(&gist_definition);
 }
 
 //=======================================================================
 int main (int argc, char *argv[])
 {
+    //Convert char* to const wchar_t
+    wchar_t *program = Py_DecodeLocale(argv[0], NULL);
+
     /* Pass argv[0] to the Python interpreter */
-    Py_SetProgramName(argv[0]);
+    Py_SetProgramName(program);
     
     /* Initialize the Python interpreter.  Required. */
     Py_Initialize();
     
     /* Add a static module */
-    initgist();
+    PyInit_gist();
 }

@@ -1,0 +1,98 @@
+\hypertarget{class_yin}{}\doxysection{Yin$<$ T $>$ Class Template Reference}
+\label{class_yin}\index{Yin$<$ T $>$@{Yin$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Yin.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_yin_a9b1e4703bc761be5a8ff5e93d476bd99}{Yin}} (int sampling\+Frequency)
+\item 
+void \mbox{\hyperlink{class_yin_a25d17cfa3d9d4503abf86f3c16a441f8}{set\+Sampling\+Frequency}} (int sampling\+Frequency)
+\item 
+void \mbox{\hyperlink{class_yin_af03decfd3d30f297075b2a93f50ca938}{set\+Max\+Frequency}} (T max\+Freq)
+\item 
+T \mbox{\hyperlink{class_yin_a40802b4dd018c3656b1e7b8cac7138aa}{get\+Max\+Frequency}} ()
+\item 
+T \mbox{\hyperlink{class_yin_a919bebcbc56d9f9e752a49abc8b7cfb7}{pitch\+Yin}} (const std\+::vector$<$ T $>$ \&frame)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Yin$<$ T $>$}
+
+template class for the pitch detection algorithm \mbox{\hyperlink{class_yin}{Yin}}. Instantiations of the class should be of either \textquotesingle{}float\textquotesingle{} or \textquotesingle{}double\textquotesingle{} types and no others 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_yin_a9b1e4703bc761be5a8ff5e93d476bd99}\label{class_yin_a9b1e4703bc761be5a8ff5e93d476bd99}} 
+\index{Yin$<$ T $>$@{Yin$<$ T $>$}!Yin@{Yin}}
+\index{Yin@{Yin}!Yin$<$ T $>$@{Yin$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Yin()}{Yin()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_yin}{Yin}}$<$ T $>$\+::\mbox{\hyperlink{class_yin}{Yin}} (\begin{DoxyParamCaption}\item[{int}]{sampling\+Frequency }\end{DoxyParamCaption})}
+
+constructor 
+\begin{DoxyParams}{Parameters}
+{\em sampling\+Frequency} & the sampling frequency \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_yin_a40802b4dd018c3656b1e7b8cac7138aa}\label{class_yin_a40802b4dd018c3656b1e7b8cac7138aa}} 
+\index{Yin$<$ T $>$@{Yin$<$ T $>$}!getMaxFrequency@{getMaxFrequency}}
+\index{getMaxFrequency@{getMaxFrequency}!Yin$<$ T $>$@{Yin$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getMaxFrequency()}{getMaxFrequency()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_yin}{Yin}}$<$ T $>$\+::get\+Max\+Frequency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the maximum frequency that the algorithm will return 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_yin_a919bebcbc56d9f9e752a49abc8b7cfb7}\label{class_yin_a919bebcbc56d9f9e752a49abc8b7cfb7}} 
+\index{Yin$<$ T $>$@{Yin$<$ T $>$}!pitchYin@{pitchYin}}
+\index{pitchYin@{pitchYin}!Yin$<$ T $>$@{Yin$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pitchYin()}{pitchYin()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_yin}{Yin}}$<$ T $>$\+::pitch\+Yin (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{frame }\end{DoxyParamCaption})}
+
+calculates the pitch of the audio frame passed to it 
+\begin{DoxyParams}{Parameters}
+{\em frame} & an audio frame stored in a vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the estimated pitch in Hz 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_yin_af03decfd3d30f297075b2a93f50ca938}\label{class_yin_af03decfd3d30f297075b2a93f50ca938}} 
+\index{Yin$<$ T $>$@{Yin$<$ T $>$}!setMaxFrequency@{setMaxFrequency}}
+\index{setMaxFrequency@{setMaxFrequency}!Yin$<$ T $>$@{Yin$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setMaxFrequency()}{setMaxFrequency()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_yin}{Yin}}$<$ T $>$\+::set\+Max\+Frequency (\begin{DoxyParamCaption}\item[{T}]{max\+Freq }\end{DoxyParamCaption})}
+
+sets the maximum frequency that the algorithm will return 
+\begin{DoxyParams}{Parameters}
+{\em max\+Freq} & the maximum frequency \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_yin_a25d17cfa3d9d4503abf86f3c16a441f8}\label{class_yin_a25d17cfa3d9d4503abf86f3c16a441f8}} 
+\index{Yin$<$ T $>$@{Yin$<$ T $>$}!setSamplingFrequency@{setSamplingFrequency}}
+\index{setSamplingFrequency@{setSamplingFrequency}!Yin$<$ T $>$@{Yin$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSamplingFrequency()}{setSamplingFrequency()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_yin}{Yin}}$<$ T $>$\+::set\+Sampling\+Frequency (\begin{DoxyParamCaption}\item[{int}]{sampling\+Frequency }\end{DoxyParamCaption})}
+
+sets the sampling frequency used to calculate pitch values 
+\begin{DoxyParams}{Parameters}
+{\em sampling\+Frequency} & the sampling frequency \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_yin_8h}{Yin.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_yin_8cpp}{Yin.\+cpp}}\end{DoxyCompactItemize}

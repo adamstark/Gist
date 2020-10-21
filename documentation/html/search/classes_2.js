@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gist',['Gist',['../class_gist.html',1,'']]]
+  ['gist_68',['Gist',['../class_gist.html',1,'']]]
 ];
