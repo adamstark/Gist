@@ -1,0 +1,127 @@
+\hypertarget{class_m_f_c_c}{}\doxysection{M\+F\+CC$<$ T $>$ Class Template Reference}
+\label{class_m_f_c_c}\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+
+
+{\ttfamily \#include $<$M\+F\+C\+C.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_f_c_c_a6ad48b03035120c9321d569ae1c457f3}{M\+F\+CC}} (int frame\+Size\+\_\+, int sampling\+Frequency\+\_\+)
+\item 
+void \mbox{\hyperlink{class_m_f_c_c_a7bda7b77bcf8bc365997848a7dde94f4}{set\+Num\+Coefficients}} (int num\+Coefficients\+\_\+)
+\item 
+void \mbox{\hyperlink{class_m_f_c_c_aa3db55a7e2591618fe985d2d2059aea6}{set\+Frame\+Size}} (int frame\+Size\+\_\+)
+\item 
+void \mbox{\hyperlink{class_m_f_c_c_a0c7aa62ee4c8ea4dc95404af4f87a86e}{set\+Sampling\+Frequency}} (int sampling\+Frequency\+\_\+)
+\item 
+void \mbox{\hyperlink{class_m_f_c_c_a8b79346b954a2897df75fd7d544ed3a2}{calculate\+Mel\+Frequency\+Cepstral\+Coefficients}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\item 
+void \mbox{\hyperlink{class_m_f_c_c_a7e46a59e9c70940cefe0db04a774914c}{calculate\+Mel\+Frequency\+Spectrum}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_m_f_c_c_a6c65352c3aba9f20293301db5a4eacb3}{mel\+Spectrum}}
+\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_m_f_c_c_a88a7d0a01fc7f80f07b0f7158aecba3e}{M\+F\+C\+Cs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class M\+F\+C\+C$<$ T $>$}
+
+Template class for calculating Mel Frequency Cepstral Coefficients Instantiations of the class should be of either \textquotesingle{}float\textquotesingle{} or \textquotesingle{}double\textquotesingle{} types and no others 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_m_f_c_c_a6ad48b03035120c9321d569ae1c457f3}\label{class_m_f_c_c_a6ad48b03035120c9321d569ae1c457f3}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!MFCC@{MFCC}}
+\index{MFCC@{MFCC}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MFCC()}{MFCC()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::\mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}} (\begin{DoxyParamCaption}\item[{int}]{frame\+Size\+\_\+,  }\item[{int}]{sampling\+Frequency\+\_\+ }\end{DoxyParamCaption})}
+
+Constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_f_c_c_a8b79346b954a2897df75fd7d544ed3a2}\label{class_m_f_c_c_a8b79346b954a2897df75fd7d544ed3a2}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!calculateMelFrequencyCepstralCoefficients@{calculateMelFrequencyCepstralCoefficients}}
+\index{calculateMelFrequencyCepstralCoefficients@{calculateMelFrequencyCepstralCoefficients}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{calculateMelFrequencyCepstralCoefficients()}{calculateMelFrequencyCepstralCoefficients()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::calculate\+Mel\+Frequency\+Cepstral\+Coefficients (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+Calculates the Mel Frequency Cepstral Coefficients from the magnitude spectrum of a signal. The result is stored in the public vector M\+F\+C\+Cs.
+
+Note that the magnitude spectrum passed to the function is not the full mirrored magnitude spectrum, but only the first half. The frame size passed to the constructor should be twice the length of the magnitude spectrum. 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & the magnitude spectrum in vector format \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_m_f_c_c_a7e46a59e9c70940cefe0db04a774914c}\label{class_m_f_c_c_a7e46a59e9c70940cefe0db04a774914c}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!calculateMelFrequencySpectrum@{calculateMelFrequencySpectrum}}
+\index{calculateMelFrequencySpectrum@{calculateMelFrequencySpectrum}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{calculateMelFrequencySpectrum()}{calculateMelFrequencySpectrum()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::calculate\+Mel\+Frequency\+Spectrum (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+Calculates the magnitude spectrum on a Mel scale. The result is stored in the public vector mel\+Spectrum. \mbox{\Hypertarget{class_m_f_c_c_aa3db55a7e2591618fe985d2d2059aea6}\label{class_m_f_c_c_aa3db55a7e2591618fe985d2d2059aea6}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!setFrameSize@{setFrameSize}}
+\index{setFrameSize@{setFrameSize}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setFrameSize()}{setFrameSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::set\+Frame\+Size (\begin{DoxyParamCaption}\item[{int}]{frame\+Size\+\_\+ }\end{DoxyParamCaption})}
+
+Set the frame size -\/ N.\+B. this will be twice the length of the magnitude spectrum passed to calculate\+M\+F\+C\+C() 
+\begin{DoxyParams}{Parameters}
+{\em frame\+Size\+\_\+} & the frame size \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_m_f_c_c_a7bda7b77bcf8bc365997848a7dde94f4}\label{class_m_f_c_c_a7bda7b77bcf8bc365997848a7dde94f4}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!setNumCoefficients@{setNumCoefficients}}
+\index{setNumCoefficients@{setNumCoefficients}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumCoefficients()}{setNumCoefficients()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::set\+Num\+Coefficients (\begin{DoxyParamCaption}\item[{int}]{num\+Coefficients\+\_\+ }\end{DoxyParamCaption})}
+
+Set the number of coefficients to calculate 
+\begin{DoxyParams}{Parameters}
+{\em num\+Coefficients\+\_\+} & the number of coefficients to calculate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_m_f_c_c_a0c7aa62ee4c8ea4dc95404af4f87a86e}\label{class_m_f_c_c_a0c7aa62ee4c8ea4dc95404af4f87a86e}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!setSamplingFrequency@{setSamplingFrequency}}
+\index{setSamplingFrequency@{setSamplingFrequency}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSamplingFrequency()}{setSamplingFrequency()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::set\+Sampling\+Frequency (\begin{DoxyParamCaption}\item[{int}]{sampling\+Frequency\+\_\+ }\end{DoxyParamCaption})}
+
+Set the sampling frequency 
+\begin{DoxyParams}{Parameters}
+{\em sampling\+Frequency\+\_\+} & the sampling frequency in hz \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_m_f_c_c_a6c65352c3aba9f20293301db5a4eacb3}\label{class_m_f_c_c_a6c65352c3aba9f20293301db5a4eacb3}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!melSpectrum@{melSpectrum}}
+\index{melSpectrum@{melSpectrum}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{melSpectrum}{melSpectrum}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$T$>$ \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::mel\+Spectrum}
+
+a vector to hold the mel spectrum once it has been computed \mbox{\Hypertarget{class_m_f_c_c_a88a7d0a01fc7f80f07b0f7158aecba3e}\label{class_m_f_c_c_a88a7d0a01fc7f80f07b0f7158aecba3e}} 
+\index{MFCC$<$ T $>$@{MFCC$<$ T $>$}!MFCCs@{MFCCs}}
+\index{MFCCs@{MFCCs}!MFCC$<$ T $>$@{MFCC$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MFCCs}{MFCCs}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$T$>$ \mbox{\hyperlink{class_m_f_c_c}{M\+F\+CC}}$<$ T $>$\+::M\+F\+C\+Cs}
+
+a vector to hold the M\+F\+C\+Cs once they have been computed 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_m_f_c_c_8h}{M\+F\+C\+C.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_m_f_c_c_8cpp}{M\+F\+C\+C.\+cpp}}\end{DoxyCompactItemize}

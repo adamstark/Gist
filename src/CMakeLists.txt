@@ -1,4 +1,3 @@
-
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../libs/kiss_fft130)
 

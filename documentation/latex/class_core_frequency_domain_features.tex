@@ -1,0 +1,123 @@
+\hypertarget{class_core_frequency_domain_features}{}\doxysection{Core\+Frequency\+Domain\+Features$<$ T $>$ Class Template Reference}
+\label{class_core_frequency_domain_features}\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Core\+Frequency\+Domain\+Features.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_core_frequency_domain_features_a080fdc5259f5762f99cc7e0911eb03f2}{Core\+Frequency\+Domain\+Features}} ()
+\item 
+T \mbox{\hyperlink{class_core_frequency_domain_features_afdbc2853389805f49921c767e11a3852}{spectral\+Centroid}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\item 
+T \mbox{\hyperlink{class_core_frequency_domain_features_a2dcc472696033894128f3e7e4139b7b4}{spectral\+Flatness}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\item 
+T \mbox{\hyperlink{class_core_frequency_domain_features_aa4e69ff7362024a67b8fa6f8ab4bd71c}{spectral\+Crest}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\item 
+T \mbox{\hyperlink{class_core_frequency_domain_features_ae5dac18dbdf49a756f6f91311c744508}{spectral\+Rolloff}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum, T percentile=0.\+85)
+\item 
+T \mbox{\hyperlink{class_core_frequency_domain_features_ace5a876f5e9f9361926379096192ab58}{spectral\+Kurtosis}} (const std\+::vector$<$ T $>$ \&magnitude\+Spectrum)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Core\+Frequency\+Domain\+Features$<$ T $>$}
+
+template class for calculating common frequency domain audio features. Instantiations of the class should be of either \textquotesingle{}float\textquotesingle{} or \textquotesingle{}double\textquotesingle{} types and no others 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_core_frequency_domain_features_a080fdc5259f5762f99cc7e0911eb03f2}\label{class_core_frequency_domain_features_a080fdc5259f5762f99cc7e0911eb03f2}} 
+\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}!CoreFrequencyDomainFeatures@{CoreFrequencyDomainFeatures}}
+\index{CoreFrequencyDomainFeatures@{CoreFrequencyDomainFeatures}!CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CoreFrequencyDomainFeatures()}{CoreFrequencyDomainFeatures()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}$<$ T $>$\+::\mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}}
+
+constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_core_frequency_domain_features_afdbc2853389805f49921c767e11a3852}\label{class_core_frequency_domain_features_afdbc2853389805f49921c767e11a3852}} 
+\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}!spectralCentroid@{spectralCentroid}}
+\index{spectralCentroid@{spectralCentroid}!CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralCentroid()}{spectralCentroid()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}$<$ T $>$\+::spectral\+Centroid (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the spectral centroid given the first half of the magnitude spectrum of an audio signal. Do not pass the whole (i.\+e. mirrored) magnitude spectrum into this function or you will always get the middle index as the spectral centroid 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & the first half of the magnitude spectrum (i.\+e. not mirrored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the spectral centroid as an index value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_core_frequency_domain_features_aa4e69ff7362024a67b8fa6f8ab4bd71c}\label{class_core_frequency_domain_features_aa4e69ff7362024a67b8fa6f8ab4bd71c}} 
+\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}!spectralCrest@{spectralCrest}}
+\index{spectralCrest@{spectralCrest}!CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralCrest()}{spectralCrest()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}$<$ T $>$\+::spectral\+Crest (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the spectral crest given the first half of the magnitude spectrum of an audio signal. 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & the first half of the magnitude spectrum (i.\+e. not mirrored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the spectral crest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_core_frequency_domain_features_a2dcc472696033894128f3e7e4139b7b4}\label{class_core_frequency_domain_features_a2dcc472696033894128f3e7e4139b7b4}} 
+\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}!spectralFlatness@{spectralFlatness}}
+\index{spectralFlatness@{spectralFlatness}!CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralFlatness()}{spectralFlatness()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}$<$ T $>$\+::spectral\+Flatness (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the spectral flatness given the first half of the magnitude spectrum of an audio signal. 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & the first half of the magnitude spectrum (i.\+e. not mirrored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the spectral flatness 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_core_frequency_domain_features_ace5a876f5e9f9361926379096192ab58}\label{class_core_frequency_domain_features_ace5a876f5e9f9361926379096192ab58}} 
+\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}!spectralKurtosis@{spectralKurtosis}}
+\index{spectralKurtosis@{spectralKurtosis}!CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralKurtosis()}{spectralKurtosis()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}$<$ T $>$\+::spectral\+Kurtosis (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum }\end{DoxyParamCaption})}
+
+calculates the spectral kurtosis given the first half of the magnitude spectrum of an audio signal. 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & the first half of the magnitude spectrum (i.\+e. not mirrored) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the spectral kurtosis 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_core_frequency_domain_features_ae5dac18dbdf49a756f6f91311c744508}\label{class_core_frequency_domain_features_ae5dac18dbdf49a756f6f91311c744508}} 
+\index{CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}!spectralRolloff@{spectralRolloff}}
+\index{spectralRolloff@{spectralRolloff}!CoreFrequencyDomainFeatures$<$ T $>$@{CoreFrequencyDomainFeatures$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{spectralRolloff()}{spectralRolloff()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_core_frequency_domain_features}{Core\+Frequency\+Domain\+Features}}$<$ T $>$\+::spectral\+Rolloff (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{magnitude\+Spectrum,  }\item[{T}]{percentile = {\ttfamily 0.85} }\end{DoxyParamCaption})}
+
+calculates the spectral rolloff given the first half of the magnitude spectrum of an audio signal. 
+\begin{DoxyParams}{Parameters}
+{\em magnitude\+Spectrum} & the first half of the magnitude spectrum (i.\+e. not mirrored) \\
+\hline
+{\em percentile} & the rolloff threshold \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the spectral rolloff 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_core_frequency_domain_features_8h}{Core\+Frequency\+Domain\+Features.\+h}}\item 
+/\+Users/adamstark/\+Documents/\+Code/\+Gist/src/\mbox{\hyperlink{_core_frequency_domain_features_8cpp}{Core\+Frequency\+Domain\+Features.\+cpp}}\end{DoxyCompactItemize}
