@@ -4,7 +4,7 @@ Gist - An Audio Analysis Library
 ==================================
 
 <!-- Version and License Badges -->
-![Version](https://img.shields.io/badge/version-1.0.6-green.svg?style=flat-square) 
+![Version](https://img.shields.io/badge/version-1.0.7-green.svg?style=flat-square) 
 ![License](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square) 
 ![Language](https://img.shields.io/badge/language-C++-yellow.svg?style=flat-square) 
 
@@ -129,6 +129,10 @@ Now we can retrieve some audio features.
 		
 Version History
 ---------------
+
+=== 1.0.7 === (18th September 2021)
+
+* Automated builds on all major platforms
 
 === 1.0.6 === (21st October 2020)
 
