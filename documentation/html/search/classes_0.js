@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['acceleratefft_65',['AccelerateFFT',['../class_accelerate_f_f_t.html',1,'']]]
+  ['corefrequencydomainfeatures_63',['CoreFrequencyDomainFeatures',['../class_core_frequency_domain_features.html',1,'']]],
+  ['coretimedomainfeatures_64',['CoreTimeDomainFeatures',['../class_core_time_domain_features.html',1,'']]]
 ];
