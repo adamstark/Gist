@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onsetdetectionfunction_70',['OnsetDetectionFunction',['../class_onset_detection_function.html',1,'']]]
+  ['windowfunctions_68',['WindowFunctions',['../class_window_functions.html',1,'']]]
 ];

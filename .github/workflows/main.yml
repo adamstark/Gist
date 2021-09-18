@@ -8,10 +8,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: Build
@@ -19,8 +21,9 @@ jobs:
           mkdir build
           cd build
           cmake .. -D BUILD_TESTS=ON
-          make
+          cmake --build .
+          
       - name: Unit Tests
         run: |
           cd build
-          ctest -VV
+          ctest -C Debug -VV
