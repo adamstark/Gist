@@ -15,7 +15,7 @@ Author
 
 Gist is written and maintained by Adam Stark.
 
-[http://www.adamstark.co.uk](http://www.adamstark.co.uk)
+[https://www.adamstark.co.uk](https://www.adamstark.co.uk)
 
 Usage
 -----
